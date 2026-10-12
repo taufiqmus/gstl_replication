@@ -29,7 +29,7 @@ conda env create -f environment.yml && conda activate gstl
 # 2. periksa lingkungan, bobot, dan (bila ada) data/detektor; tidak mengubah apa pun
 python tools/check_setup.py
 
-# 2b. tes unit (17 tes: GSTL + metrik; tanpa data; ±2 detik)
+# 2b. tes unit (26 tes: GSTL, metrik, visualisasi demo; tanpa data; ±2 detik)
 python -m unittest discover -s tests
 
 # 3. data CCD (TIDAK disertakan): unduh dari penulis CCD, lihat tautan Google Drive di README resmi CCD,
@@ -60,7 +60,13 @@ python tools/check_setup.py --detector <latest.pth> --hash-detector     # periks
 python demo.py --video contoh.mp4 --detector <latest.pth> --threshold 0.5
 ```
 
-- Keluaran di `outputs/demo/<nama video>/`: `scores.csv`, `skor.png`, `overlay.mp4`. Kecepatan ±0,3 detik per frame di RTX 3060 (jendela 50 frame ±14 detik).
+- Keluaran di `outputs/demo/<nama video>/`: `scores.csv`, `skor.png`, `overlay.mp4`, dan `laporan.html` (dengan `--html`). Kecepatan ±0,3 detik per frame di RTX 3060 (jendela 50 frame ±14 detik).
+- **Opsi visualisasi** (`--viz`, daftar dipisah koma atau preset): `boxes` kotak deteksi (warna per kelas), `bar` bilah skor, `curve` grafik kemungkinan tabrakan yang bergerak di bawah video, `glow` bingkai berwarna sesuai risiko, `alert` banner "RISIKO TINGGI" dan waktu peringatan pertama. Preset: `minimal` (bawaan: boxes,bar), `full` (semua), `clean` (video tanpa tambahan), `none` (tanpa video). Opsi lain: `--threshold`, `--box-conf`, `--curve-seconds`, `--width`, `--uncertainty` (ketidakpastian aleatorik/epistemik di grafik dan CSV), `--html` (laporan HTML mandiri: video tersinkron dengan grafik, klik grafik untuk lompat waktu, penggeser ambang), `--no-plot`.
+  ```bash
+  python demo.py --video contoh.mp4 --detector <latest.pth> --viz full --uncertainty --html
+  ```
+- "Kemungkinan tabrakan" = **satu skor per frame** dari model (probabilitas kelas kecelakaan, belum terkalibrasi), bukan risiko per objek.
+- **Video di peramban:** OpenCV hanya menulis `mp4v`, yang tidak diputar peramban. Bila `ffmpeg` ada di PATH, `overlay.mp4` otomatis diubah ke H.264; bila tidak, demo memberi peringatan (putar dengan VLC atau pasang ffmpeg). Berkas `laporan.html` paling aman dibuka langsung dari folder keluaran (video dan HTML satu folder).
 - VGG16 ImageNet (±528 MB) diunduh otomatis oleh torchvision pada pemakaian pertama.
 - **Keamanan:** `latest.pth` dimuat dengan `torch.load` (unpickle). Gunakan hanya berkas dari penulis dan pastikan hash cocok.
 - **Keterbatasan penting** (rinci di `docs/demo_validasi.md` dan docstring `demo.py`): detektor tanpa kelas motor; model dilatih hanya pada CCD 1280x720 sehingga video lain di luar distribusi latih; skor bukan risiko terkalibrasi. Pada video negatif CCD, pipeline demo menghasilkan skor yang hampir identik dengan fitur rilis (korelasi per frame median 0,999); pada video lain kesesuaian **tidak diuji**.
@@ -81,7 +87,7 @@ python demo.py --video contoh.mp4 --detector <latest.pth> --threshold 0.5
 | `weights/` | bobot GSTL (bobot saja) + asal dan hash |
 | `results/` | hasil evaluasi (CSV/JSON), semua epoch, log pelatihan, nilai acuan paper |
 | `docs/spec_gstl.md` | spesifikasi dari paper, asumsi, pertanyaan terbuka |
-| `tests/` | 17 tes unit (GSTL dan metrik) |
+| `tests/` | 26 tes unit (GSTL, metrik, visualisasi demo) |
 
 ## Verifikasi porting
 Evaluasi bobot epoch 10 di repo ini menghasilkan **12 dari 12 metrik identik** (selisih 0) dengan repo kerja asal. Itu syarat lulus pemisahan kode; ia membuktikan bahwa pemindahan tidak mengubah perilaku, bukan bahwa implementasi sama dengan kode penulis.
