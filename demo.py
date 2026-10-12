@@ -73,7 +73,7 @@ def parse_args(argv=None):
     ap.add_argument("--video", required=True)
     ap.add_argument("--detector", default=DEFAULT_DETECTOR,
                     help="bobot Cascade R-CNN (latest.pth); bawaan: variabel DETECTOR_CKPT, atau weights/detector/latest.pth bila ada")
-    ap.add_argument("--det-model", default="cascade_rcnn", choices=("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite"),
+    ap.add_argument("--det-model", default="cascade_rcnn", choices=("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite", "yolov8"),
                     help="detektor objek: cascade_rcnn (bawaan; bobot --detector; mereproduksi pipeline CCD) | tv_fasterrcnn | tv_ssdlite (torchvision, bobot COCO)")
     ap.add_argument("--det-conf", type=float, default=None,
                     help="ambang skor deteksi di sumber; bawaan: cascade tanpa penyaringan (1e-6, asli), torchvision 0,3")

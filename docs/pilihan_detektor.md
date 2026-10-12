@@ -27,3 +27,17 @@ Kasus visual (`tools/bandingkan_detektor.py`): motor dan pengendara, motor sport
 - Pada pipeline `bbox_sampling` (warisan UString), kotak dikirim ke model menurut urutan kelas (Car dulu, lalu Pedestrian, lalu Cyclist) dan dipotong di 19 kotak. Dengan detektor yang menghasilkan banyak deteksi (ambang rendah), motor/pengendara (kelas Cyclist/Pedestrian) bisa terpotong dari 19 kotak; recall "model (19 kotak)" untuk motor hanya 17% pada ambang 0,05 walau detektor menemukannya (75% pada >= 0,5). Pakai `--det-conf` yang lebih tinggi atau ubah aturan pemilihan bila geometri nanti dipakai sungguhan.
 - GSTL tidak memakai kelas dan hampir tidak memakai kotak, jadi detektor yang lebih baik di sini terutama memperbaiki visualisasi dan membuka jalan bagi model yang memakai geometri.
 - Bobot COCO torchvision diunduh otomatis ke cache torch hub (Faster R-CNN 167 MB, SSDlite 13 MB; hash diverifikasi oleh torchvision).
+
+## 4. YOLOv8s (ditambahkan; cepat)
+`--det-model yolov8` (butuh paket ultralytics dan bobot `.pt` lewat `--detector` atau `YOLO_WEIGHTS`; **ultralytics dan bobotnya berlisensi AGPL-3.0**, impor malas sehingga tidak diwajibkan bagi pengguna lain). Di proyek kami sudah ada di env `envs/stagnet` dan `outputs/_ultralytics_cfg/yolov8s.pt` (dipakai ekstraksi DoTA STAGNet).
+Kecepatan (RTX 3060, fp16, imgsz 640): **0,0065 s per frame** (batch) sampai 0,0106 s (satu frame), dibanding Faster R-CNN v2 0,114 s dan SSDlite 0,038 s.
+Recall pada kotak anotasi DoTA (protokol yang sama dengan bagian 2; 40 klip, 240 frame):
+
+| | Cascade | Faster R-CNN COCO | YOLOv8s |
+|---|---|---|---|
+| skor >= 0,1 | 44% | 96% | **95%** |
+| skor >= 0,5 | 37% | 91% | 79% |
+| motor (>= 0,1 / >= 0,5) | 17% / 17% | 83% / 75% | 83% / 75% |
+| rider (>= 0,1 / >= 0,5) | 0% / 0% | 92% / 92% | 100% / 83% |
+
+Skor YOLO lebih rendah (kalibrasi berbeda), jadi bandingkan pada ambang yang setara (>= 0,1 atau sekitar 0,25), bukan 0,5; bawaan `--det-conf` YOLO = 0,25. Batas: 40 klip, kategori kecil (6-24 kotak).

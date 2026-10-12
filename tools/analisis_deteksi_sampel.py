@@ -24,7 +24,7 @@ def main():
     ap = argparse.ArgumentParser()
     _loc = os.path.join(ROOT, "weights", "detector", "latest.pth")
     ap.add_argument("--detector", default=os.environ.get("DETECTOR_CKPT") or (_loc if os.path.exists(_loc) else None))
-    ap.add_argument("--det-model", default="cascade_rcnn", choices=("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite"))
+    ap.add_argument("--det-model", default="cascade_rcnn", choices=("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite", "yolov8"))
     ap.add_argument("--det-conf", type=float, default=None)
     a = ap.parse_args()
     from gstl.detector import bbox_sampling

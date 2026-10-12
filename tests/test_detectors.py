@@ -67,6 +67,19 @@ class TestConfFilter(unittest.TestCase):
             D.build_detector("cascade_rcnn", "cpu", ckpt=None)
 
 
+class TestYolo(unittest.TestCase):
+    def test_yolo_label_mapping_to_legacy(self):
+        lab = [D.YOLO_TO_COCO91.get(c, -1) for c in (0, 1, 2, 3, 5, 7, 9)]   # person, bicycle, car, motorcycle, bus, truck, traffic light
+        out = D.coco_to_legacy([[0, 0, 5, 5]] * 7, [0.9] * 7, lab)
+        self.assertEqual([len(o) for o in out], [3, 1, 2])                    # Car: car,bus,truck; Pedestrian: person; Cyclist: bicycle,motorcycle
+
+    def test_requires_pt_weights(self):
+        with self.assertRaises(ValueError):
+            D.build_detector("yolov8", "cpu", ckpt="bobot.pth")
+        with self.assertRaises(ValueError):
+            D.build_detector("yolov8", "cpu", ckpt=None)
+
+
 class TestTorchvision(unittest.TestCase):
     def test_contract_on_random_frame_cpu(self):
         try:

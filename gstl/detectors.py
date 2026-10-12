@@ -10,17 +10,23 @@ Detektor:
   cascade_rcnn   bobot penulis UString (KITTI, 3 kelas, TANPA motor); satu-satunya yang mereproduksi pipeline CCD. Bawaan.
   tv_fasterrcnn  torchvision Faster R-CNN ResNet50-FPN v2, bobot COCO (80 kelas; termasuk motorcycle, bicycle, person, bus, truck)
   tv_ssdlite     torchvision SSDlite320 MobileNetV3-Large, bobot COCO (ringan, resolusi masukan 320; objek kecil buruk)
+  yolov8         ultralytics YOLOv8 (bobot COCO; sangat cepat). PERHATIAN: ultralytics dan bobotnya berlisensi AGPL-3.0 (copyleft); impor
+                 malas (hanya bila dipilih), butuh paket ultralytics + path bobot .pt lewat --detector atau variabel YOLO_WEIGHTS.
 Pemetaan COCO -> kelas lama: car, truck, bus -> Car; person -> Pedestrian; bicycle, motorcycle -> Cyclist.
 GSTL tidak memakai kelas; pemetaan hanya untuk kompatibilitas dan warna tampilan.
 """
+import os
+
 import numpy as np
 import torch
 
 LEGACY_CLASSES = ("Car", "Pedestrian", "Cyclist")
 COCO_NAMES = {1: "person", 2: "bicycle", 3: "car", 4: "motorcycle", 6: "bus", 8: "truck"}
 COCO_TO_LEGACY = {3: 0, 6: 0, 8: 0, 1: 1, 2: 2, 4: 2}
-DETECTORS = ("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite")
-DEFAULT_CONF = {"cascade_rcnn": None, "tv_fasterrcnn": 0.3, "tv_ssdlite": 0.3}
+DETECTORS = ("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite", "yolov8")
+DEFAULT_CONF = {"cascade_rcnn": None, "tv_fasterrcnn": 0.3, "tv_ssdlite": 0.3, "yolov8": 0.25}
+# id kelas YOLO/COCO-80 (0-based) -> id COCO-91 yang dipakai torchvision/pemetaan di atas
+YOLO_TO_COCO91 = {0: 1, 1: 2, 2: 3, 3: 4, 5: 6, 7: 8}
 
 
 def coco_to_legacy(boxes, scores, labels):
@@ -67,6 +73,25 @@ class TorchvisionDetector:
         return coco_to_legacy(out["boxes"].cpu().numpy(), out["scores"].cpu().numpy(), out["labels"].cpu().numpy())
 
 
+class YoloDetector:
+    """Pembungkus ultralytics YOLO (impor malas; AGPL-3.0). Label YOLO COCO-80 dipetakan ke id COCO-91 lalu ke kelas lama."""
+
+    def __init__(self, weights, device="cuda", conf=0.3, imgsz=640):
+        if not weights or not str(weights).endswith(".pt") or not os.path.exists(weights):
+            raise ValueError("yolov8 butuh path bobot .pt (--detector atau variabel YOLO_WEIGHTS); bukan bobot Cascade (.pth)")
+        from ultralytics import YOLO  # AGPL-3.0
+        self.name, self.conf, self.imgsz = "yolov8", float(conf), imgsz
+        self.dev = 0 if str(device).startswith("cuda") else "cpu"
+        self.half = self.dev != "cpu"
+        self.model = YOLO(weights)
+
+    def detect(self, img_bgr):
+        r = self.model.predict(img_bgr, imgsz=self.imgsz, conf=self.conf, verbose=False, device=self.dev, half=self.half)[0]
+        b = r.boxes
+        labels = [YOLO_TO_COCO91.get(int(c), -1) for c in b.cls.cpu().numpy()]
+        return coco_to_legacy(b.xyxy.cpu().numpy(), b.conf.cpu().numpy(), labels)
+
+
 class ConfFilter:
     """Membungkus detektor mana pun dan membuang deteksi berskor < conf (mis. memangkas 'sampah' Cascade bawaan, yang berambang 1e-6)."""
 
@@ -92,4 +117,6 @@ def build_detector(name="cascade_rcnn", device="cuda", ckpt=None, conf=None, pre
         det = load_detector(ckpt, device=device)
         det.name = "cascade_rcnn"
         return ConfFilter(det, conf) if conf is not None else det
+    if name == "yolov8":
+        return YoloDetector(os.environ.get("YOLO_WEIGHTS") or ckpt, device, DEFAULT_CONF[name] if conf is None else conf)
     return TorchvisionDetector(name, device, DEFAULT_CONF[name] if conf is None else conf, pretrained)

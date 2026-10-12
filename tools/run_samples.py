@@ -57,7 +57,7 @@ def main():
     ap.add_argument("--viz", default="full")
     ap.add_argument("--html", action="store_true")
     ap.add_argument("--uncertainty", action="store_true")
-    ap.add_argument("--det-model", default="cascade_rcnn", choices=("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite"),
+    ap.add_argument("--det-model", default="cascade_rcnn", choices=("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite", "yolov8"),
                     help="detektor; selain cascade_rcnn skor tidak harus sama dengan acuan, jadi selisih hanya DILAPORKAN (tidak menggagalkan)")
     ap.add_argument("--det-conf", type=float, default=None)
     ap.add_argument("--tol", type=float, default=5e-3, help="selisih mutlak maks skor per frame yang dianggap sama")
