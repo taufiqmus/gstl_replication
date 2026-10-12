@@ -1,6 +1,6 @@
 """Ablasi masukan GSTL pada tingkat dataset (tanpa pelatihan ulang): membungkus dataset yang punya metode raw(i) dan _pack(...).
 
-Mode: asli | tukar_kotak | tukar_fitur_frame | acak_waktu | buang (peluang p) | kotak_acak | tanpa_geometri.
+Mode: asli | tukar_kotak | tukar_fitur_frame | acak_waktu | balik_waktu | acak_paruh | buang (peluang p) | kotak_acak | tanpa_geometri.
 Ablasi tingkat model (psi_nol): context manager `psi_nol(model)` mengganti keluaran box_geometry dengan nol.
 """
 import contextlib
@@ -70,6 +70,13 @@ class AblatedDataset(Dataset):
             feats = self.base.raw(int(self.perm[index]))[0]
         elif self.mode == "acak_waktu":                  # urutan frame kotak diacak DALAM klip yang sama (isi per frame tak berubah)
             det = det[np.random.RandomState(self.seed * 100003 + index).permutation(det.shape[0])]
+        elif self.mode == "balik_waktu":                 # urutan frame kotak dibalik (isi per frame tak berubah)
+            det = det[::-1].copy()
+        elif self.mode == "acak_paruh":                  # acak HANYA di dalam paruh awal dan paruh akhir (fase kasar klip dipertahankan)
+            rng = np.random.RandomState(self.seed * 100003 + index)
+            h = det.shape[0] // 2
+            order = np.concatenate([rng.permutation(h), h + rng.permutation(det.shape[0] - h)])
+            det = det[order]
         elif self.mode in ("buang", "tanpa_geometri", "kotak_acak"):
             det = perturb_det(det, self.mode, self.p, np.random.RandomState(self.seed * 100003 + index))
         return self.base._pack(feats, labels, det, toa, vid)

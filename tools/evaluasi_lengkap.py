@@ -86,7 +86,7 @@ def main():
     print("asli:", json.dumps({k: round(v, 4) for k, v in result["asli"].items() if isinstance(v, float)}), "(%.0f s)" % (time.time() - t0), flush=True)
     if a.ablasi:
         plan = [("tanpa_geometri", 0.0, 1), ("tukar_kotak", 0.0, a.seeds), ("kotak_acak", 0.0, a.seeds), ("tukar_fitur_frame", 0.0, a.seeds),
-                ("acak_waktu", 0.0, a.seeds)]
+                ("acak_waktu", 0.0, a.seeds), ("acak_paruh", 0.0, a.seeds), ("balik_waktu", 0.0, 1)]
         want = set(a.modes.split(",")) if a.modes else None
         if want:
             plan = [x for x in plan if x[0] in want]

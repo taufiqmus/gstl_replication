@@ -1,0 +1,19 @@
+{
+ "n": 900,
+ "positif": 300,
+ "AUC_univariat": {
+  "persist_iou": 0.3348833333333333,
+  "tak_cocok_05": 0.6969833333333333,
+  "perubahan_n": 0.5301138888888889
+ },
+ "rerata_positif": {
+  "persist_iou": 0.6203669951964791,
+  "tak_cocok_05": 0.28107248405074436,
+  "perubahan_n": 0.9912925170068028
+ },
+ "rerata_negatif": {
+  "persist_iou": 0.6935380357069274,
+  "tak_cocok_05": 0.17413764087260952,
+  "perubahan_n": 0.9372108843537413
+ }
+}
