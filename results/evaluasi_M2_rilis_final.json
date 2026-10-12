@@ -1,0 +1,80 @@
+{
+ "ckpt": "best.pth",
+ "epoch": 23,
+ "dataset": "crash_compact",
+ "toa": null,
+ "n_klip": 900,
+ "asli": {
+  "AP_orig": 0.8975429421342958,
+  "AP_video": 0.957082345270102,
+  "mTTA_orig": 4.5958080805753125,
+  "mTTA_sec": 2.873735389860086,
+  "AUC": 0.9773694444444444,
+  "tta@fpr1": {
+   "fpr_target": 0.01,
+   "fpr_real": 0.01,
+   "threshold": 0.9999971389770509,
+   "recall": 0.76,
+   "tta": 2.2285087719298247,
+   "alarm_frame0": 0.0,
+   "tta_tanpa_frame0": 2.2285087719298247,
+   "n_detected": 228.0,
+   "n_pos": 300.0
+  },
+  "tta@fpr5": {
+   "fpr_target": 0.05,
+   "fpr_real": 0.05,
+   "threshold": 0.9775517582893373,
+   "recall": 0.88,
+   "tta": 3.193560606060606,
+   "alarm_frame0": 0.056818181818181816,
+   "tta_tanpa_frame0": 3.1690763052208832,
+   "n_detected": 264.0,
+   "n_pos": 300.0
+  },
+  "alarm@0.5": {
+   "threshold": 0.5,
+   "positif_frame0": 0.6,
+   "negatif_frame0": 0.02,
+   "onset_per_menit_negatif": 1.7199999999999886
+  }
+ },
+ "ablasi": {
+  "tanpa_geometri": {
+   "AP_orig": 0.9401566745149976,
+   "AP_video": 0.9487515758873729,
+   "AUC": 0.9735,
+   "mTTA_sec": 2.7695423738052996
+  },
+  "tukar_kotak": {
+   "AP_orig": 0.8909960118454192,
+   "AP_video": 0.9454062075594276,
+   "AUC": 0.9723555555555555,
+   "mTTA_sec": 2.8896469850290867
+  },
+  "kotak_acak": {
+   "AP_orig": 0.9147008746117784,
+   "AP_video": 0.9408144027881065,
+   "AUC": 0.9695486111111111,
+   "mTTA_sec": 3.174213036013793
+  },
+  "tukar_fitur_frame": {
+   "AP_orig": 0.3288111754680895,
+   "AP_video": 0.31899000940881206,
+   "AUC": 0.4829625,
+   "mTTA_sec": 3.3332362979861263
+  },
+  "acak_waktu": {
+   "AP_orig": 0.9103589834454736,
+   "AP_video": 0.9589236678184179,
+   "AUC": 0.9778166666666667,
+   "mTTA_sec": 2.907666902123281
+  },
+  "psi_nol": {
+   "AP_orig": 0.9064080624080897,
+   "AP_video": 0.9496154437199672,
+   "AUC": 0.9735138888888889,
+   "mTTA_sec": 2.813788349401924
+  }
+ }
+}
