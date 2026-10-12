@@ -32,13 +32,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 from collision_eval import evaluate_ustring_style, evaluate_video_level  # noqa: E402
-from gstl.data import CrashDataset, DADDataset  # noqa: E402
+from gstl.data import CrashCompactDataset, CrashDataset, DADDataset  # noqa: E402
 from gstl.model import build_model  # noqa: E402
 
 
 def parse_args(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dataset", choices=["crash", "dad"], default="crash")
+    ap.add_argument("--dataset", choices=["crash", "crash_compact", "dad"], default="crash")
     ap.add_argument("--data-root", default=None,
                     help="folder data (CCD: berisi vgg16_features/ dan videos/); bawaan: variabel lingkungan CCD_ROOT / DAD_ROOT")
     ap.add_argument("--exp", required=True, help="nama eksperimen → outputs/<exp>")
@@ -92,16 +92,17 @@ def set_seed(seed):
 
 
 def make_datasets(a):
-    root = a.data_root or os.environ.get("CCD_ROOT" if a.dataset == "crash" else "DAD_ROOT")
+    root = a.data_root or os.environ.get({"crash": "CCD_ROOT", "crash_compact": "CCD_COMPACT_ROOT"}.get(a.dataset, "DAD_ROOT"))
     if not root:
         raise SystemExit("data tidak ditemukan: beri --data-root atau set CCD_ROOT / DAD_ROOT")
-    if a.dataset == "crash":
-        full_train = CrashDataset(root, "train", a.feature)
-        test = CrashDataset(root, "test", a.feature)
+    if a.dataset in ("crash", "crash_compact"):
+        DS = CrashCompactDataset if a.dataset == "crash_compact" else CrashDataset
+        full_train = DS(root, "train", a.feature)
+        test = DS(root, "test", a.feature)
         if a.val_frac > 0:
             items = list(zip(full_train.files_list, full_train.labels_list))
             tr, va = stratified_split(items, [l for _, l in items], a.val_frac, a.seed)
-            return CrashDataset(root, "train", a.feature, file_list=tr), CrashDataset(root, "train", a.feature, file_list=va), test
+            return DS(root, "train", a.feature, file_list=tr), DS(root, "train", a.feature, file_list=va), test
         return full_train, None, test
     full_train = DADDataset(root, "training", a.feature)
     test = DADDataset(root, "testing", a.feature)

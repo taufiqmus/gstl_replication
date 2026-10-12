@@ -20,7 +20,7 @@ from torch.utils.data import DataLoader
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
-from gstl.data import CrashDataset  # noqa: E402
+from gstl.data import CrashCompactDataset, CrashDataset  # noqa: E402
 from gstl.gstl import build_gstl  # noqa: E402
 from train import compute_metrics, configure_for_model, run_inference, set_seed  # noqa: E402
 
@@ -48,6 +48,7 @@ def load_gstl(path, ds, device):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data-root", default=os.environ.get("CCD_ROOT"), help="folder CCD (berisi vgg16_features/ dan videos/); bawaan: CCD_ROOT")
+    ap.add_argument("--dataset", choices=("crash", "crash_compact"), default="crash", help="crash = fitur rilis (.npz penuh); crash_compact = format ringkas")
     ap.add_argument("--ckpts", nargs="*", default=None, help="checkpoint (bawaan: weights/gstl_ccd_seed123_epoch10.pth)")
     ap.add_argument("--exp-dir", default=None, help="atau: folder eksperimen hasil train.py (semua snapshot/epoch_*.pth)")
     ap.add_argument("--seeds", type=int, nargs="+", default=[123], help="seed sampling BNN saat evaluasi")
@@ -60,7 +61,7 @@ def main():
         raise SystemExit("beri --data-root atau set CCD_ROOT (lihat README: data CCD tidak disertakan)")
     ckpts = a.ckpts or (sorted(glob.glob(os.path.join(a.exp_dir, "snapshot", "epoch_*.pth"))) if a.exp_dir else [DEFAULT_CKPT])
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    ds = CrashDataset(a.data_root, "test")
+    ds = (CrashCompactDataset if a.dataset == "crash_compact" else CrashDataset)(a.data_root, "test")
     configure_for_model("gstl", ds)
     loader = DataLoader(ds, batch_size=10, shuffle=False, drop_last=not a.no_drop_last, num_workers=a.num_workers,
                         pin_memory=device.type == "cuda", persistent_workers=a.num_workers > 0)

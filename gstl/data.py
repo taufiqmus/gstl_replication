@@ -112,7 +112,8 @@ class CrashDataset(_FeatureDataset):
     def __len__(self):
         return len(self.files_list)
 
-    def __getitem__(self, index):
+    def raw(self, index):
+        """(fitur (50,20,4096), labels, det, vid, toa) mentah, untuk ablasi/analisis."""
         path = os.path.join(self.feat_dir, self.files_list[index])
         with np.load(path) as data:
             features = data["data"]
@@ -120,6 +121,46 @@ class CrashDataset(_FeatureDataset):
             detections = data["det"]
             vid = str(data["ID"])
         toa = self.toa_dict[vid] if labels[1] > 0 else self.n_frames + 1
+        return features, labels, detections, vid, toa
+
+    def __getitem__(self, index):
+        features, labels, detections, vid, toa = self.raw(index)
+        return self._pack(features, labels, detections, toa, vid)
+
+
+class CrashCompactDataset(_FeatureDataset):
+    """CCD dalam format RINGKAS (hanya yang dipakai GSTL): per klip satu .npz berisi
+         frame  (50, 4096) float16  fitur fc7 VGG16 frame utuh
+         det    (50, 19, 6) float32 [x1,y1,x2,y2,skor,kelas_lama] piksel 1280x720; kotak kosong (padding) = 0
+         labels (2,), ID
+    root berisi train.txt/test.txt ("<path relatif .npz> <label>"), Crash-1500.txt (untuk toa), dan berkas .npz pada path relatif itu.
+    Dibuat oleh tools/make_compact_ccd.py (dari .npz rilis) atau tools/ekstraksi (dari mp4 dengan detektor pilihan)."""
+    n_frames = 50
+    fps = 10.0
+
+    def __init__(self, root, phase="train", feature="vgg16", return_meta=False, file_list=None):
+        super().__init__(feature, return_meta)
+        self.root = root
+        if file_list is None:
+            file_list = CrashDataset.read_datalist(os.path.join(root, "%s.txt" % phase))
+        self.files_list = [f for f, _ in file_list]
+        self.labels_list = [l for _, l in file_list]
+        self.toa_dict = crash_toa_dict(os.path.join(root, "Crash-1500.txt"), self.n_frames)
+
+    def __len__(self):
+        return len(self.files_list)
+
+    def raw(self, index):
+        with np.load(os.path.join(self.root, self.files_list[index])) as data:
+            features = data["frame"].astype(np.float32)[:, None, :]      # (50, 1, 4096): indeks 0 = frame utuh
+            labels = data["labels"]
+            detections = data["det"].astype(np.float32)
+            vid = str(data["ID"])
+        toa = self.toa_dict[vid] if labels[1] > 0 else self.n_frames + 1
+        return features, labels, detections, vid, toa
+
+    def __getitem__(self, index):
+        features, labels, detections, vid, toa = self.raw(index)
         return self._pack(features, labels, detections, toa, vid)
 
 
