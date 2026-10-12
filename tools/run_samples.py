@@ -112,11 +112,31 @@ def main():
             status = "tanpa acuan"
         print("%-16s label %s | %s | %s" % (r["role"], r["label"], summary(sc), status), flush=True)
     if a.update_expected:
+        # gabungkan dengan acuan lama: hanya role yang dijalankan yang diganti (aman bersama --only)
+        merged = {}
+        if os.path.exists(EXPECTED):
+            for r in csv.DictReader(open(EXPECTED)):
+                merged.setdefault(r["role"], []).append(float(r["score"]))
+        fresh = {}
+        for role, _, v in new_expected:
+            fresh.setdefault(role, []).append(v)
+        merged.update(fresh)
+        man = read_manifest()
+        order = [r["role"] for r in man if r["role"] in merged]
+        lab = {r["role"]: r["label"] for r in man}
         with open(EXPECTED, "w", newline="") as f:
             w = csv.writer(f)
             w.writerow(["role", "sample", "score"])
-            w.writerows((role, i, "%.6f" % s) for role, i, s in new_expected)
-        print("acuan ditulis:", EXPECTED)
+            for role in order:
+                w.writerows((role, i, "%.6f" % v) for i, v in enumerate(merged[role]))
+        with open(os.path.join(SAMPLES, "expected_summary.csv"), "w", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(["role", "label", "skor_maks", "skor_rerata", "ambang_0.5_pertama_s"])
+            for role in order:
+                v = np.array(merged[role])
+                ab = np.where(v >= 0.5)[0]
+                w.writerow([role, lab[role], "%.3f" % v.max(), "%.3f" % v.mean(), ("%.1f" % (ab[0] / 10.0)) if len(ab) else "-"])
+        print("acuan ditulis (%d role, %d diperbarui): %s" % (len(order), len(fresh), EXPECTED))
     print("\nkeluaran visual per klip di:", a.out)
     if fails:
         print("GAGAL pada:", ", ".join(fails))

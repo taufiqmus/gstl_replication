@@ -1,0 +1,7269 @@
+{
+ "ringkas": {
+  "positif": {
+   "n_klip": 300,
+   "kotak_unik_per_frame_rerata": 12.752133333333335,
+   "kotak_unik_per_frame_median_klip": 13.57,
+   "frame_tanpa_deteksi_rerata": 0.00019999999999999998,
+   "klip_semua_frame_tanpa_deteksi": 0,
+   "klip_lebih_dari_separuh_frame_tanpa_deteksi": 0,
+   "klip_tanpa_deteksi_di_frame_mana_pun": 298
+  },
+  "negatif": {
+   "n_klip": 600,
+   "kotak_unik_per_frame_rerata": 12.5879,
+   "kotak_unik_per_frame_median_klip": 13.24,
+   "frame_tanpa_deteksi_rerata": 0.0001666666666666667,
+   "klip_semua_frame_tanpa_deteksi": 0,
+   "klip_lebih_dari_separuh_frame_tanpa_deteksi": 0,
+   "klip_tanpa_deteksi_di_frame_mana_pun": 597
+  },
+  "positif_Day": {
+   "n_klip": 264,
+   "kotak_unik_per_frame_rerata": 12.858181818181817,
+   "kotak_unik_per_frame_median_klip": 13.780000000000001,
+   "frame_tanpa_deteksi_rerata": 0.00022727272727272727,
+   "klip_semua_frame_tanpa_deteksi": 0,
+   "klip_lebih_dari_separuh_frame_tanpa_deteksi": 0,
+   "klip_tanpa_deteksi_di_frame_mana_pun": 262
+  },
+  "positif_Night": {
+   "n_klip": 36,
+   "kotak_unik_per_frame_rerata": 11.974444444444444,
+   "kotak_unik_per_frame_median_klip": 12.440000000000001,
+   "frame_tanpa_deteksi_rerata": 0.0,
+   "klip_semua_frame_tanpa_deteksi": 0,
+   "klip_lebih_dari_separuh_frame_tanpa_deteksi": 0,
+   "klip_tanpa_deteksi_di_frame_mana_pun": 36
+  },
+  "positif_Normal": {
+   "n_klip": 228,
+   "kotak_unik_per_frame_rerata": 13.018508771929826,
+   "kotak_unik_per_frame_median_klip": 13.96,
+   "frame_tanpa_deteksi_rerata": 8.771929824561404e-05,
+   "klip_semua_frame_tanpa_deteksi": 0,
+   "klip_lebih_dari_separuh_frame_tanpa_deteksi": 0,
+   "klip_tanpa_deteksi_di_frame_mana_pun": 227
+  },
+  "positif_Snowy": {
+   "n_klip": 53,
+   "kotak_unik_per_frame_rerata": 11.723773584905658,
+   "kotak_unik_per_frame_median_klip": 13.12,
+   "frame_tanpa_deteksi_rerata": 0.0007547169811320754,
+   "klip_semua_frame_tanpa_deteksi": 0,
+   "klip_lebih_dari_separuh_frame_tanpa_deteksi": 0,
+   "klip_tanpa_deteksi_di_frame_mana_pun": 52
+  },
+  "positif_Rainy": {
+   "n_klip": 19,
+   "kotak_unik_per_frame_rerata": 12.42421052631579,
+   "kotak_unik_per_frame_median_klip": 13.36,
+   "frame_tanpa_deteksi_rerata": 0.0,
+   "klip_semua_frame_tanpa_deteksi": 0,
+   "klip_lebih_dari_separuh_frame_tanpa_deteksi": 0,
+   "klip_tanpa_deteksi_di_frame_mana_pun": 19
+  }
+ },
+ "klip": [
+  {
+   "id": "000353",
+   "label": 1,
+   "uniq_mean": 17.62,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000849",
+   "label": 1,
+   "uniq_mean": 12.38,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001320",
+   "label": 0,
+   "uniq_mean": 15.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000210",
+   "label": 0,
+   "uniq_mean": 13.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002373",
+   "label": 0,
+   "uniq_mean": 5.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000494",
+   "label": 1,
+   "uniq_mean": 4.92,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001636",
+   "label": 0,
+   "uniq_mean": 16.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002981",
+   "label": 0,
+   "uniq_mean": 16.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000430",
+   "label": 0,
+   "uniq_mean": 12.78,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000796",
+   "label": 1,
+   "uniq_mean": 14.74,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000313",
+   "label": 0,
+   "uniq_mean": 9.86,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001451",
+   "label": 0,
+   "uniq_mean": 11.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002958",
+   "label": 0,
+   "uniq_mean": 15.6,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000539",
+   "label": 0,
+   "uniq_mean": 14.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002254",
+   "label": 0,
+   "uniq_mean": 16.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000709",
+   "label": 1,
+   "uniq_mean": 17.26,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000218",
+   "label": 0,
+   "uniq_mean": 8.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000152",
+   "label": 1,
+   "uniq_mean": 17.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000311",
+   "label": 1,
+   "uniq_mean": 15.28,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000998",
+   "label": 0,
+   "uniq_mean": 16.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000427",
+   "label": 1,
+   "uniq_mean": 17.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001190",
+   "label": 0,
+   "uniq_mean": 13.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000905",
+   "label": 0,
+   "uniq_mean": 6.66,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001094",
+   "label": 1,
+   "uniq_mean": 13.72,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000488",
+   "label": 1,
+   "uniq_mean": 3.26,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002299",
+   "label": 0,
+   "uniq_mean": 13.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001301",
+   "label": 1,
+   "uniq_mean": 13.68,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000217",
+   "label": 1,
+   "uniq_mean": 9.48,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000961",
+   "label": 1,
+   "uniq_mean": 13.6,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001452",
+   "label": 1,
+   "uniq_mean": 11.32,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000396",
+   "label": 0,
+   "uniq_mean": 15.74,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001395",
+   "label": 0,
+   "uniq_mean": 6.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000429",
+   "label": 0,
+   "uniq_mean": 14.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001849",
+   "label": 0,
+   "uniq_mean": 16.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002502",
+   "label": 0,
+   "uniq_mean": 7.5,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000101",
+   "label": 0,
+   "uniq_mean": 11.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001313",
+   "label": 1,
+   "uniq_mean": 12.4,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001567",
+   "label": 0,
+   "uniq_mean": 10.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002587",
+   "label": 0,
+   "uniq_mean": 17.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001091",
+   "label": 1,
+   "uniq_mean": 7.88,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "001297",
+   "label": 0,
+   "uniq_mean": 10.04,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001493",
+   "label": 0,
+   "uniq_mean": 16.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000021",
+   "label": 0,
+   "uniq_mean": 15.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001475",
+   "label": 1,
+   "uniq_mean": 15.54,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000714",
+   "label": 1,
+   "uniq_mean": 15.66,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000153",
+   "label": 0,
+   "uniq_mean": 15.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002763",
+   "label": 0,
+   "uniq_mean": 16.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000419",
+   "label": 0,
+   "uniq_mean": 8.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000588",
+   "label": 0,
+   "uniq_mean": 15.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001261",
+   "label": 1,
+   "uniq_mean": 10.4,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002700",
+   "label": 0,
+   "uniq_mean": 13.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001478",
+   "label": 1,
+   "uniq_mean": 3.38,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002008",
+   "label": 0,
+   "uniq_mean": 12.86,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002213",
+   "label": 0,
+   "uniq_mean": 16.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000804",
+   "label": 0,
+   "uniq_mean": 16.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002745",
+   "label": 0,
+   "uniq_mean": 8.04,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000519",
+   "label": 0,
+   "uniq_mean": 12.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000404",
+   "label": 0,
+   "uniq_mean": 15.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000029",
+   "label": 1,
+   "uniq_mean": 16.14,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000858",
+   "label": 1,
+   "uniq_mean": 15.36,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001672",
+   "label": 0,
+   "uniq_mean": 6.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001461",
+   "label": 0,
+   "uniq_mean": 11.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002143",
+   "label": 0,
+   "uniq_mean": 10.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000247",
+   "label": 0,
+   "uniq_mean": 18.04,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001434",
+   "label": 1,
+   "uniq_mean": 14.42,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "000882",
+   "label": 1,
+   "uniq_mean": 15.84,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000247",
+   "label": 1,
+   "uniq_mean": 13.82,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000649",
+   "label": 1,
+   "uniq_mean": 6.42,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000254",
+   "label": 1,
+   "uniq_mean": 8.64,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000695",
+   "label": 0,
+   "uniq_mean": 13.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001394",
+   "label": 0,
+   "uniq_mean": 4.04,
+   "nodet_frac": 0.06,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001322",
+   "label": 1,
+   "uniq_mean": 12.52,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001422",
+   "label": 1,
+   "uniq_mean": 15.96,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000837",
+   "label": 0,
+   "uniq_mean": 10.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002943",
+   "label": 0,
+   "uniq_mean": 16.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000183",
+   "label": 0,
+   "uniq_mean": 9.36,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001863",
+   "label": 0,
+   "uniq_mean": 16.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002975",
+   "label": 0,
+   "uniq_mean": 15.2,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000206",
+   "label": 0,
+   "uniq_mean": 13.5,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000955",
+   "label": 1,
+   "uniq_mean": 14.84,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002663",
+   "label": 0,
+   "uniq_mean": 9.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000686",
+   "label": 0,
+   "uniq_mean": 13.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002142",
+   "label": 0,
+   "uniq_mean": 11.68,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000973",
+   "label": 1,
+   "uniq_mean": 16.36,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000855",
+   "label": 0,
+   "uniq_mean": 11.68,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000445",
+   "label": 1,
+   "uniq_mean": 17.94,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001382",
+   "label": 0,
+   "uniq_mean": 16.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000667",
+   "label": 1,
+   "uniq_mean": 13.8,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000403",
+   "label": 0,
+   "uniq_mean": 14.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001286",
+   "label": 1,
+   "uniq_mean": 14.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002214",
+   "label": 0,
+   "uniq_mean": 13.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000485",
+   "label": 0,
+   "uniq_mean": 12.32,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001420",
+   "label": 0,
+   "uniq_mean": 17.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001588",
+   "label": 0,
+   "uniq_mean": 16.22,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001395",
+   "label": 1,
+   "uniq_mean": 5.04,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Rainy"
+  },
+  {
+   "id": "001533",
+   "label": 0,
+   "uniq_mean": 13.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000807",
+   "label": 0,
+   "uniq_mean": 16.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000436",
+   "label": 0,
+   "uniq_mean": 16.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001274",
+   "label": 1,
+   "uniq_mean": 15.9,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002662",
+   "label": 0,
+   "uniq_mean": 13.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002632",
+   "label": 0,
+   "uniq_mean": 12.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000576",
+   "label": 1,
+   "uniq_mean": 12.68,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000418",
+   "label": 1,
+   "uniq_mean": 6.68,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001405",
+   "label": 1,
+   "uniq_mean": 9.6,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002737",
+   "label": 0,
+   "uniq_mean": 14.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000948",
+   "label": 0,
+   "uniq_mean": 14.84,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001129",
+   "label": 0,
+   "uniq_mean": 6.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001484",
+   "label": 1,
+   "uniq_mean": 17.1,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001111",
+   "label": 0,
+   "uniq_mean": 11.08,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000385",
+   "label": 1,
+   "uniq_mean": 9.48,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "001108",
+   "label": 1,
+   "uniq_mean": 18.0,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000575",
+   "label": 0,
+   "uniq_mean": 9.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001445",
+   "label": 0,
+   "uniq_mean": 10.9,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000964",
+   "label": 0,
+   "uniq_mean": 14.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001439",
+   "label": 0,
+   "uniq_mean": 10.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002873",
+   "label": 0,
+   "uniq_mean": 14.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001737",
+   "label": 0,
+   "uniq_mean": 16.88,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002560",
+   "label": 0,
+   "uniq_mean": 16.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001123",
+   "label": 0,
+   "uniq_mean": 10.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000860",
+   "label": 0,
+   "uniq_mean": 16.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000544",
+   "label": 1,
+   "uniq_mean": 7.3,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000742",
+   "label": 1,
+   "uniq_mean": 9.7,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000618",
+   "label": 1,
+   "uniq_mean": 15.76,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001096",
+   "label": 1,
+   "uniq_mean": 13.36,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "001354",
+   "label": 1,
+   "uniq_mean": 14.06,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000258",
+   "label": 0,
+   "uniq_mean": 15.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000285",
+   "label": 0,
+   "uniq_mean": 8.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002726",
+   "label": 0,
+   "uniq_mean": 12.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000255",
+   "label": 0,
+   "uniq_mean": 12.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002666",
+   "label": 0,
+   "uniq_mean": 13.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001390",
+   "label": 1,
+   "uniq_mean": 15.04,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "000916",
+   "label": 1,
+   "uniq_mean": 13.88,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001330",
+   "label": 0,
+   "uniq_mean": 15.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000340",
+   "label": 1,
+   "uniq_mean": 13.44,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001875",
+   "label": 0,
+   "uniq_mean": 14.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000027",
+   "label": 1,
+   "uniq_mean": 12.08,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "001277",
+   "label": 1,
+   "uniq_mean": 15.94,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001185",
+   "label": 1,
+   "uniq_mean": 10.34,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000856",
+   "label": 1,
+   "uniq_mean": 8.6,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002670",
+   "label": 0,
+   "uniq_mean": 9.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002789",
+   "label": 0,
+   "uniq_mean": 10.28,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000909",
+   "label": 0,
+   "uniq_mean": 16.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001351",
+   "label": 0,
+   "uniq_mean": 13.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002550",
+   "label": 0,
+   "uniq_mean": 5.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001148",
+   "label": 1,
+   "uniq_mean": 15.8,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000746",
+   "label": 1,
+   "uniq_mean": 8.2,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "000510",
+   "label": 1,
+   "uniq_mean": 16.68,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "001016",
+   "label": 0,
+   "uniq_mean": 15.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001209",
+   "label": 0,
+   "uniq_mean": 15.84,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000369",
+   "label": 1,
+   "uniq_mean": 13.3,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "000848",
+   "label": 1,
+   "uniq_mean": 8.9,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001458",
+   "label": 1,
+   "uniq_mean": 7.48,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002784",
+   "label": 0,
+   "uniq_mean": 3.74,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000480",
+   "label": 1,
+   "uniq_mean": 9.76,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000442",
+   "label": 0,
+   "uniq_mean": 15.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002493",
+   "label": 0,
+   "uniq_mean": 13.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000643",
+   "label": 0,
+   "uniq_mean": 15.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000514",
+   "label": 1,
+   "uniq_mean": 17.2,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "001385",
+   "label": 0,
+   "uniq_mean": 11.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001964",
+   "label": 0,
+   "uniq_mean": 11.9,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001968",
+   "label": 0,
+   "uniq_mean": 12.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000206",
+   "label": 1,
+   "uniq_mean": 15.52,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002274",
+   "label": 0,
+   "uniq_mean": 6.6,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000963",
+   "label": 1,
+   "uniq_mean": 15.84,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002610",
+   "label": 0,
+   "uniq_mean": 13.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002096",
+   "label": 0,
+   "uniq_mean": 14.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002288",
+   "label": 0,
+   "uniq_mean": 12.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002028",
+   "label": 0,
+   "uniq_mean": 9.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001930",
+   "label": 0,
+   "uniq_mean": 5.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000214",
+   "label": 1,
+   "uniq_mean": 13.1,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001280",
+   "label": 0,
+   "uniq_mean": 15.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000967",
+   "label": 1,
+   "uniq_mean": 11.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000782",
+   "label": 0,
+   "uniq_mean": 14.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000318",
+   "label": 1,
+   "uniq_mean": 12.58,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "000155",
+   "label": 0,
+   "uniq_mean": 14.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001767",
+   "label": 0,
+   "uniq_mean": 11.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002445",
+   "label": 0,
+   "uniq_mean": 9.88,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000935",
+   "label": 0,
+   "uniq_mean": 13.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002982",
+   "label": 0,
+   "uniq_mean": 13.66,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002812",
+   "label": 0,
+   "uniq_mean": 9.62,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001003",
+   "label": 1,
+   "uniq_mean": 15.72,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001470",
+   "label": 0,
+   "uniq_mean": 10.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000789",
+   "label": 0,
+   "uniq_mean": 13.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000130",
+   "label": 0,
+   "uniq_mean": 17.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000253",
+   "label": 1,
+   "uniq_mean": 8.0,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001907",
+   "label": 0,
+   "uniq_mean": 17.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001624",
+   "label": 0,
+   "uniq_mean": 12.08,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002881",
+   "label": 0,
+   "uniq_mean": 12.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001314",
+   "label": 1,
+   "uniq_mean": 17.06,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002495",
+   "label": 0,
+   "uniq_mean": 14.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002999",
+   "label": 0,
+   "uniq_mean": 14.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000465",
+   "label": 1,
+   "uniq_mean": 14.92,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001880",
+   "label": 0,
+   "uniq_mean": 14.28,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000091",
+   "label": 0,
+   "uniq_mean": 15.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000292",
+   "label": 0,
+   "uniq_mean": 13.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000838",
+   "label": 0,
+   "uniq_mean": 10.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001759",
+   "label": 0,
+   "uniq_mean": 16.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001405",
+   "label": 0,
+   "uniq_mean": 9.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002895",
+   "label": 0,
+   "uniq_mean": 16.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000572",
+   "label": 0,
+   "uniq_mean": 16.86,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001023",
+   "label": 1,
+   "uniq_mean": 13.5,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000414",
+   "label": 1,
+   "uniq_mean": 13.48,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001162",
+   "label": 0,
+   "uniq_mean": 13.68,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000111",
+   "label": 0,
+   "uniq_mean": 14.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001495",
+   "label": 0,
+   "uniq_mean": 9.6,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000132",
+   "label": 0,
+   "uniq_mean": 16.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000059",
+   "label": 1,
+   "uniq_mean": 16.16,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000353",
+   "label": 0,
+   "uniq_mean": 10.88,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001196",
+   "label": 0,
+   "uniq_mean": 17.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002651",
+   "label": 0,
+   "uniq_mean": 15.76,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000628",
+   "label": 1,
+   "uniq_mean": 10.0,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001324",
+   "label": 0,
+   "uniq_mean": 3.82,
+   "nodet_frac": 0.02,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001276",
+   "label": 0,
+   "uniq_mean": 11.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000826",
+   "label": 0,
+   "uniq_mean": 9.74,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001465",
+   "label": 1,
+   "uniq_mean": 6.72,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001667",
+   "label": 0,
+   "uniq_mean": 11.62,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000699",
+   "label": 1,
+   "uniq_mean": 15.84,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001789",
+   "label": 0,
+   "uniq_mean": 14.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002811",
+   "label": 0,
+   "uniq_mean": 15.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001611",
+   "label": 0,
+   "uniq_mean": 8.74,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002091",
+   "label": 0,
+   "uniq_mean": 17.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000495",
+   "label": 0,
+   "uniq_mean": 8.22,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002196",
+   "label": 0,
+   "uniq_mean": 14.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002128",
+   "label": 0,
+   "uniq_mean": 7.9,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000463",
+   "label": 0,
+   "uniq_mean": 14.6,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000755",
+   "label": 0,
+   "uniq_mean": 14.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000907",
+   "label": 0,
+   "uniq_mean": 12.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000219",
+   "label": 1,
+   "uniq_mean": 18.04,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001338",
+   "label": 1,
+   "uniq_mean": 16.0,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "001606",
+   "label": 0,
+   "uniq_mean": 6.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000912",
+   "label": 0,
+   "uniq_mean": 13.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000017",
+   "label": 1,
+   "uniq_mean": 13.12,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000107",
+   "label": 1,
+   "uniq_mean": 4.46,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001678",
+   "label": 0,
+   "uniq_mean": 16.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001957",
+   "label": 0,
+   "uniq_mean": 14.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000187",
+   "label": 0,
+   "uniq_mean": 15.78,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000290",
+   "label": 1,
+   "uniq_mean": 5.74,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "000711",
+   "label": 1,
+   "uniq_mean": 15.72,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000962",
+   "label": 1,
+   "uniq_mean": 15.8,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000411",
+   "label": 1,
+   "uniq_mean": 14.64,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "000932",
+   "label": 0,
+   "uniq_mean": 15.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001925",
+   "label": 0,
+   "uniq_mean": 16.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000925",
+   "label": 0,
+   "uniq_mean": 9.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000715",
+   "label": 1,
+   "uniq_mean": 16.86,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001350",
+   "label": 1,
+   "uniq_mean": 11.78,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000200",
+   "label": 1,
+   "uniq_mean": 5.94,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002376",
+   "label": 0,
+   "uniq_mean": 16.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002419",
+   "label": 0,
+   "uniq_mean": 10.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002637",
+   "label": 0,
+   "uniq_mean": 8.88,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002244",
+   "label": 0,
+   "uniq_mean": 9.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000286",
+   "label": 0,
+   "uniq_mean": 5.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001425",
+   "label": 1,
+   "uniq_mean": 15.46,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001364",
+   "label": 0,
+   "uniq_mean": 11.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000006",
+   "label": 1,
+   "uniq_mean": 7.84,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001437",
+   "label": 1,
+   "uniq_mean": 18.52,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "002451",
+   "label": 0,
+   "uniq_mean": 15.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000674",
+   "label": 0,
+   "uniq_mean": 13.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002440",
+   "label": 0,
+   "uniq_mean": 15.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001017",
+   "label": 1,
+   "uniq_mean": 14.74,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001120",
+   "label": 0,
+   "uniq_mean": 4.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001255",
+   "label": 1,
+   "uniq_mean": 7.54,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000994",
+   "label": 1,
+   "uniq_mean": 9.52,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000957",
+   "label": 0,
+   "uniq_mean": 5.76,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002125",
+   "label": 0,
+   "uniq_mean": 14.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000562",
+   "label": 0,
+   "uniq_mean": 13.36,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001057",
+   "label": 0,
+   "uniq_mean": 14.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001249",
+   "label": 0,
+   "uniq_mean": 13.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001585",
+   "label": 0,
+   "uniq_mean": 9.32,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000417",
+   "label": 0,
+   "uniq_mean": 9.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002578",
+   "label": 0,
+   "uniq_mean": 12.78,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002228",
+   "label": 0,
+   "uniq_mean": 5.32,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002648",
+   "label": 0,
+   "uniq_mean": 14.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001086",
+   "label": 0,
+   "uniq_mean": 14.5,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002643",
+   "label": 0,
+   "uniq_mean": 14.88,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000299",
+   "label": 0,
+   "uniq_mean": 13.9,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002689",
+   "label": 0,
+   "uniq_mean": 16.22,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002130",
+   "label": 0,
+   "uniq_mean": 7.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002066",
+   "label": 0,
+   "uniq_mean": 14.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001701",
+   "label": 0,
+   "uniq_mean": 8.26,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000056",
+   "label": 1,
+   "uniq_mean": 13.24,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000394",
+   "label": 1,
+   "uniq_mean": 17.66,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001255",
+   "label": 0,
+   "uniq_mean": 15.26,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000904",
+   "label": 1,
+   "uniq_mean": 12.42,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001098",
+   "label": 1,
+   "uniq_mean": 16.36,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002616",
+   "label": 0,
+   "uniq_mean": 16.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000814",
+   "label": 0,
+   "uniq_mean": 11.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000333",
+   "label": 0,
+   "uniq_mean": 13.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002206",
+   "label": 0,
+   "uniq_mean": 12.36,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000844",
+   "label": 1,
+   "uniq_mean": 11.78,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002053",
+   "label": 0,
+   "uniq_mean": 10.22,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000219",
+   "label": 0,
+   "uniq_mean": 10.68,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001645",
+   "label": 0,
+   "uniq_mean": 13.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000580",
+   "label": 1,
+   "uniq_mean": 16.3,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002198",
+   "label": 0,
+   "uniq_mean": 12.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001271",
+   "label": 1,
+   "uniq_mean": 9.92,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002804",
+   "label": 0,
+   "uniq_mean": 12.76,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002690",
+   "label": 0,
+   "uniq_mean": 16.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001858",
+   "label": 0,
+   "uniq_mean": 14.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000438",
+   "label": 1,
+   "uniq_mean": 9.7,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "001172",
+   "label": 1,
+   "uniq_mean": 15.16,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001242",
+   "label": 0,
+   "uniq_mean": 11.76,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002915",
+   "label": 0,
+   "uniq_mean": 10.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000319",
+   "label": 0,
+   "uniq_mean": 10.28,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002674",
+   "label": 0,
+   "uniq_mean": 14.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002078",
+   "label": 0,
+   "uniq_mean": 12.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002806",
+   "label": 0,
+   "uniq_mean": 16.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000762",
+   "label": 1,
+   "uniq_mean": 16.38,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001021",
+   "label": 1,
+   "uniq_mean": 7.16,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000275",
+   "label": 0,
+   "uniq_mean": 9.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001258",
+   "label": 1,
+   "uniq_mean": 8.42,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "002392",
+   "label": 0,
+   "uniq_mean": 9.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000004",
+   "label": 0,
+   "uniq_mean": 16.04,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001070",
+   "label": 0,
+   "uniq_mean": 16.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001868",
+   "label": 0,
+   "uniq_mean": 15.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002055",
+   "label": 0,
+   "uniq_mean": 11.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000223",
+   "label": 1,
+   "uniq_mean": 16.82,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000345",
+   "label": 1,
+   "uniq_mean": 9.36,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000780",
+   "label": 0,
+   "uniq_mean": 7.5,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002512",
+   "label": 0,
+   "uniq_mean": 15.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001710",
+   "label": 0,
+   "uniq_mean": 14.9,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000886",
+   "label": 0,
+   "uniq_mean": 10.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000242",
+   "label": 1,
+   "uniq_mean": 7.82,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001870",
+   "label": 0,
+   "uniq_mean": 15.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000659",
+   "label": 1,
+   "uniq_mean": 17.02,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000899",
+   "label": 1,
+   "uniq_mean": 10.96,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002775",
+   "label": 0,
+   "uniq_mean": 12.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000649",
+   "label": 0,
+   "uniq_mean": 7.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001781",
+   "label": 0,
+   "uniq_mean": 13.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001259",
+   "label": 0,
+   "uniq_mean": 2.86,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000092",
+   "label": 1,
+   "uniq_mean": 12.94,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "001266",
+   "label": 0,
+   "uniq_mean": 16.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000626",
+   "label": 1,
+   "uniq_mean": 14.88,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "000390",
+   "label": 0,
+   "uniq_mean": 8.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002026",
+   "label": 0,
+   "uniq_mean": 8.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000527",
+   "label": 0,
+   "uniq_mean": 4.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000460",
+   "label": 0,
+   "uniq_mean": 15.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002474",
+   "label": 0,
+   "uniq_mean": 13.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001392",
+   "label": 0,
+   "uniq_mean": 9.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001275",
+   "label": 1,
+   "uniq_mean": 15.78,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002300",
+   "label": 0,
+   "uniq_mean": 14.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000270",
+   "label": 1,
+   "uniq_mean": 10.52,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001468",
+   "label": 0,
+   "uniq_mean": 13.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002036",
+   "label": 0,
+   "uniq_mean": 11.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000248",
+   "label": 1,
+   "uniq_mean": 16.74,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002744",
+   "label": 0,
+   "uniq_mean": 9.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000906",
+   "label": 1,
+   "uniq_mean": 16.2,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000631",
+   "label": 1,
+   "uniq_mean": 14.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000470",
+   "label": 1,
+   "uniq_mean": 7.76,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001139",
+   "label": 0,
+   "uniq_mean": 7.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001399",
+   "label": 0,
+   "uniq_mean": 14.32,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002173",
+   "label": 0,
+   "uniq_mean": 7.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000866",
+   "label": 1,
+   "uniq_mean": 9.72,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "001250",
+   "label": 0,
+   "uniq_mean": 13.76,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000642",
+   "label": 0,
+   "uniq_mean": 13.6,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000050",
+   "label": 1,
+   "uniq_mean": 17.38,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Rainy"
+  },
+  {
+   "id": "002111",
+   "label": 0,
+   "uniq_mean": 14.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000897",
+   "label": 0,
+   "uniq_mean": 13.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001181",
+   "label": 1,
+   "uniq_mean": 15.1,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001249",
+   "label": 1,
+   "uniq_mean": 12.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "002673",
+   "label": 0,
+   "uniq_mean": 16.2,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001423",
+   "label": 1,
+   "uniq_mean": 8.5,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002423",
+   "label": 0,
+   "uniq_mean": 7.2,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001254",
+   "label": 0,
+   "uniq_mean": 18.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001113",
+   "label": 1,
+   "uniq_mean": 9.12,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001362",
+   "label": 1,
+   "uniq_mean": 15.48,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000154",
+   "label": 1,
+   "uniq_mean": 12.58,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002724",
+   "label": 0,
+   "uniq_mean": 12.66,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000642",
+   "label": 1,
+   "uniq_mean": 9.68,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001508",
+   "label": 0,
+   "uniq_mean": 8.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001450",
+   "label": 0,
+   "uniq_mean": 14.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000655",
+   "label": 1,
+   "uniq_mean": 8.06,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000818",
+   "label": 1,
+   "uniq_mean": 15.26,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000774",
+   "label": 0,
+   "uniq_mean": 10.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001475",
+   "label": 0,
+   "uniq_mean": 15.28,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002545",
+   "label": 0,
+   "uniq_mean": 16.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000537",
+   "label": 1,
+   "uniq_mean": 16.22,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Rainy"
+  },
+  {
+   "id": "001166",
+   "label": 1,
+   "uniq_mean": 15.86,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001056",
+   "label": 1,
+   "uniq_mean": 12.38,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000941",
+   "label": 1,
+   "uniq_mean": 12.46,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001408",
+   "label": 0,
+   "uniq_mean": 14.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000182",
+   "label": 0,
+   "uniq_mean": 11.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000803",
+   "label": 0,
+   "uniq_mean": 15.32,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002554",
+   "label": 0,
+   "uniq_mean": 16.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001421",
+   "label": 1,
+   "uniq_mean": 11.86,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000674",
+   "label": 1,
+   "uniq_mean": 7.72,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Rainy"
+  },
+  {
+   "id": "001983",
+   "label": 0,
+   "uniq_mean": 15.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000397",
+   "label": 0,
+   "uniq_mean": 10.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001467",
+   "label": 1,
+   "uniq_mean": 8.06,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000393",
+   "label": 0,
+   "uniq_mean": 15.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000344",
+   "label": 1,
+   "uniq_mean": 15.96,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000980",
+   "label": 1,
+   "uniq_mean": 15.44,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001074",
+   "label": 0,
+   "uniq_mean": 10.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000908",
+   "label": 0,
+   "uniq_mean": 11.2,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001457",
+   "label": 0,
+   "uniq_mean": 12.04,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000846",
+   "label": 1,
+   "uniq_mean": 17.32,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001254",
+   "label": 1,
+   "uniq_mean": 11.32,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000707",
+   "label": 0,
+   "uniq_mean": 15.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000416",
+   "label": 1,
+   "uniq_mean": 12.82,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002435",
+   "label": 0,
+   "uniq_mean": 17.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000744",
+   "label": 0,
+   "uniq_mean": 12.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000268",
+   "label": 0,
+   "uniq_mean": 12.66,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000529",
+   "label": 1,
+   "uniq_mean": 14.02,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "001786",
+   "label": 0,
+   "uniq_mean": 16.84,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001857",
+   "label": 0,
+   "uniq_mean": 12.86,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000744",
+   "label": 1,
+   "uniq_mean": 14.14,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000477",
+   "label": 1,
+   "uniq_mean": 17.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "000976",
+   "label": 1,
+   "uniq_mean": 17.44,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000560",
+   "label": 1,
+   "uniq_mean": 15.98,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "000745",
+   "label": 1,
+   "uniq_mean": 15.88,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "002985",
+   "label": 0,
+   "uniq_mean": 13.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001876",
+   "label": 0,
+   "uniq_mean": 5.76,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000581",
+   "label": 1,
+   "uniq_mean": 15.54,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001162",
+   "label": 1,
+   "uniq_mean": 15.6,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000889",
+   "label": 1,
+   "uniq_mean": 15.42,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000640",
+   "label": 1,
+   "uniq_mean": 8.3,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002628",
+   "label": 0,
+   "uniq_mean": 15.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001910",
+   "label": 0,
+   "uniq_mean": 10.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000586",
+   "label": 0,
+   "uniq_mean": 15.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002234",
+   "label": 0,
+   "uniq_mean": 12.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001081",
+   "label": 1,
+   "uniq_mean": 15.24,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002750",
+   "label": 0,
+   "uniq_mean": 12.62,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001202",
+   "label": 0,
+   "uniq_mean": 11.08,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002116",
+   "label": 0,
+   "uniq_mean": 12.62,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000148",
+   "label": 0,
+   "uniq_mean": 17.86,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000934",
+   "label": 1,
+   "uniq_mean": 15.2,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002402",
+   "label": 0,
+   "uniq_mean": 11.28,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002660",
+   "label": 0,
+   "uniq_mean": 16.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001263",
+   "label": 0,
+   "uniq_mean": 6.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001114",
+   "label": 0,
+   "uniq_mean": 14.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000859",
+   "label": 1,
+   "uniq_mean": 16.56,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "001528",
+   "label": 0,
+   "uniq_mean": 11.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001252",
+   "label": 1,
+   "uniq_mean": 8.58,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000653",
+   "label": 1,
+   "uniq_mean": 15.46,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001811",
+   "label": 0,
+   "uniq_mean": 13.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002583",
+   "label": 0,
+   "uniq_mean": 7.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002956",
+   "label": 0,
+   "uniq_mean": 3.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002151",
+   "label": 0,
+   "uniq_mean": 8.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000221",
+   "label": 0,
+   "uniq_mean": 7.74,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000872",
+   "label": 0,
+   "uniq_mean": 10.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000749",
+   "label": 1,
+   "uniq_mean": 14.96,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000383",
+   "label": 1,
+   "uniq_mean": 8.92,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "001125",
+   "label": 1,
+   "uniq_mean": 15.4,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000902",
+   "label": 0,
+   "uniq_mean": 12.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001182",
+   "label": 0,
+   "uniq_mean": 1.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002343",
+   "label": 0,
+   "uniq_mean": 14.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000650",
+   "label": 0,
+   "uniq_mean": 9.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000425",
+   "label": 1,
+   "uniq_mean": 17.0,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000577",
+   "label": 0,
+   "uniq_mean": 12.88,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002152",
+   "label": 0,
+   "uniq_mean": 14.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000547",
+   "label": 1,
+   "uniq_mean": 7.8,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000094",
+   "label": 1,
+   "uniq_mean": 9.44,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000561",
+   "label": 0,
+   "uniq_mean": 13.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000291",
+   "label": 0,
+   "uniq_mean": 6.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001471",
+   "label": 0,
+   "uniq_mean": 13.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001187",
+   "label": 1,
+   "uniq_mean": 9.92,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002473",
+   "label": 0,
+   "uniq_mean": 13.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000730",
+   "label": 0,
+   "uniq_mean": 9.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000690",
+   "label": 1,
+   "uniq_mean": 5.32,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000018",
+   "label": 0,
+   "uniq_mean": 15.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001371",
+   "label": 1,
+   "uniq_mean": 7.54,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "000157",
+   "label": 0,
+   "uniq_mean": 16.6,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002478",
+   "label": 0,
+   "uniq_mean": 13.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002786",
+   "label": 0,
+   "uniq_mean": 10.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001978",
+   "label": 0,
+   "uniq_mean": 13.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000607",
+   "label": 0,
+   "uniq_mean": 10.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002081",
+   "label": 0,
+   "uniq_mean": 13.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000251",
+   "label": 0,
+   "uniq_mean": 13.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001321",
+   "label": 0,
+   "uniq_mean": 17.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000716",
+   "label": 0,
+   "uniq_mean": 13.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000660",
+   "label": 0,
+   "uniq_mean": 15.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000307",
+   "label": 0,
+   "uniq_mean": 15.66,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001663",
+   "label": 0,
+   "uniq_mean": 15.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001646",
+   "label": 0,
+   "uniq_mean": 6.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001545",
+   "label": 0,
+   "uniq_mean": 15.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000966",
+   "label": 0,
+   "uniq_mean": 14.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001028",
+   "label": 1,
+   "uniq_mean": 8.5,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001770",
+   "label": 0,
+   "uniq_mean": 8.6,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000960",
+   "label": 1,
+   "uniq_mean": 14.24,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000457",
+   "label": 0,
+   "uniq_mean": 16.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000984",
+   "label": 0,
+   "uniq_mean": 16.78,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001130",
+   "label": 1,
+   "uniq_mean": 2.16,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002334",
+   "label": 0,
+   "uniq_mean": 15.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002914",
+   "label": 0,
+   "uniq_mean": 15.6,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001005",
+   "label": 0,
+   "uniq_mean": 12.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002405",
+   "label": 0,
+   "uniq_mean": 9.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001777",
+   "label": 0,
+   "uniq_mean": 15.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001808",
+   "label": 0,
+   "uniq_mean": 15.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001408",
+   "label": 1,
+   "uniq_mean": 12.96,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000775",
+   "label": 1,
+   "uniq_mean": 15.3,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000132",
+   "label": 1,
+   "uniq_mean": 12.9,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002603",
+   "label": 0,
+   "uniq_mean": 5.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000239",
+   "label": 1,
+   "uniq_mean": 12.34,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000883",
+   "label": 1,
+   "uniq_mean": 16.74,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001728",
+   "label": 0,
+   "uniq_mean": 12.22,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001379",
+   "label": 0,
+   "uniq_mean": 5.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002699",
+   "label": 0,
+   "uniq_mean": 15.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001004",
+   "label": 0,
+   "uniq_mean": 12.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001063",
+   "label": 0,
+   "uniq_mean": 9.66,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000389",
+   "label": 1,
+   "uniq_mean": 12.6,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "000075",
+   "label": 1,
+   "uniq_mean": 16.02,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001735",
+   "label": 0,
+   "uniq_mean": 11.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001904",
+   "label": 0,
+   "uniq_mean": 9.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000079",
+   "label": 1,
+   "uniq_mean": 13.52,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000350",
+   "label": 1,
+   "uniq_mean": 16.96,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000724",
+   "label": 0,
+   "uniq_mean": 14.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002163",
+   "label": 0,
+   "uniq_mean": 8.62,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001685",
+   "label": 0,
+   "uniq_mean": 12.62,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000853",
+   "label": 1,
+   "uniq_mean": 8.28,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001311",
+   "label": 1,
+   "uniq_mean": 10.28,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "002281",
+   "label": 0,
+   "uniq_mean": 12.5,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001173",
+   "label": 1,
+   "uniq_mean": 14.28,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002457",
+   "label": 0,
+   "uniq_mean": 16.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002113",
+   "label": 0,
+   "uniq_mean": 15.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002840",
+   "label": 0,
+   "uniq_mean": 11.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000920",
+   "label": 0,
+   "uniq_mean": 12.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001024",
+   "label": 1,
+   "uniq_mean": 15.72,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "000864",
+   "label": 0,
+   "uniq_mean": 6.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001441",
+   "label": 1,
+   "uniq_mean": 16.8,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000398",
+   "label": 1,
+   "uniq_mean": 9.56,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001922",
+   "label": 0,
+   "uniq_mean": 11.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000375",
+   "label": 1,
+   "uniq_mean": 14.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000117",
+   "label": 1,
+   "uniq_mean": 15.12,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000377",
+   "label": 1,
+   "uniq_mean": 10.32,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000106",
+   "label": 1,
+   "uniq_mean": 10.78,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000995",
+   "label": 0,
+   "uniq_mean": 14.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000346",
+   "label": 0,
+   "uniq_mean": 15.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001300",
+   "label": 1,
+   "uniq_mean": 14.04,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002998",
+   "label": 0,
+   "uniq_mean": 16.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000052",
+   "label": 0,
+   "uniq_mean": 10.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000638",
+   "label": 0,
+   "uniq_mean": 6.78,
+   "nodet_frac": 0.02,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000943",
+   "label": 1,
+   "uniq_mean": 14.96,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001607",
+   "label": 0,
+   "uniq_mean": 4.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000395",
+   "label": 0,
+   "uniq_mean": 15.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000883",
+   "label": 0,
+   "uniq_mean": 12.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000283",
+   "label": 0,
+   "uniq_mean": 16.22,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001933",
+   "label": 0,
+   "uniq_mean": 15.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000533",
+   "label": 0,
+   "uniq_mean": 12.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000214",
+   "label": 0,
+   "uniq_mean": 13.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000911",
+   "label": 1,
+   "uniq_mean": 11.2,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002557",
+   "label": 0,
+   "uniq_mean": 5.74,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001805",
+   "label": 0,
+   "uniq_mean": 14.84,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002227",
+   "label": 0,
+   "uniq_mean": 15.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001726",
+   "label": 0,
+   "uniq_mean": 6.22,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000480",
+   "label": 0,
+   "uniq_mean": 17.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000704",
+   "label": 0,
+   "uniq_mean": 13.32,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000145",
+   "label": 1,
+   "uniq_mean": 9.54,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "002022",
+   "label": 0,
+   "uniq_mean": 10.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000437",
+   "label": 0,
+   "uniq_mean": 17.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000321",
+   "label": 0,
+   "uniq_mean": 10.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000268",
+   "label": 1,
+   "uniq_mean": 13.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000552",
+   "label": 0,
+   "uniq_mean": 5.78,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001211",
+   "label": 1,
+   "uniq_mean": 12.3,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "002067",
+   "label": 0,
+   "uniq_mean": 16.04,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001914",
+   "label": 0,
+   "uniq_mean": 16.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002193",
+   "label": 0,
+   "uniq_mean": 14.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002856",
+   "label": 0,
+   "uniq_mean": 12.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001043",
+   "label": 1,
+   "uniq_mean": 13.12,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002574",
+   "label": 0,
+   "uniq_mean": 14.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002698",
+   "label": 0,
+   "uniq_mean": 12.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002404",
+   "label": 0,
+   "uniq_mean": 9.5,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002813",
+   "label": 0,
+   "uniq_mean": 8.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002341",
+   "label": 0,
+   "uniq_mean": 15.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002466",
+   "label": 0,
+   "uniq_mean": 11.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000770",
+   "label": 0,
+   "uniq_mean": 13.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000713",
+   "label": 0,
+   "uniq_mean": 10.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001966",
+   "label": 0,
+   "uniq_mean": 12.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000802",
+   "label": 0,
+   "uniq_mean": 14.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002481",
+   "label": 0,
+   "uniq_mean": 16.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002751",
+   "label": 0,
+   "uniq_mean": 12.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001151",
+   "label": 1,
+   "uniq_mean": 15.78,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001492",
+   "label": 0,
+   "uniq_mean": 14.28,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000842",
+   "label": 0,
+   "uniq_mean": 9.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001143",
+   "label": 1,
+   "uniq_mean": 13.76,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001008",
+   "label": 1,
+   "uniq_mean": 10.88,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000663",
+   "label": 0,
+   "uniq_mean": 14.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002318",
+   "label": 0,
+   "uniq_mean": 12.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001501",
+   "label": 0,
+   "uniq_mean": 11.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001671",
+   "label": 0,
+   "uniq_mean": 10.26,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000432",
+   "label": 1,
+   "uniq_mean": 12.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000534",
+   "label": 0,
+   "uniq_mean": 15.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000940",
+   "label": 0,
+   "uniq_mean": 13.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000282",
+   "label": 0,
+   "uniq_mean": 11.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001413",
+   "label": 1,
+   "uniq_mean": 14.66,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001420",
+   "label": 1,
+   "uniq_mean": 17.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "000203",
+   "label": 0,
+   "uniq_mean": 12.04,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002847",
+   "label": 0,
+   "uniq_mean": 9.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002839",
+   "label": 0,
+   "uniq_mean": 13.22,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002178",
+   "label": 0,
+   "uniq_mean": 13.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002824",
+   "label": 0,
+   "uniq_mean": 14.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000315",
+   "label": 0,
+   "uniq_mean": 14.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001127",
+   "label": 1,
+   "uniq_mean": 15.14,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002443",
+   "label": 0,
+   "uniq_mean": 9.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001217",
+   "label": 1,
+   "uniq_mean": 8.04,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000998",
+   "label": 1,
+   "uniq_mean": 11.32,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000149",
+   "label": 1,
+   "uniq_mean": 11.82,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002988",
+   "label": 0,
+   "uniq_mean": 12.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000447",
+   "label": 0,
+   "uniq_mean": 15.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002734",
+   "label": 0,
+   "uniq_mean": 6.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002107",
+   "label": 0,
+   "uniq_mean": 11.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002532",
+   "label": 0,
+   "uniq_mean": 16.08,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001497",
+   "label": 0,
+   "uniq_mean": 13.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002546",
+   "label": 0,
+   "uniq_mean": 14.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000838",
+   "label": 1,
+   "uniq_mean": 13.82,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000560",
+   "label": 0,
+   "uniq_mean": 12.74,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000320",
+   "label": 1,
+   "uniq_mean": 9.24,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001159",
+   "label": 0,
+   "uniq_mean": 7.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001223",
+   "label": 0,
+   "uniq_mean": 13.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001488",
+   "label": 1,
+   "uniq_mean": 15.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002604",
+   "label": 0,
+   "uniq_mean": 4.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001234",
+   "label": 0,
+   "uniq_mean": 13.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002927",
+   "label": 0,
+   "uniq_mean": 7.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000961",
+   "label": 0,
+   "uniq_mean": 17.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002355",
+   "label": 0,
+   "uniq_mean": 14.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000012",
+   "label": 1,
+   "uniq_mean": 10.52,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Rainy"
+  },
+  {
+   "id": "000322",
+   "label": 0,
+   "uniq_mean": 14.26,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000471",
+   "label": 0,
+   "uniq_mean": 11.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002391",
+   "label": 0,
+   "uniq_mean": 13.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000839",
+   "label": 0,
+   "uniq_mean": 10.62,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000722",
+   "label": 0,
+   "uniq_mean": 7.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001083",
+   "label": 0,
+   "uniq_mean": 15.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000478",
+   "label": 1,
+   "uniq_mean": 14.36,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000403",
+   "label": 1,
+   "uniq_mean": 13.28,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002658",
+   "label": 0,
+   "uniq_mean": 5.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002004",
+   "label": 0,
+   "uniq_mean": 16.62,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002491",
+   "label": 0,
+   "uniq_mean": 14.36,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000404",
+   "label": 1,
+   "uniq_mean": 17.12,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002626",
+   "label": 0,
+   "uniq_mean": 15.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002356",
+   "label": 0,
+   "uniq_mean": 13.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001197",
+   "label": 0,
+   "uniq_mean": 16.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001398",
+   "label": 1,
+   "uniq_mean": 9.3,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001285",
+   "label": 0,
+   "uniq_mean": 13.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002762",
+   "label": 0,
+   "uniq_mean": 17.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000951",
+   "label": 1,
+   "uniq_mean": 11.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001889",
+   "label": 0,
+   "uniq_mean": 13.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001284",
+   "label": 1,
+   "uniq_mean": 16.0,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000590",
+   "label": 1,
+   "uniq_mean": 16.38,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000335",
+   "label": 1,
+   "uniq_mean": 10.02,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001409",
+   "label": 0,
+   "uniq_mean": 15.32,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001438",
+   "label": 0,
+   "uniq_mean": 12.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001107",
+   "label": 1,
+   "uniq_mean": 9.4,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000572",
+   "label": 1,
+   "uniq_mean": 14.74,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001080",
+   "label": 0,
+   "uniq_mean": 9.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000701",
+   "label": 0,
+   "uniq_mean": 12.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001332",
+   "label": 0,
+   "uniq_mean": 15.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001100",
+   "label": 1,
+   "uniq_mean": 10.32,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Rainy"
+  },
+  {
+   "id": "000003",
+   "label": 1,
+   "uniq_mean": 13.26,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001462",
+   "label": 1,
+   "uniq_mean": 9.26,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001473",
+   "label": 1,
+   "uniq_mean": 2.08,
+   "nodet_frac": 0.04,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001583",
+   "label": 0,
+   "uniq_mean": 17.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001724",
+   "label": 0,
+   "uniq_mean": 13.36,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000076",
+   "label": 0,
+   "uniq_mean": 13.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000149",
+   "label": 0,
+   "uniq_mean": 17.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000311",
+   "label": 0,
+   "uniq_mean": 9.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000900",
+   "label": 1,
+   "uniq_mean": 15.84,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000726",
+   "label": 1,
+   "uniq_mean": 14.62,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001460",
+   "label": 0,
+   "uniq_mean": 11.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001431",
+   "label": 0,
+   "uniq_mean": 15.36,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000426",
+   "label": 0,
+   "uniq_mean": 8.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002203",
+   "label": 0,
+   "uniq_mean": 15.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000787",
+   "label": 0,
+   "uniq_mean": 12.08,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001192",
+   "label": 1,
+   "uniq_mean": 15.82,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001006",
+   "label": 1,
+   "uniq_mean": 12.42,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000188",
+   "label": 0,
+   "uniq_mean": 15.08,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001852",
+   "label": 0,
+   "uniq_mean": 13.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001017",
+   "label": 0,
+   "uniq_mean": 9.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000124",
+   "label": 0,
+   "uniq_mean": 13.22,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002647",
+   "label": 0,
+   "uniq_mean": 14.66,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001054",
+   "label": 0,
+   "uniq_mean": 6.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000227",
+   "label": 0,
+   "uniq_mean": 8.2,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000017",
+   "label": 0,
+   "uniq_mean": 11.66,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001558",
+   "label": 0,
+   "uniq_mean": 11.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000655",
+   "label": 0,
+   "uniq_mean": 8.86,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002995",
+   "label": 0,
+   "uniq_mean": 7.6,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000257",
+   "label": 1,
+   "uniq_mean": 15.8,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000421",
+   "label": 0,
+   "uniq_mean": 9.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001895",
+   "label": 0,
+   "uniq_mean": 14.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000959",
+   "label": 0,
+   "uniq_mean": 14.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000715",
+   "label": 0,
+   "uniq_mean": 15.78,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000819",
+   "label": 0,
+   "uniq_mean": 13.78,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001569",
+   "label": 0,
+   "uniq_mean": 7.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000365",
+   "label": 0,
+   "uniq_mean": 14.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000863",
+   "label": 0,
+   "uniq_mean": 12.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001360",
+   "label": 1,
+   "uniq_mean": 12.9,
+   "nodet_frac": 0.02,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000707",
+   "label": 1,
+   "uniq_mean": 6.88,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001979",
+   "label": 0,
+   "uniq_mean": 8.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000276",
+   "label": 1,
+   "uniq_mean": 14.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002965",
+   "label": 0,
+   "uniq_mean": 16.08,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000577",
+   "label": 1,
+   "uniq_mean": 8.68,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001499",
+   "label": 0,
+   "uniq_mean": 4.2,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000178",
+   "label": 0,
+   "uniq_mean": 15.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000374",
+   "label": 0,
+   "uniq_mean": 15.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001845",
+   "label": 0,
+   "uniq_mean": 14.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002412",
+   "label": 0,
+   "uniq_mean": 14.04,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000131",
+   "label": 1,
+   "uniq_mean": 12.56,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002865",
+   "label": 0,
+   "uniq_mean": 15.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000621",
+   "label": 0,
+   "uniq_mean": 16.26,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000971",
+   "label": 0,
+   "uniq_mean": 11.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002949",
+   "label": 0,
+   "uniq_mean": 16.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001945",
+   "label": 0,
+   "uniq_mean": 8.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000659",
+   "label": 0,
+   "uniq_mean": 15.68,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000698",
+   "label": 1,
+   "uniq_mean": 7.62,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001383",
+   "label": 1,
+   "uniq_mean": 13.54,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000820",
+   "label": 0,
+   "uniq_mean": 15.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002752",
+   "label": 0,
+   "uniq_mean": 13.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002456",
+   "label": 0,
+   "uniq_mean": 17.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002017",
+   "label": 0,
+   "uniq_mean": 11.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000435",
+   "label": 1,
+   "uniq_mean": 9.72,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001446",
+   "label": 1,
+   "uniq_mean": 13.12,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002209",
+   "label": 0,
+   "uniq_mean": 14.74,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000010",
+   "label": 0,
+   "uniq_mean": 15.66,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001248",
+   "label": 0,
+   "uniq_mean": 15.32,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001224",
+   "label": 1,
+   "uniq_mean": 17.48,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "001009",
+   "label": 0,
+   "uniq_mean": 15.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000099",
+   "label": 0,
+   "uniq_mean": 15.5,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000586",
+   "label": 1,
+   "uniq_mean": 11.58,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002018",
+   "label": 0,
+   "uniq_mean": 11.96,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001347",
+   "label": 1,
+   "uniq_mean": 15.32,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000505",
+   "label": 1,
+   "uniq_mean": 11.46,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "000657",
+   "label": 1,
+   "uniq_mean": 5.94,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002589",
+   "label": 0,
+   "uniq_mean": 16.88,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001191",
+   "label": 0,
+   "uniq_mean": 13.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000647",
+   "label": 1,
+   "uniq_mean": 4.3,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000664",
+   "label": 0,
+   "uniq_mean": 16.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002731",
+   "label": 0,
+   "uniq_mean": 7.28,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001224",
+   "label": 0,
+   "uniq_mean": 10.26,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001037",
+   "label": 0,
+   "uniq_mean": 14.28,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000545",
+   "label": 1,
+   "uniq_mean": 15.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002585",
+   "label": 0,
+   "uniq_mean": 11.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000893",
+   "label": 0,
+   "uniq_mean": 10.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001085",
+   "label": 1,
+   "uniq_mean": 17.48,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001401",
+   "label": 0,
+   "uniq_mean": 8.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000084",
+   "label": 0,
+   "uniq_mean": 16.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002767",
+   "label": 0,
+   "uniq_mean": 3.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001794",
+   "label": 0,
+   "uniq_mean": 12.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001100",
+   "label": 0,
+   "uniq_mean": 11.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002221",
+   "label": 0,
+   "uniq_mean": 10.78,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000057",
+   "label": 1,
+   "uniq_mean": 17.88,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002265",
+   "label": 0,
+   "uniq_mean": 12.88,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000556",
+   "label": 1,
+   "uniq_mean": 3.6,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001734",
+   "label": 0,
+   "uniq_mean": 7.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001099",
+   "label": 0,
+   "uniq_mean": 10.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001351",
+   "label": 1,
+   "uniq_mean": 17.12,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001032",
+   "label": 1,
+   "uniq_mean": 12.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001116",
+   "label": 0,
+   "uniq_mean": 15.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002598",
+   "label": 0,
+   "uniq_mean": 3.52,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000958",
+   "label": 1,
+   "uniq_mean": 14.14,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001363",
+   "label": 0,
+   "uniq_mean": 7.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002019",
+   "label": 0,
+   "uniq_mean": 14.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000851",
+   "label": 1,
+   "uniq_mean": 14.12,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000103",
+   "label": 1,
+   "uniq_mean": 10.56,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000810",
+   "label": 1,
+   "uniq_mean": 10.8,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000363",
+   "label": 0,
+   "uniq_mean": 17.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002592",
+   "label": 0,
+   "uniq_mean": 14.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001920",
+   "label": 0,
+   "uniq_mean": 7.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002282",
+   "label": 0,
+   "uniq_mean": 12.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000305",
+   "label": 0,
+   "uniq_mean": 16.26,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000809",
+   "label": 0,
+   "uniq_mean": 10.5,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000648",
+   "label": 0,
+   "uniq_mean": 15.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000817",
+   "label": 0,
+   "uniq_mean": 13.9,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000972",
+   "label": 0,
+   "uniq_mean": 9.76,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002298",
+   "label": 0,
+   "uniq_mean": 10.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001374",
+   "label": 0,
+   "uniq_mean": 15.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002572",
+   "label": 0,
+   "uniq_mean": 14.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002766",
+   "label": 0,
+   "uniq_mean": 11.74,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002063",
+   "label": 0,
+   "uniq_mean": 16.9,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000554",
+   "label": 1,
+   "uniq_mean": 7.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002563",
+   "label": 0,
+   "uniq_mean": 11.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002888",
+   "label": 0,
+   "uniq_mean": 16.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001199",
+   "label": 1,
+   "uniq_mean": 16.62,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000400",
+   "label": 0,
+   "uniq_mean": 16.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000168",
+   "label": 1,
+   "uniq_mean": 17.02,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002627",
+   "label": 0,
+   "uniq_mean": 14.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002422",
+   "label": 0,
+   "uniq_mean": 7.26,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002389",
+   "label": 0,
+   "uniq_mean": 15.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000316",
+   "label": 0,
+   "uniq_mean": 14.9,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002654",
+   "label": 0,
+   "uniq_mean": 10.2,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002158",
+   "label": 0,
+   "uniq_mean": 5.62,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001410",
+   "label": 1,
+   "uniq_mean": 15.1,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002076",
+   "label": 0,
+   "uniq_mean": 11.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000020",
+   "label": 1,
+   "uniq_mean": 15.72,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000995",
+   "label": 1,
+   "uniq_mean": 17.36,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002821",
+   "label": 0,
+   "uniq_mean": 13.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000693",
+   "label": 0,
+   "uniq_mean": 10.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001400",
+   "label": 1,
+   "uniq_mean": 14.76,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Normal"
+  },
+  {
+   "id": "001268",
+   "label": 1,
+   "uniq_mean": 14.1,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000379",
+   "label": 1,
+   "uniq_mean": 17.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "001142",
+   "label": 0,
+   "uniq_mean": 13.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002570",
+   "label": 0,
+   "uniq_mean": 7.74,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002530",
+   "label": 0,
+   "uniq_mean": 14.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000280",
+   "label": 0,
+   "uniq_mean": 11.62,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000174",
+   "label": 1,
+   "uniq_mean": 14.18,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000313",
+   "label": 1,
+   "uniq_mean": 9.0,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000294",
+   "label": 1,
+   "uniq_mean": 16.86,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000757",
+   "label": 1,
+   "uniq_mean": 4.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001718",
+   "label": 0,
+   "uniq_mean": 17.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000211",
+   "label": 0,
+   "uniq_mean": 7.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000876",
+   "label": 1,
+   "uniq_mean": 15.62,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002564",
+   "label": 0,
+   "uniq_mean": 9.08,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000119",
+   "label": 1,
+   "uniq_mean": 9.0,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000926",
+   "label": 0,
+   "uniq_mean": 6.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000692",
+   "label": 0,
+   "uniq_mean": 8.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002688",
+   "label": 0,
+   "uniq_mean": 12.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001163",
+   "label": 0,
+   "uniq_mean": 15.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000277",
+   "label": 0,
+   "uniq_mean": 18.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002535",
+   "label": 0,
+   "uniq_mean": 10.04,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001234",
+   "label": 1,
+   "uniq_mean": 14.56,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000857",
+   "label": 1,
+   "uniq_mean": 14.4,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001630",
+   "label": 0,
+   "uniq_mean": 12.42,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000274",
+   "label": 0,
+   "uniq_mean": 13.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000835",
+   "label": 1,
+   "uniq_mean": 10.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002253",
+   "label": 0,
+   "uniq_mean": 10.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002339",
+   "label": 0,
+   "uniq_mean": 12.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000133",
+   "label": 0,
+   "uniq_mean": 15.3,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001119",
+   "label": 0,
+   "uniq_mean": 11.82,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001306",
+   "label": 0,
+   "uniq_mean": 6.84,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000324",
+   "label": 1,
+   "uniq_mean": 9.2,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001051",
+   "label": 0,
+   "uniq_mean": 10.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000186",
+   "label": 0,
+   "uniq_mean": 14.18,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000860",
+   "label": 1,
+   "uniq_mean": 12.72,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000849",
+   "label": 0,
+   "uniq_mean": 7.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000518",
+   "label": 1,
+   "uniq_mean": 6.3,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000245",
+   "label": 1,
+   "uniq_mean": 8.0,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000731",
+   "label": 0,
+   "uniq_mean": 11.56,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001423",
+   "label": 0,
+   "uniq_mean": 18.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000360",
+   "label": 1,
+   "uniq_mean": 15.1,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000676",
+   "label": 1,
+   "uniq_mean": 12.88,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000678",
+   "label": 0,
+   "uniq_mean": 11.68,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001299",
+   "label": 1,
+   "uniq_mean": 14.54,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000150",
+   "label": 1,
+   "uniq_mean": 15.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002135",
+   "label": 0,
+   "uniq_mean": 14.92,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001023",
+   "label": 0,
+   "uniq_mean": 11.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001854",
+   "label": 0,
+   "uniq_mean": 7.34,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000295",
+   "label": 0,
+   "uniq_mean": 6.9,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001439",
+   "label": 1,
+   "uniq_mean": 14.12,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Snowy"
+  },
+  {
+   "id": "002866",
+   "label": 0,
+   "uniq_mean": 13.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000202",
+   "label": 0,
+   "uniq_mean": 11.88,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001151",
+   "label": 0,
+   "uniq_mean": 16.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001783",
+   "label": 0,
+   "uniq_mean": 17.2,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001918",
+   "label": 0,
+   "uniq_mean": 15.22,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000865",
+   "label": 1,
+   "uniq_mean": 8.02,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002327",
+   "label": 0,
+   "uniq_mean": 10.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000636",
+   "label": 0,
+   "uniq_mean": 16.78,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000937",
+   "label": 1,
+   "uniq_mean": 15.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000618",
+   "label": 0,
+   "uniq_mean": 12.94,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001850",
+   "label": 0,
+   "uniq_mean": 13.98,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000752",
+   "label": 0,
+   "uniq_mean": 11.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000425",
+   "label": 0,
+   "uniq_mean": 8.68,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000824",
+   "label": 1,
+   "uniq_mean": 17.1,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001741",
+   "label": 0,
+   "uniq_mean": 11.68,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000196",
+   "label": 0,
+   "uniq_mean": 12.54,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001442",
+   "label": 1,
+   "uniq_mean": 8.34,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001372",
+   "label": 0,
+   "uniq_mean": 16.32,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001902",
+   "label": 0,
+   "uniq_mean": 8.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001012",
+   "label": 0,
+   "uniq_mean": 2.58,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000119",
+   "label": 0,
+   "uniq_mean": 10.46,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001956",
+   "label": 0,
+   "uniq_mean": 11.86,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001534",
+   "label": 0,
+   "uniq_mean": 12.64,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002678",
+   "label": 0,
+   "uniq_mean": 12.72,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000358",
+   "label": 1,
+   "uniq_mean": 15.96,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000691",
+   "label": 1,
+   "uniq_mean": 13.14,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000015",
+   "label": 1,
+   "uniq_mean": 17.1,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000401",
+   "label": 1,
+   "uniq_mean": 7.0,
+   "nodet_frac": 0.0,
+   "light": "Night",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000544",
+   "label": 0,
+   "uniq_mean": 14.16,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002680",
+   "label": 0,
+   "uniq_mean": 11.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001137",
+   "label": 0,
+   "uniq_mean": 15.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000729",
+   "label": 1,
+   "uniq_mean": 13.02,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002732",
+   "label": 0,
+   "uniq_mean": 13.86,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001318",
+   "label": 1,
+   "uniq_mean": 18.18,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000419",
+   "label": 1,
+   "uniq_mean": 8.68,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000114",
+   "label": 0,
+   "uniq_mean": 9.36,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001776",
+   "label": 0,
+   "uniq_mean": 15.08,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000799",
+   "label": 1,
+   "uniq_mean": 14.48,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001118",
+   "label": 0,
+   "uniq_mean": 14.06,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001436",
+   "label": 0,
+   "uniq_mean": 13.14,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000377",
+   "label": 0,
+   "uniq_mean": 5.7,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000773",
+   "label": 0,
+   "uniq_mean": 15.4,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002730",
+   "label": 0,
+   "uniq_mean": 14.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000070",
+   "label": 0,
+   "uniq_mean": 17.32,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002012",
+   "label": 0,
+   "uniq_mean": 9.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001030",
+   "label": 0,
+   "uniq_mean": 15.02,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000437",
+   "label": 1,
+   "uniq_mean": 12.78,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000511",
+   "label": 0,
+   "uniq_mean": 18.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001681",
+   "label": 0,
+   "uniq_mean": 11.08,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001270",
+   "label": 0,
+   "uniq_mean": 18.1,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002867",
+   "label": 0,
+   "uniq_mean": 13.44,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000483",
+   "label": 1,
+   "uniq_mean": 10.76,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000613",
+   "label": 0,
+   "uniq_mean": 10.8,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001629",
+   "label": 0,
+   "uniq_mean": 15.38,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "002835",
+   "label": 0,
+   "uniq_mean": 16.48,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001163",
+   "label": 1,
+   "uniq_mean": 7.0,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Snowy"
+  },
+  {
+   "id": "000050",
+   "label": 0,
+   "uniq_mean": 13.24,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000047",
+   "label": 0,
+   "uniq_mean": 14.36,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000275",
+   "label": 1,
+   "uniq_mean": 12.08,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "000641",
+   "label": 1,
+   "uniq_mean": 16.12,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001454",
+   "label": 1,
+   "uniq_mean": 15.22,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "002476",
+   "label": 0,
+   "uniq_mean": 12.12,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "000561",
+   "label": 1,
+   "uniq_mean": 14.24,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  },
+  {
+   "id": "001092",
+   "label": 0,
+   "uniq_mean": 15.0,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001327",
+   "label": 0,
+   "uniq_mean": 11.9,
+   "nodet_frac": 0.0,
+   "light": null,
+   "weather": null
+  },
+  {
+   "id": "001037",
+   "label": 1,
+   "uniq_mean": 15.18,
+   "nodet_frac": 0.0,
+   "light": "Day",
+   "weather": "Normal"
+  }
+ ]
+}

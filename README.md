@@ -78,7 +78,7 @@ Hasil di `outputs\demo\dota_pos_naik\` (`overlay.mp4`, `laporan.html`, `skor.png
 - **Keterbatasan penting** (rinci di `docs/demo_validasi.md` dan docstring `demo.py`): detektor tanpa kelas motor; model dilatih hanya pada CCD 1280x720 sehingga video lain di luar distribusi latih; skor bukan risiko terkalibrasi. Pada video negatif CCD, pipeline demo menghasilkan skor yang hampir identik dengan fitur rilis (korelasi per frame median 0,999); pada video lain kesesuaian **tidak diuji**.
 
 ### Klip contoh untuk uji visualisasi
-`samples/` berisi 9 klip pendek (±14 MB; positif dan negatif, termasuk kasus gagal) berikut hash, manifest, dan skor acuan. Satu perintah menjalankan demo pada semuanya dan membandingkan skor dengan acuan:
+`samples/` berisi 25 klip pendek (±40 MB; 7 DoTA + 18 CCD uji; positif dan negatif, termasuk kasus gagal) berikut hash, manifest, dan skor acuan. Satu perintah menjalankan demo pada semuanya dan membandingkan skor dengan acuan:
 ```bash
 python tools/run_samples.py --viz full --html     # hasil per klip di outputs/samples/<role>/
 ```
