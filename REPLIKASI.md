@@ -44,3 +44,10 @@ Rinci di `docs/spec_gstl.md`. Ringkas:
 
 ## 7. Verifikasi pemindahan kode
 Repo ini dipisahkan dari repo kerja kami. Evaluasi bobot epoch 10 menghasilkan 12 dari 12 metrik identik (selisih 0) dengan repo asal; `train.py` hasil pangkasan lolos uji asap pelatihan pada data sintetis. Ini membuktikan perilaku tidak berubah, **tidak** membuktikan kesetaraan dengan kode penulis.
+
+## 8. Ketergantungan pada geometri kotak (ditemukan 2026-10-12)
+Uji pada bobot yang disertakan, set uji CCD, tanpa pelatihan ulang (`tools/ablasi_geometri_dalam.py`, `docs/ablasi_geometri_dalam.md`; `tools/ablasi_kotak.py`, `docs/ablasi_kotak.md`):
+- Menghapus geometri dari simpul (Psi = 0) atau mengacaknya antar objek: AP asli 96,13 → 96,11, selisih skor per frame rerata 0,001, tidak ada frame yang berubah > 0,1. Menukar kotak dengan milik klip lain atau menghapus tiga-perempat kotak: AP juga tidak berubah.
+- Menghapus fitur frame (Phi(F) = 0): AP runtuh ke 28,5% (di bawah acuan acak 33%), 80% frame berubah > 0,1.
+- Sebabnya struktural pada implementasi ini: tiap simpul = [4 koordinat kotak, fitur frame 256-d yang SAMA untuk semua 19 simpul]; kontribusi kasar geometri ≈ 0,7% dari sinyal masukan simpul. Bobot GCN untuk koordinat tidak kecil (norma baris 0,86 vs 0,81), tetapi hanya 4 dari 260 dimensi.
+- **Artinya: pada reimplementasi ini, GSTL hampir sepenuhnya memutuskan dari fitur frame VGG16; kualitas detektor dan geometri hampir tidak berpengaruh.** Ini hasil untuk reimplementasi kami (asumsi A1: Psi 4-d mentah; A3: GRU-GCN dibekukan; A5), bukan bukti tentang model Mahmood yang asli; paper mungkin memakai geometri lebih kuat. Itu bisa ikut menjelaskan selisih mTTA dan generalisasi lintas dataset yang lemah (AP 0,60 pada klip DoTA).

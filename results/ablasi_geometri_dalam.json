@@ -1,0 +1,60 @@
+{
+ "info": {
+  "bobot_gcn1_psi_rerata_abs": 0.06569666415452957,
+  "bobot_gcn1_phi_rerata_abs": 0.06202654913067818,
+  "bobot_gcn1_psi_norm_baris_rerata": 0.8620886206626892,
+  "bobot_gcn1_phi_norm_baris_rerata": 0.8132913112640381,
+  "skala_Phi_rerata_abs": 1.2377943038940429,
+  "skala_Psi_rerata_abs": 0.5320677399635315,
+  "kontribusi_kasar_Psi_vs_Phi": 0.0071138413006540105
+ },
+ "hasil": {
+  "asli": {
+   "AP_orig": 0.9613223340995856,
+   "AP_video": 0.9625191965342418,
+   "mTTA_sec": 2.251826304361844,
+   "AUC": 0.981125,
+   "skor_maks_rerata": 0.32538697123527527
+  },
+  "psi_nol": {
+   "AP_orig": 0.9610638638867851,
+   "AP_video": 0.9623223577384888,
+   "mTTA_sec": 2.2418216480719533,
+   "AUC": 0.9809916666666667,
+   "skor_maks_rerata": 0.32670608162879944,
+   "selisih_skor_per_frame_rerata": 0.0012837833492085338,
+   "selisih_skor_per_frame_maks": 0.13047179579734802,
+   "frame_berubah_lebih_dari_0.1_persen": 0.0044444444444444444
+  },
+  "psi_acak": {
+   "AP_orig": 0.9611196714581152,
+   "AP_video": 0.9625074365323658,
+   "mTTA_sec": 2.2601120294386816,
+   "AUC": 0.9811305555555555,
+   "skor_maks_rerata": 0.3253990411758423,
+   "selisih_skor_per_frame_rerata": 0.00019966046966146678,
+   "selisih_skor_per_frame_maks": 0.02723747491836548,
+   "frame_berubah_lebih_dari_0.1_persen": 0.0
+  },
+  "fitur_nol": {
+   "AP_orig": 0.28522408026755847,
+   "AP_video": 0.2847462515091572,
+   "mTTA_sec": 1.3422579562699264,
+   "AUC": 0.38319444444444445,
+   "skor_maks_rerata": 0.9992097020149231,
+   "selisih_skor_per_frame_rerata": 0.6693242788314819,
+   "selisih_skor_per_frame_maks": 0.999988853931427,
+   "frame_berubah_lebih_dari_0.1_persen": 80.18666666666667
+  },
+  "keduanya_nol": {
+   "AP_orig": 0.29540346799222816,
+   "AP_video": 0.29517858298433775,
+   "mTTA_sec": 2.1707317112209923,
+   "AUC": 0.42235833333333334,
+   "skor_maks_rerata": 0.42823243141174316,
+   "selisih_skor_per_frame_rerata": 0.443940132856369,
+   "selisih_skor_per_frame_maks": 0.5889700651168823,
+   "frame_berubah_lebih_dari_0.1_persen": 98.98222222222223
+  }
+ }
+}
