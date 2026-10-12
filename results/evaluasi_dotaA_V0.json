@@ -1,0 +1,92 @@
+{
+ "ckpt": "best.pth",
+ "epoch": 37,
+ "dataset": "dota_compact",
+ "toa": "V0",
+ "n_klip": 298,
+ "asli": {
+  "AP_orig": 0.5973007342033976,
+  "AP_video": 0.6268569171617613,
+  "mTTA_orig": 3.9367203898614194,
+  "mTTA_sec": 1.9550525039296172,
+  "AUC": 0.6478987432998513,
+  "tta@fpr1": {
+   "fpr_target": 0.01,
+   "fpr_real": 0.0,
+   "threshold": 1.0000000000000002,
+   "recall": 0.0,
+   "tta": null,
+   "alarm_frame0": null,
+   "tta_tanpa_frame0": null,
+   "n_detected": 0.0,
+   "n_pos": 149.0
+  },
+  "tta@fpr5": {
+   "fpr_target": 0.05,
+   "fpr_real": 0.0,
+   "threshold": 1.0000000000000002,
+   "recall": 0.0,
+   "tta": null,
+   "alarm_frame0": null,
+   "tta_tanpa_frame0": null,
+   "n_detected": 0.0,
+   "n_pos": 149.0
+  },
+  "alarm@0.5": {
+   "threshold": 0.5,
+   "positif_frame0": 0.03355704697986577,
+   "negatif_frame0": 0.020134228187919462,
+   "onset_per_menit_negatif": 12.563758389261725
+  }
+ },
+ "ablasi": {
+  "tanpa_geometri": {
+   "AP_orig": 0.6085010314276167,
+   "AP_video": 0.62184061549221,
+   "AUC": 0.647223098058646,
+   "mTTA_sec": 1.958990814715613
+  },
+  "tukar_kotak": {
+   "AP_orig": 0.598824975888685,
+   "AP_video": 0.6267898463333864,
+   "AUC": 0.6472005765506058,
+   "mTTA_sec": 1.9673308534041503
+  },
+  "kotak_acak": {
+   "AP_orig": 0.5794960174253231,
+   "AP_video": 0.6194832233012638,
+   "AUC": 0.6492875696289956,
+   "mTTA_sec": 2.0995221876876307
+  },
+  "tukar_fitur_frame": {
+   "AP_orig": 0.4413131698684755,
+   "AP_video": 0.42241355832351024,
+   "AUC": 0.39354833866342354,
+   "mTTA_sec": 2.070224762507108
+  },
+  "acak_waktu": {
+   "AP_orig": 0.5971457544772947,
+   "AP_video": 0.6283866150159948,
+   "AUC": 0.6485143311862829,
+   "mTTA_sec": 1.9588638213687872
+  },
+  "acak_paruh": {
+   "AP_orig": 0.5971802880838221,
+   "AP_video": 0.6279121908604322,
+   "AUC": 0.6484167379847754,
+   "mTTA_sec": 1.9543388256742933
+  },
+  "balik_waktu": {
+   "AP_orig": 0.5971484913824683,
+   "AP_video": 0.6284893765222028,
+   "AUC": 0.6480113508400522,
+   "mTTA_sec": 1.9687921809721312
+  },
+  "psi_nol": {
+   "AP_orig": 0.5971606137644451,
+   "AP_video": 0.6272414955999228,
+   "AUC": 0.6477410927435701,
+   "mTTA_sec": 1.9504640047445083
+  }
+ }
+}

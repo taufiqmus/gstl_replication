@@ -61,13 +61,14 @@ def main():
     ap.add_argument("--ablasi", action="store_true")
     ap.add_argument("--modes", default=None, help="subset mode ablasi dipisah koma (bawaan: semua; psi_nol dipakai bila disebut atau semua)")
     ap.add_argument("--seeds", type=int, default=3)
+    ap.add_argument("--splits", default="training,testing", help="dota_compact: split yang dievaluasi (bawaan semua = lintas dataset; untuk model yang dilatih di DoTA pakai 'testing')")
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--out", default=os.path.join(ROOT, "results"))
     a = ap.parse_args()
     dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model, epoch = load_gstl_model(a.ckpt, dev)
     if a.dataset == "dota_compact":
-        base = DotaCompactDataset(a.data_root, toa=a.toa)
+        base = DotaCompactDataset(a.data_root, splits=tuple(a.splits.split(",")), toa=a.toa)
     else:
         base = (CrashCompactDataset if a.dataset == "crash_compact" else CrashDataset)(a.data_root, "test")
     drop_last = a.dataset != "dota_compact"

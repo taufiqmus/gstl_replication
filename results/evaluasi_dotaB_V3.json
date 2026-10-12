@@ -1,0 +1,42 @@
+{
+ "ckpt": "best.pth",
+ "epoch": 19,
+ "dataset": "dota_compact",
+ "toa": "V3",
+ "n_klip": 298,
+ "asli": {
+  "AP_orig": 0.629012770986174,
+  "AP_video": 0.6487015655232681,
+  "mTTA_orig": 3.5731274970002502,
+  "mTTA_sec": 2.279457893187898,
+  "AUC": 0.6639791000405387,
+  "tta@fpr1": {
+   "fpr_target": 0.01,
+   "fpr_real": 0.006711409395973154,
+   "threshold": 0.9999265670776368,
+   "recall": 0.053691275167785234,
+   "tta": 1.8625000000000003,
+   "alarm_frame0": 0.0,
+   "tta_tanpa_frame0": 1.8625000000000003,
+   "n_detected": 8.0,
+   "n_pos": 149.0
+  },
+  "tta@fpr5": {
+   "fpr_target": 0.05,
+   "fpr_real": 0.04697986577181208,
+   "threshold": 0.9995940327644349,
+   "recall": 0.12080536912751678,
+   "tta": 1.7888888888888888,
+   "alarm_frame0": 0.05555555555555555,
+   "tta_tanpa_frame0": 1.6705882352941175,
+   "n_detected": 18.0,
+   "n_pos": 149.0
+  },
+  "alarm@0.5": {
+   "threshold": 0.5,
+   "positif_frame0": 0.16778523489932887,
+   "negatif_frame0": 0.06711409395973154,
+   "onset_per_menit_negatif": 10.389261744966428
+  }
+ }
+}
