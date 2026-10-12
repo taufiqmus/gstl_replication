@@ -4,3 +4,5 @@ outputs/
 data/
 .idea/
 .vscode/
+# skrip dengan path khusus komputer ini
+jalankan_demo_lokal.bat

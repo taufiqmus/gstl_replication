@@ -60,6 +60,12 @@ python tools/check_setup.py --detector <latest.pth> --hash-detector     # periks
 python demo.py --video contoh.mp4 --detector <latest.pth> --threshold 0.5
 ```
 
+Satu baris (cmd Windows, dijalankan dari direktori repo; ganti `<latest.pth>` dengan path bobot detektor):
+```bat
+python -W ignore demo.py --video "samples\dota_pos_naik__eN6y6-4C1Rc_000726.avi" --detector "<latest.pth>" --weights "weights\gstl_ccd_seed123_epoch10.pth" --out "outputs\demo\dota_pos_naik" --viz full --uncertainty --html --threshold 0.5 --box-conf 0.5 --curve-seconds 30 --width 960 --seed 123 --device cuda
+```
+Hasil di `outputs\demo\dota_pos_naik\` (`overlay.mp4`, `laporan.html`, `skor.png`, `scores.csv`). Pastikan `python` milik env yang benar (`python -c "import torch; print(torch.cuda.is_available())"` harus `True`); jangan memakai `py` di Windows, karena peluncur itu mengabaikan env conda.
+
 - Keluaran di `outputs/demo/<nama video>/`: `scores.csv`, `skor.png`, `overlay.mp4`, dan `laporan.html` (dengan `--html`). Kecepatan ±0,3 detik per frame di RTX 3060 (jendela 50 frame ±14 detik).
 - **Opsi visualisasi** (`--viz`, daftar dipisah koma atau preset): `boxes` kotak deteksi (warna per kelas), `bar` bilah skor, `curve` grafik kemungkinan tabrakan yang bergerak di bawah video, `glow` bingkai berwarna sesuai risiko, `alert` banner "RISIKO TINGGI" dan waktu peringatan pertama. Preset: `minimal` (bawaan: boxes,bar), `full` (semua), `clean` (video tanpa tambahan), `none` (tanpa video). Opsi lain: `--threshold`, `--box-conf`, `--curve-seconds`, `--width`, `--uncertainty` (ketidakpastian aleatorik/epistemik di grafik dan CSV), `--html` (laporan HTML mandiri: video tersinkron dengan grafik, klik grafik untuk lompat waktu, penggeser ambang), `--no-plot`.
   ```bash
