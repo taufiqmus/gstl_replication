@@ -1,0 +1,6 @@
+{
+  "sumber": "Mahmood, Jeong, Ryu 2023, A New Approach to Traffic Accident Anticipation With Geometric Features for Better Generalizability, IEEE Access 11:29263-29274, DOI 10.1109/ACCESS.2023.3259992 (Tabel 8 dan Tabel 9)",
+  "ccd": {"AP": 96.5, "mTTA": 4.68},
+  "dad": {"AP": 51.6, "mTTA": 2.67},
+  "parameter_juta": 1.42
+}

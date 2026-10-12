@@ -1,0 +1,4 @@
+# Diuji: Windows 11, Python 3.10, GPU RTX 3060 12 GB (CUDA 11.8). CPU juga bisa untuk evaluasi/uji asap.
+# Pasang torch dari indeks PyTorch, mis.: pip install torch==2.3.0 --index-url https://download.pytorch.org/whl/cu118
+torch==2.3.0
+numpy==1.26.4        # jangan naikkan ke 2.x (torch 2.3 dibangun terhadap NumPy 1.x)

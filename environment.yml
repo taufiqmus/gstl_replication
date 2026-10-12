@@ -1,0 +1,9 @@
+name: gstl
+channels: [defaults]
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu118
+      - torch==2.3.0+cu118
+      - numpy==1.26.4

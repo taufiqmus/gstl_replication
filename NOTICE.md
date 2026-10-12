@@ -1,0 +1,6 @@
+# Atribusi
+
+- **UString** (Bao, Yu, Kong 2020, *Uncertainty-based Traffic Accident Anticipation with Spatio-Temporal Relational Learning*, ACM Multimedia, DOI 10.1145/3394171.3413827), lisensi MIT: `gstl/bayes.py`, `gstl/graph.py`, `gstl/layers.py`, `gstl/model.py`, `gstl/data.py` adalah port ke PyTorch 2.x dari kode UString (lihat `LICENSE_UString`); GSTL dibangun di atasnya (`gstl/gstl.py`). Metrik di `collision_eval/metrics.py` mereimplementasi evaluasi UString/DSA dan menambah versi eksak.
+- **GSTL** (Mahmood, Jeong, Ryu 2023, *A New Approach to Traffic Accident Anticipation With Geometric Features for Better Generalizability*, IEEE Access 11:29263-29274, DOI 10.1109/ACCESS.2023.3259992): repo ini adalah **reimplementasi dari paper**; penulis tidak merilis kode. Bukan kode resmi.
+- **CCD** (Car Crash Dataset; Bao dkk. 2020): data **tidak** disertakan; unduh dari penulisnya (lihat README).
+- Lisensi untuk kode baru di repo ini: belum ditetapkan (menunggu keputusan pemilik repo).
