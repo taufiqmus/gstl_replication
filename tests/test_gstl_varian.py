@@ -90,5 +90,60 @@ class TestVariants(unittest.TestCase):
             build_gstl(T, 10.0, box_mode="bola")
 
 
+
+
+class TestNoBoxAndDota(unittest.TestCase):
+    def test_no_box_ignores_boxes_and_uses_frame(self):
+        rng = np.random.default_rng(0)
+        x, y, toa, g, w = make_batch(rng, B=3, dim=64)
+        det = det_tensor(3)
+        m = build_gstl(T, 10.0, seed=0, x_dim=64, h_dim=16, z_dim=8, frame_embed=12, no_box=True)
+        self.assertEqual(m.node_dim, 12)
+        m.eval()
+        for lin in (m.predictor.l1, m.predictor.l2):
+            with torch.no_grad():
+                lin.weight_rho.fill_(-40.0)
+                lin.bias_rho.fill_(-40.0)
+
+        def fwd(xx, dd):
+            with torch.no_grad():
+                _, o, _ = m(xx, y, toa, g, edge_weights=w, det=dd)
+            return torch.stack([d["pred_mean"] for d in o])
+        p = fwd(x, det)
+        det2 = det.clone()
+        det2[..., :4] = det2[..., :4] * 0.5
+        torch.testing.assert_close(p, fwd(x, det2))                            # kotak tidak dipakai di simpul (graf diberikan tetap)
+        self.assertFalse(torch.allclose(p, fwd(torch.randn_like(x), det)))       # fitur frame dipakai
+
+    def test_no_frame_and_no_box_exclusive(self):
+        with self.assertRaises(ValueError):
+            build_gstl(T, 10.0, no_frame=True, no_box=True)
+
+    def test_dota_compact_subset_and_toa(self):
+        import csv
+        import tempfile
+        from gstl.data import DotaCompactDataset
+        d = tempfile.mkdtemp()
+        rows = []
+        for i in range(6):
+            lab = i % 2
+            rel = "s/c/%d.npz" % i
+            os.makedirs(os.path.join(d, "s", "c"), exist_ok=True)
+            np.savez(os.path.join(d, rel), frame=np.zeros((50, 4096), np.float16), det=np.zeros((50, 19, 6), np.float32), labels=np.array([1 - lab, lab]), ID=np.array(str(i)))
+            rows.append(dict(rel=rel, label=lab, split="training" if i < 4 else "testing", toa_V0=30 if lab else 0, toa_V3=40 if lab else 0))
+        with open(os.path.join(d, "manifest.csv"), "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=list(rows[0]))
+            w.writeheader()
+            w.writerows(rows)
+        tr = DotaCompactDataset(d, ("training",), "V0")
+        self.assertEqual(len(tr), 4)
+        sub = DotaCompactDataset(d, ("training",), "V3", indices=[1, 2])
+        self.assertEqual(len(sub), 2)
+        self.assertEqual(sub.toas, [40, 51])                                    # indeks 1 positif (V3=40), 2 negatif (51)
+        f, l, det, vid, toa = sub.raw(0)
+        self.assertEqual(f.shape, (50, 1, 4096))
+        self.assertEqual(toa, 40)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -57,7 +57,7 @@ class GSTL(UString):
 
     def __init__(self, x_dim=4096, h_dim=128, z_dim=128, n_layers=1, n_obj=19, n_frames=50, fps=10.0,
                  frame_embed=256, box_mode="xyxy", box_embed=0, with_saa=True, uncertain_ranking=False,
-                 rnn_trainable=False, exp_loss_mode="faithful", no_frame=False):
+                 rnn_trainable=False, exp_loss_mode="faithful", no_frame=False, no_box=False):
         nn.Module.__init__(self)
         if exp_loss_mode not in ("faithful", "per_sample"):
             raise ValueError(exp_loss_mode)
@@ -69,11 +69,14 @@ class GSTL(UString):
             raise ValueError(box_mode)
         box_in = box_dim(box_mode)
         self.no_frame = no_frame
+        self.no_box = no_box
+        if no_frame and no_box:
+            raise ValueError('no_frame dan no_box tidak boleh bersamaan')
         # Φ(F_t): FC + ReLU seperti phi_x UString (asumsi; paper tidak menyebut dimensinya)
         self.phi_f = None if no_frame else nn.Sequential(nn.Linear(x_dim, frame_embed), nn.ReLU())
         # Ψ(O_t^(i)): geometri mentah atau FC + ReLU (asumsi)
         self.psi_b = nn.Sequential(nn.Linear(box_in, box_embed), nn.ReLU()) if box_embed else None
-        node_dim = (box_embed or box_in) + (0 if no_frame else frame_embed)
+        node_dim = (0 if no_box else (box_embed or box_in)) + (0 if no_frame else frame_embed)
         self.node_dim = node_dim
         self.enc_gcn1 = GCNConv(node_dim, h_dim)
         self.enc_gcn2 = GCNConv(h_dim + h_dim, z_dim, act=_identity)
@@ -86,6 +89,9 @@ class GSTL(UString):
 
     def node_features(self, x_t, det_t):
         """x_t: (B, 1+N, D) atau (B, 1, D) (hanya frame); det_t: (B, N, >=4) piksel → (B, N, node_dim)."""
+        if self.no_box:                                               # varian fitur frame saja (tanpa geometri di simpul; graf tetap dari kotak)
+            f = self.phi_f(x_t[:, 0])
+            return f.unsqueeze(1).expand(-1, self.n_obj, -1)
         g = box_geometry(det_t, self.box_mode)                        # B x N x box_in
         if self.psi_b is not None:
             g = self.psi_b(g)

@@ -40,7 +40,7 @@ def load_gstl(path, ds, device):
                    n_layers=cfg.get("num_rnn", 1), n_obj=ds.n_obj, frame_embed=cfg["gstl_frame_embed"],
                    box_mode=cfg["gstl_box_mode"], box_embed=cfg["gstl_box_embed"],
                    with_saa=not cfg.get("gstl_no_saa", False), uncertain_ranking=cfg.get("gstl_ranking", False),
-                   rnn_trainable=cfg.get("rnn_trainable", False), exp_loss_mode=cfg.get("exp_loss", "faithful"), no_frame=cfg.get("gstl_no_frame", False))
+                   rnn_trainable=cfg.get("rnn_trainable", False), exp_loss_mode=cfg.get("exp_loss", "faithful"), no_frame=cfg.get("gstl_no_frame", False), no_box=cfg.get("gstl_no_box", False))
     m.load_state_dict(ck["model"])
     return m.to(device), ck.get("epoch")
 

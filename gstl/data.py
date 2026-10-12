@@ -171,7 +171,7 @@ class DotaCompactDataset(_FeatureDataset):
     n_frames = 50
     fps = 10.0
 
-    def __init__(self, root, splits=("training", "testing"), toa="V3", feature="vgg16", return_meta=False):
+    def __init__(self, root, splits=("training", "testing"), toa="V3", feature="vgg16", return_meta=False, indices=None):
         import csv
         super().__init__(feature, return_meta)
         self.root = root
@@ -179,6 +179,11 @@ class DotaCompactDataset(_FeatureDataset):
         self.files_list = [r["rel"] for r in rows]
         self.labels_list = [int(r["label"]) for r in rows]
         self.toas = [min(max(int(r["toa_" + toa]), 1), self.n_frames - 1) if r["label"] == "1" else self.n_frames + 1 for r in rows]
+        if indices is not None:                      # subset (mis. split validasi dari data latih)
+            idx = list(indices)
+            self.files_list = [self.files_list[i] for i in idx]
+            self.labels_list = [self.labels_list[i] for i in idx]
+            self.toas = [self.toas[i] for i in idx]
 
     def __len__(self):
         return len(self.files_list)

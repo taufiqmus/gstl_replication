@@ -32,13 +32,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 from collision_eval import evaluate_ustring_style, evaluate_video_level  # noqa: E402
-from gstl.data import CrashCompactDataset, CrashDataset, DADDataset  # noqa: E402
+from gstl.data import CrashCompactDataset, CrashDataset, DADDataset, DotaCompactDataset  # noqa: E402
 from gstl.model import build_model  # noqa: E402
 
 
 def parse_args(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dataset", choices=["crash", "crash_compact", "dad"], default="crash")
+    ap.add_argument("--dataset", choices=["crash", "crash_compact", "dad", "dota_compact"], default="crash")
     ap.add_argument("--data-root", default=None,
                     help="folder data (CCD: berisi vgg16_features/ dan videos/); bawaan: variabel lingkungan CCD_ROOT / DAD_ROOT")
     ap.add_argument("--exp", required=True, help="nama eksperimen → outputs/<exp>")
@@ -52,6 +52,8 @@ def parse_args(argv=None):
     ap.add_argument("--gstl-frame-embed", type=int, default=256, help="GSTL: FC fitur frame 4096→n")
     ap.add_argument("--gstl-box-mode", choices=["xyxy", "xyxywh", "xyxywh+cls", "xyxywh+cls+score"], default="xyxy")
     ap.add_argument("--gstl-no-frame", action="store_true", help="GSTL varian geometri saja: simpul tanpa fitur frame")
+    ap.add_argument("--gstl-no-box", action="store_true", help="GSTL varian fitur frame saja: simpul tanpa geometri kotak (graf tetap dari kotak)")
+    ap.add_argument("--dota-toa", choices=["V0", "V3"], default="V0", help="dota_compact: toa asli (V0) atau terkoreksi (V3)")
     ap.add_argument("--gstl-box-embed", type=int, default=0, help="GSTL: 0 = geometri mentah, n = FC ke n")
     ap.add_argument("--gstl-no-saa", action="store_true", help="GSTL: tanpa cabang SAA/L_BCE video")
     ap.add_argument("--gstl-ranking", action="store_true", help="GSTL: nyalakan ranking loss (tidak ada di pers. 4)")
@@ -92,9 +94,18 @@ def set_seed(seed):
 
 
 def make_datasets(a):
-    root = a.data_root or os.environ.get({"crash": "CCD_ROOT", "crash_compact": "CCD_COMPACT_ROOT"}.get(a.dataset, "DAD_ROOT"))
+    root = a.data_root or os.environ.get({"crash": "CCD_ROOT", "crash_compact": "CCD_COMPACT_ROOT", "dota_compact": "DOTA_COMPACT_ROOT"}.get(a.dataset, "DAD_ROOT"))
     if not root:
         raise SystemExit("data tidak ditemukan: beri --data-root atau set CCD_ROOT / DAD_ROOT")
+    if a.dataset == "dota_compact":
+        full_train = DotaCompactDataset(root, ("training",), a.dota_toa)
+        test = DotaCompactDataset(root, ("testing",), a.dota_toa)
+        if a.val_frac > 0:
+            items = list(zip(range(len(full_train)), full_train.labels_list))
+            tr, va = stratified_split(items, [l for _, l in items], a.val_frac, a.seed)
+            return (DotaCompactDataset(root, ("training",), a.dota_toa, indices=[i for i, _ in tr]),
+                    DotaCompactDataset(root, ("training",), a.dota_toa, indices=[i for i, _ in va]), test)
+        return full_train, None, test
     if a.dataset in ("crash", "crash_compact"):
         DS = CrashCompactDataset if a.dataset == "crash_compact" else CrashDataset
         full_train = DS(root, "train", a.feature)
@@ -150,7 +161,7 @@ def make_model(a, ds):
         return build_gstl(ds.n_frames, ds.fps, seed=a.seed, x_dim=ds.dim_feature, h_dim=a.hidden_dim,
                           z_dim=a.latent_dim, n_layers=a.num_rnn, n_obj=ds.n_obj, frame_embed=a.gstl_frame_embed,
                           box_mode=a.gstl_box_mode, box_embed=a.gstl_box_embed, with_saa=not a.gstl_no_saa,
-                          uncertain_ranking=a.gstl_ranking, rnn_trainable=a.rnn_trainable, exp_loss_mode=a.exp_loss, no_frame=a.gstl_no_frame)
+                          uncertain_ranking=a.gstl_ranking, rnn_trainable=a.rnn_trainable, exp_loss_mode=a.exp_loss, no_frame=a.gstl_no_frame, no_box=a.gstl_no_box)
     return build_model(ds.dim_feature, ds.n_obj, ds.n_frames, ds.fps, hidden_dim=a.hidden_dim,
                        latent_dim=a.latent_dim, num_rnn=a.num_rnn, rnn_trainable=a.rnn_trainable,
                        exp_loss_mode=a.exp_loss, seed=a.seed)
