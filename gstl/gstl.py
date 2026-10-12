@@ -23,16 +23,32 @@ from .model import UString
 IMG_W, IMG_H = 1280.0, 720.0  # koordinat det CCD dalam piksel 1280x720 (det maks 1278/718)
 
 
-def box_geometry(det, mode="xyxy"):
-    """det: (B, T, N, >=4) piksel → Ψ ternormalisasi (B, T, N, d).
+BOX_MODES = ("xyxy", "xyxywh", "xyxywh+cls", "xyxywh+cls+score")
+_BOX_DIM = {"xyxy": 4, "xyxywh": 6, "xyxywh+cls": 9, "xyxywh+cls+score": 10}
 
-    xyxy  : x1/W, y1/H, x2/W, y2/H (4-d)
-    xyxywh: + lebar, tinggi ternormalisasi (6-d)
+
+def box_dim(mode):
+    return _BOX_DIM[mode]
+
+
+def box_geometry(det, mode="xyxy"):
+    """det: (B, T, N, >=6) piksel [x1,y1,x2,y2,skor,kelas] → Ψ ternormalisasi (B, T, N, d).
+
+    xyxy             : x1/W, y1/H, x2/W, y2/H (4-d)
+    xyxywh           : + lebar, tinggi ternormalisasi (6-d)
+    xyxywh+cls       : + one-hot kelas lama (Car, Pedestrian, Cyclist) (9-d); kotak kosong (padding, lebar 0) -> semua 0
+    xyxywh+cls+score : + skor deteksi di [0,1] (10-d; skor di .npz CCD rilis terpotong jadi bilangan bulat, jadi bermakna hanya untuk fitur hasil ekstraksi baru)
     """
     x1, y1, x2, y2 = det[..., 0] / IMG_W, det[..., 1] / IMG_H, det[..., 2] / IMG_W, det[..., 3] / IMG_H
     feats = [x1, y1, x2, y2]
-    if mode == "xyxywh":
+    if mode != "xyxy":
         feats += [x2 - x1, y2 - y1]
+    if "cls" in mode:
+        valid = ((det[..., 2] - det[..., 0]) > 0).to(det.dtype)
+        cls = det[..., 5].long().clamp(0, 2)
+        feats += [(cls == c).to(det.dtype) * valid for c in range(3)]
+        if mode.endswith("+score"):
+            feats.append(det[..., 4].clamp(0, 1) * valid)
     return torch.stack(feats, dim=-1)
 
 
@@ -41,7 +57,7 @@ class GSTL(UString):
 
     def __init__(self, x_dim=4096, h_dim=128, z_dim=128, n_layers=1, n_obj=19, n_frames=50, fps=10.0,
                  frame_embed=256, box_mode="xyxy", box_embed=0, with_saa=True, uncertain_ranking=False,
-                 rnn_trainable=False, exp_loss_mode="faithful"):
+                 rnn_trainable=False, exp_loss_mode="faithful", no_frame=False):
         nn.Module.__init__(self)
         if exp_loss_mode not in ("faithful", "per_sample"):
             raise ValueError(exp_loss_mode)
@@ -49,12 +65,15 @@ class GSTL(UString):
         self.n_layers, self.n_obj, self.n_frames, self.fps = n_layers, n_obj, n_frames, fps
         self.with_saa, self.uncertain_ranking, self.exp_loss_mode = with_saa, uncertain_ranking, exp_loss_mode
         self.box_mode = box_mode
-        box_in = 4 if box_mode == "xyxy" else 6
+        if box_mode not in BOX_MODES:
+            raise ValueError(box_mode)
+        box_in = box_dim(box_mode)
+        self.no_frame = no_frame
         # Φ(F_t): FC + ReLU seperti phi_x UString (asumsi; paper tidak menyebut dimensinya)
-        self.phi_f = nn.Sequential(nn.Linear(x_dim, frame_embed), nn.ReLU())
+        self.phi_f = None if no_frame else nn.Sequential(nn.Linear(x_dim, frame_embed), nn.ReLU())
         # Ψ(O_t^(i)): geometri mentah atau FC + ReLU (asumsi)
         self.psi_b = nn.Sequential(nn.Linear(box_in, box_embed), nn.ReLU()) if box_embed else None
-        node_dim = (box_embed or box_in) + frame_embed
+        node_dim = (box_embed or box_in) + (0 if no_frame else frame_embed)
         self.node_dim = node_dim
         self.enc_gcn1 = GCNConv(node_dim, h_dim)
         self.enc_gcn2 = GCNConv(h_dim + h_dim, z_dim, act=_identity)
@@ -67,10 +86,12 @@ class GSTL(UString):
 
     def node_features(self, x_t, det_t):
         """x_t: (B, 1+N, D) atau (B, 1, D) (hanya frame); det_t: (B, N, >=4) piksel → (B, N, node_dim)."""
-        f = self.phi_f(x_t[:, 0])                                     # B x frame_embed
         g = box_geometry(det_t, self.box_mode)                        # B x N x box_in
         if self.psi_b is not None:
             g = self.psi_b(g)
+        if self.no_frame:                                             # varian geometri saja (tanpa fitur frame)
+            return g
+        f = self.phi_f(x_t[:, 0])                                     # B x frame_embed
         return torch.cat([g, f.unsqueeze(1).expand(-1, self.n_obj, -1)], dim=-1)
 
     def forward(self, x, y, toa, graph, hidden_in=None, edge_weights=None, npass=2, nbatch=80, testing=False,

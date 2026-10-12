@@ -168,5 +168,52 @@ class TestOther(unittest.TestCase):
         self.assertAlmostEqual(cross_dataset_cd(65.8, [57.5, 51.8]), 0.527, delta=0.0015)  # GCRNN latih DAD
 
 
+
+
+class TestFixedFprMetrics(unittest.TestCase):
+    def setUp(self):
+        from collision_eval import alarm_rates, threshold_for_fpr, tta_at_fpr
+        self.f = (alarm_rates, threshold_for_fpr, tta_at_fpr)
+        T, fps = 50, 10.0
+        pred = np.full((6, T), 0.05)
+        pred[0, 10:] = 0.9      # positif: alarm di frame 10, toa 40 -> TTA 3,0 s
+        pred[1, 0:] = 0.9       # positif: alarm di frame 0, toa 30 -> TTA 3,0 s (alarm frame 0)
+        pred[2, 20:] = 0.9      # positif: alarm di frame 20, toa 35 -> TTA 1,5 s
+        pred[3] = 0.3           # negatif tenang
+        pred[4] = 0.2
+        pred[5, 5:8] = 0.6      # negatif dengan satu alarm palsu
+        self.pred, self.labels, self.toas, self.fps = pred, np.array([1, 1, 1, 0, 0, 0]), np.array([40, 30, 35, 51, 51, 51.0]), fps
+
+    def test_threshold_respects_fpr(self):
+        alarm_rates, thr_f, tta_f = self.f
+        th0 = thr_f(self.pred, self.labels, self.toas, 0.0)           # FPR 0: tepat di atas skor maks negatif tertinggi (0,6)
+        self.assertGreater(th0, 0.6)
+        th34 = thr_f(self.pred, self.labels, self.toas, 0.34)          # boleh 1 dari 3 negatif menyala
+        self.assertLessEqual(th34, 0.6 + 1e-6)
+        self.assertGreater(th34, 0.3)
+
+    def test_tta_alarm_frame0_and_recall(self):
+        _, _, tta_f = self.f
+        r = tta_f(self.pred, self.labels, self.toas, self.fps, fpr=0.34)
+        self.assertAlmostEqual(r["recall"], 1.0)
+        self.assertAlmostEqual(r["alarm_frame0"], 1 / 3)                # satu dari tiga positif beralarm di frame 0
+        self.assertAlmostEqual(r["tta"], (3.0 + 3.0 + 1.5) / 3)
+        self.assertAlmostEqual(r["tta_tanpa_frame0"], (3.0 + 1.5) / 2)
+        self.assertLessEqual(r["fpr_real"], 0.34 + 1e-9)
+
+    def test_strict_fpr_drops_low_scoring_positives(self):
+        _, _, tta_f = self.f
+        r = tta_f(self.pred, self.labels, self.toas, self.fps, fpr=0.0)
+        self.assertAlmostEqual(r["fpr_real"], 0.0)
+        self.assertAlmostEqual(r["recall"], 1.0)                        # skor positif 0,9 > 0,6
+
+    def test_alarm_rates(self):
+        alarm_rates = self.f[0]
+        a = alarm_rates(self.pred, self.labels, self.toas, self.fps, 0.5)
+        self.assertAlmostEqual(a["positif_frame0"], 1 / 3)
+        self.assertAlmostEqual(a["negatif_frame0"], 0.0)
+        self.assertAlmostEqual(a["onset_per_menit_negatif"], 1 / (3 * 50 / 10 / 60))   # 1 awal-alarm / total 15 detik
+
+
 if __name__ == "__main__":
     unittest.main()

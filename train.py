@@ -50,7 +50,8 @@ def parse_args(argv=None):
     ap.add_argument("--model", choices=["gstl", "ustring"], default="gstl",
                     help="gstl = Mahmood 2023 (bawaan); ustring = GCRNN dasar (Bao 2020) sebagai pembanding")
     ap.add_argument("--gstl-frame-embed", type=int, default=256, help="GSTL: FC fitur frame 4096→n")
-    ap.add_argument("--gstl-box-mode", choices=["xyxy", "xyxywh"], default="xyxy")
+    ap.add_argument("--gstl-box-mode", choices=["xyxy", "xyxywh", "xyxywh+cls", "xyxywh+cls+score"], default="xyxy")
+    ap.add_argument("--gstl-no-frame", action="store_true", help="GSTL varian geometri saja: simpul tanpa fitur frame")
     ap.add_argument("--gstl-box-embed", type=int, default=0, help="GSTL: 0 = geometri mentah, n = FC ke n")
     ap.add_argument("--gstl-no-saa", action="store_true", help="GSTL: tanpa cabang SAA/L_BCE video")
     ap.add_argument("--gstl-ranking", action="store_true", help="GSTL: nyalakan ranking loss (tidak ada di pers. 4)")
@@ -148,7 +149,7 @@ def make_model(a, ds):
         return build_gstl(ds.n_frames, ds.fps, seed=a.seed, x_dim=ds.dim_feature, h_dim=a.hidden_dim,
                           z_dim=a.latent_dim, n_layers=a.num_rnn, n_obj=ds.n_obj, frame_embed=a.gstl_frame_embed,
                           box_mode=a.gstl_box_mode, box_embed=a.gstl_box_embed, with_saa=not a.gstl_no_saa,
-                          uncertain_ranking=a.gstl_ranking, rnn_trainable=a.rnn_trainable, exp_loss_mode=a.exp_loss)
+                          uncertain_ranking=a.gstl_ranking, rnn_trainable=a.rnn_trainable, exp_loss_mode=a.exp_loss, no_frame=a.gstl_no_frame)
     return build_model(ds.dim_feature, ds.n_obj, ds.n_frames, ds.fps, hidden_dim=a.hidden_dim,
                        latent_dim=a.latent_dim, num_rnn=a.num_rnn, rnn_trainable=a.rnn_trainable,
                        exp_loss_mode=a.exp_loss, seed=a.seed)

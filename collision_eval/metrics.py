@@ -273,3 +273,57 @@ def cross_dataset_cd(self_score, other_scores, scale=100.0):
     """
     others = np.asarray(other_scores, dtype=np.float64)
     return 1.0 / (1.0 + math.exp(-(float(self_score) - float(others.mean())) / scale))
+
+
+# ---------------------------------------------------------------------------
+# 4) Metrik peringatan pada tingkat alarm palsu tetap (tidak dipengaruhi alarm di frame pertama / ambang berpresisi buruk)
+# ---------------------------------------------------------------------------
+def threshold_for_fpr(all_pred, labels, toas, fpr):
+    """Ambang terkecil sehingga fraksi video NEGATIF yang 'menyala' (skor maks >= ambang) <= fpr (negatif dievaluasi seluruh frame)."""
+    all_pred, labels, toas = _check_inputs(all_pred, labels, toas)
+    neg = np.sort(np.array([p.max() for p, y in zip(all_pred, labels) if y == 0]))[::-1]
+    if len(neg) == 0:
+        raise ValueError("tidak ada video negatif")
+    k = int(np.floor(fpr * len(neg)))
+    k = min(k, len(neg) - 1)
+    return float(np.nextafter(neg[k], np.inf))
+
+
+def tta_at_fpr(all_pred, labels, toas, fps, fpr=0.05):
+    """TTA, recall, dan porsi alarm-frame-0 pada ambang yang dipilih dari FPR video negatif.
+
+    Positif 'menyala' bila ada frame >= ambang pada [0, toa). TTA = (toa - frame pertama >= ambang)/fps, dirata-rata atas positif yang menyala.
+    alarm_frame0 = porsi positif menyala yang sudah menyala di frame 0 (isyarat tingkat klip, bukan antisipasi);
+    tta_tanpa_frame0 = rerata TTA hanya atas positif yang pertama menyala setelah frame 0.
+    """
+    all_pred, labels, toas = _check_inputs(all_pred, labels, toas)
+    th = threshold_for_fpr(all_pred, labels, toas, fpr)
+    segs = eval_segments(all_pred, labels, toas)
+    neg_fire = np.array([segs[i].max() >= th for i in range(len(labels)) if labels[i] == 0])
+    firsts, ttas = [], []
+    for i in range(len(labels)):
+        if labels[i] == 1 and (segs[i] >= th).any():
+            t = int(np.argmax(segs[i] >= th))
+            firsts.append(t)
+            ttas.append((toas[i] - t) / fps)
+    n_pos = int(np.sum(labels == 1))
+    firsts, ttas = np.array(firsts, int), np.array(ttas, float)
+    nz = firsts > 0
+    return dict(fpr_target=float(fpr), fpr_real=float(neg_fire.mean()), threshold=th, recall=float(len(firsts) / n_pos),
+                tta=float(ttas.mean()) if len(ttas) else float("nan"),
+                alarm_frame0=float((firsts == 0).mean()) if len(firsts) else float("nan"),
+                tta_tanpa_frame0=float(ttas[nz].mean()) if nz.any() else float("nan"), n_detected=int(len(firsts)), n_pos=n_pos)
+
+
+def alarm_rates(all_pred, labels, toas, fps, threshold):
+    """Pada ambang tetap: porsi positif/negatif yang sudah >= ambang di frame 0 dan jumlah awal-alarm (naik melewati ambang) per menit pada negatif."""
+    all_pred, labels, toas = _check_inputs(all_pred, labels, toas)
+    pos0 = np.mean([p[0] >= threshold for p, y in zip(all_pred, labels) if y == 1])
+    neg0 = np.mean([p[0] >= threshold for p, y in zip(all_pred, labels) if y == 0])
+    onsets, minutes = 0, 0.0
+    for p, y in zip(all_pred, labels):
+        if y == 0:
+            a = np.asarray(p) >= threshold
+            onsets += int(a[0]) + int(np.sum(a[1:] & ~a[:-1]))
+            minutes += len(p) / fps / 60.0
+    return dict(threshold=float(threshold), positif_frame0=float(pos0), negatif_frame0=float(neg0), onset_per_menit_negatif=float(onsets / max(minutes, 1e-9)))
