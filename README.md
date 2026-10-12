@@ -53,23 +53,22 @@ Evaluasi memakai fitur yang sudah dihitung dan dirilis bersama CCD (VGG16 + kota
 
 ```bash
 pip install -r requirements-demo.txt          # torchvision, opencv-python-headless, Pillow, matplotlib
-# bobot detektor (±1,0 GB; TIDAK disertakan): folder "Cascade R-CNN" di Drive penulis UString:
-#   https://drive.google.com/drive/folders/1vUz3HYoAFeu0qGQy7pe51oa41zd0OCQU
-#   berkas work_dirs/cascade_rcnn_x101_64x4d_fpn_1x_kitti2d/latest.pth, SHA-256 C768907093DB3B5BC87C1D79E728EEBB6F90252017D7BCB2DF0D5B34F2BD60BF
-python tools/check_setup.py --detector <latest.pth> --hash-detector     # periksa hash SEBELUM memakainya
-python demo.py --video contoh.mp4 --detector <latest.pth> --threshold 0.5
+# bobot detektor (0,95 GB) ada di weights/detector/latest.pth (Git LFS; pada klon baru jalankan: git lfs pull)
+#   sumber asli: folder Drive penulis UString, https://drive.google.com/drive/folders/1vUz3HYoAFeu0qGQy7pe51oa41zd0OCQU
+python tools/check_setup.py --hash-detector     # periksa hash SEBELUM memakainya
+python demo.py --video contoh.mp4 --threshold 0.5          # --detector bawaan: weights/detector/latest.pth
 ```
 
-Satu baris (cmd Windows, dijalankan dari direktori repo; ganti `<latest.pth>` dengan path bobot detektor):
+Satu baris (cmd Windows, dijalankan dari direktori repo):
 ```bat
-python -W ignore demo.py --video "samples\dota_pos_naik__eN6y6-4C1Rc_000726.avi" --detector "<latest.pth>" --weights "weights\gstl_ccd_seed123_epoch10.pth" --out "outputs\demo\dota_pos_naik" --viz full --uncertainty --html --threshold 0.5 --box-conf 0.5 --curve-seconds 30 --width 960 --seed 123 --device cuda
+python -W ignore demo.py --video "samples\dota_pos_naik__eN6y6-4C1Rc_000726.avi" --detector "weights\detector\latest.pth" --weights "weights\gstl_ccd_seed123_epoch10.pth" --out "outputs\demo\dota_pos_naik" --viz full --uncertainty --html --threshold 0.5 --box-conf 0.5 --curve-seconds 30 --width 960 --seed 123 --device cuda
 ```
 Hasil di `outputs\demo\dota_pos_naik\` (`overlay.mp4`, `laporan.html`, `skor.png`, `scores.csv`). Pastikan `python` milik env yang benar (`python -c "import torch; print(torch.cuda.is_available())"` harus `True`); jangan memakai `py` di Windows, karena peluncur itu mengabaikan env conda.
 
 - Keluaran di `outputs/demo/<nama video>/`: `scores.csv`, `skor.png`, `overlay.mp4`, dan `laporan.html` (dengan `--html`). Kecepatan ±0,3 detik per frame di RTX 3060 (jendela 50 frame ±14 detik).
 - **Opsi visualisasi** (`--viz`, daftar dipisah koma atau preset): `boxes` kotak deteksi (warna per kelas), `bar` bilah skor, `curve` grafik kemungkinan tabrakan yang bergerak di bawah video, `glow` bingkai berwarna sesuai risiko, `alert` banner "RISIKO TINGGI" dan waktu peringatan pertama. Preset: `minimal` (bawaan: boxes,bar), `full` (semua), `clean` (video tanpa tambahan), `none` (tanpa video). Opsi lain: `--threshold`, `--box-conf`, `--curve-seconds`, `--width`, `--uncertainty` (ketidakpastian aleatorik/epistemik di grafik dan CSV), `--html` (laporan HTML mandiri: video tersinkron dengan grafik, klik grafik untuk lompat waktu, penggeser ambang), `--no-plot`.
   ```bash
-  python demo.py --video contoh.mp4 --detector <latest.pth> --viz full --uncertainty --html
+  python demo.py --video contoh.mp4 --viz full --uncertainty --html
   ```
 - "Kemungkinan tabrakan" = **satu skor per frame** dari model (probabilitas kelas kecelakaan, belum terkalibrasi), bukan risiko per objek.
 - **Video di peramban:** OpenCV hanya menulis `mp4v`, yang tidak diputar peramban. Bila `ffmpeg` ada di PATH, `overlay.mp4` otomatis diubah ke H.264; bila tidak, demo memberi peringatan (putar dengan VLC atau pasang ffmpeg). Berkas `laporan.html` paling aman dibuka langsung dari folder keluaran (video dan HTML satu folder).
@@ -81,7 +80,7 @@ Hasil di `outputs\demo\dota_pos_naik\` (`overlay.mp4`, `laporan.html`, `skor.png
 ### Klip contoh untuk uji visualisasi
 `samples/` berisi 9 klip pendek (±14 MB; positif dan negatif, termasuk kasus gagal) berikut hash, manifest, dan skor acuan. Satu perintah menjalankan demo pada semuanya dan membandingkan skor dengan acuan:
 ```bash
-python tools/run_samples.py --detector <latest.pth> --viz full --html     # hasil per klip di outputs/samples/<role>/
+python tools/run_samples.py --viz full --html     # hasil per klip di outputs/samples/<role>/
 ```
 Rincian dan **catatan hak cipta** (klip berasal dari video YouTube; hapus `samples/` DAN riwayat Git-nya sebelum repo dibagikan keluar, lihat `samples/README.md`) ada di `samples/README.md`.
 

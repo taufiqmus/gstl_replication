@@ -156,7 +156,8 @@ def check_detector(path, do_hash):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data-root", default=os.environ.get("CCD_ROOT"))
-    ap.add_argument("--detector", default=os.environ.get("DETECTOR_CKPT"))
+    _loc = os.path.join(ROOT, "weights", "detector", "latest.pth")
+    ap.add_argument("--detector", default=os.environ.get("DETECTOR_CKPT") or (_loc if os.path.exists(_loc) else None))
     ap.add_argument("--hash-detector", action="store_true")
     a = ap.parse_args()
     has_torch = check_env()

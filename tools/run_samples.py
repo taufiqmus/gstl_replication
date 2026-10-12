@@ -50,7 +50,8 @@ def summary(sc, thr=0.5, fps=10.0):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--detector", default=os.environ.get("DETECTOR_CKPT"))
+    _loc = os.path.join(ROOT, "weights", "detector", "latest.pth")
+    ap.add_argument("--detector", default=os.environ.get("DETECTOR_CKPT") or (_loc if os.path.exists(_loc) else None))
     ap.add_argument("--out", default=os.path.join(ROOT, "outputs", "samples"))
     ap.add_argument("--only", default=None, help="daftar role dipisah koma")
     ap.add_argument("--viz", default="full")
@@ -60,7 +61,7 @@ def main():
     ap.add_argument("--update-expected", action="store_true")
     a = ap.parse_args()
     if not a.detector or not os.path.exists(a.detector):
-        raise SystemExit("bobot detektor tidak ditemukan: beri --detector atau set DETECTOR_CKPT")
+        raise SystemExit("bobot detektor tidak ditemukan: taruh di weights/detector/latest.pth, atau beri --detector / set DETECTOR_CKPT")
     rows = read_manifest()
     if a.only:
         keep = set(a.only.split(","))

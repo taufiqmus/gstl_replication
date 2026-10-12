@@ -45,6 +45,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 DEFAULT_WEIGHTS = os.path.join(HERE, "weights", "gstl_ccd_seed123_epoch10.pth")
+_DET_LOCAL = os.path.join(HERE, "weights", "detector", "latest.pth")
+DEFAULT_DETECTOR = os.environ.get("DETECTOR_CKPT") or (_DET_LOCAL if os.path.exists(_DET_LOCAL) else None)
 N_FRAMES, TARGET_FPS, REF_W, REF_H = 50, 10.0, 1280.0, 720.0
 VIZ_ALL = ("boxes", "bar", "curve", "glow", "alert")
 VIZ_PRESETS = {"minimal": ("boxes", "bar"), "full": VIZ_ALL, "clean": (), "none": None}
@@ -66,8 +68,8 @@ def parse_viz(text):
 def parse_args(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--video", required=True)
-    ap.add_argument("--detector", default=os.environ.get("DETECTOR_CKPT"),
-                    help="bobot Cascade R-CNN (latest.pth dari Drive UString); bawaan: variabel DETECTOR_CKPT")
+    ap.add_argument("--detector", default=DEFAULT_DETECTOR,
+                    help="bobot Cascade R-CNN (latest.pth); bawaan: variabel DETECTOR_CKPT, atau weights/detector/latest.pth bila ada")
     ap.add_argument("--weights", default=DEFAULT_WEIGHTS, help="checkpoint GSTL")
     ap.add_argument("--out", default=None, help="folder keluaran (bawaan: outputs/demo/<nama video>)")
     ap.add_argument("--threshold", type=float, default=0.5, help="ambang peringatan (untuk penanda, warna, dan ringkasan)")
@@ -344,7 +346,7 @@ def write_html(path, title, scores, unc, fps, thr, video_name):
 def main(argv=None):
     a = parse_args(argv)
     if not a.detector or not os.path.exists(a.detector):
-        raise SystemExit("bobot detektor tidak ditemukan. Beri --detector atau set DETECTOR_CKPT (lihat README, bagian Demo).")
+        raise SystemExit("bobot detektor tidak ditemukan. Taruh di weights/detector/latest.pth (git lfs pull bila dari klon), atau beri --detector / set DETECTOR_CKPT (lihat README, bagian Demo).")
     import cv2
     from gstl.detector import load_detector
     from gstl.features import VGG16FC7, extract_frames_features
