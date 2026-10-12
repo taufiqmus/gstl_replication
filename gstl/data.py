@@ -164,6 +164,38 @@ class CrashCompactDataset(_FeatureDataset):
         return self._pack(features, labels, detections, toa, vid)
 
 
+class DotaCompactDataset(_FeatureDataset):
+    """DoTA (klip 50 frame rilis STAGNet) dalam format ringkas yang sama dengan CrashCompactDataset.
+    root berisi manifest.csv (kolom: rel, label, split, toa_V0, toa_V3) dan .npz pada path rel (frame, det, labels, ID).
+    toa: 'V3' (terkoreksi) atau 'V0' (asli); negatif = n_frames + 1. Untuk EVALUASI lintas dataset (bukan pelatihan)."""
+    n_frames = 50
+    fps = 10.0
+
+    def __init__(self, root, splits=("training", "testing"), toa="V3", feature="vgg16", return_meta=False):
+        import csv
+        super().__init__(feature, return_meta)
+        self.root = root
+        rows = [r for r in csv.DictReader(open(os.path.join(root, "manifest.csv"), encoding="utf-8")) if r["split"] in splits]
+        self.files_list = [r["rel"] for r in rows]
+        self.labels_list = [int(r["label"]) for r in rows]
+        self.toas = [min(max(int(r["toa_" + toa]), 1), self.n_frames - 1) if r["label"] == "1" else self.n_frames + 1 for r in rows]
+
+    def __len__(self):
+        return len(self.files_list)
+
+    def raw(self, index):
+        with np.load(os.path.join(self.root, self.files_list[index])) as data:
+            features = data["frame"].astype(np.float32)[:, None, :]
+            labels = data["labels"]
+            detections = data["det"].astype(np.float32)
+            vid = str(data["ID"])
+        return features, labels, detections, vid, self.toas[index]
+
+    def __getitem__(self, index):
+        features, labels, detections, vid, toa = self.raw(index)
+        return self._pack(features, labels, detections, toa, vid)
+
+
 class DADDataset(_FeatureDataset):
     n_frames = 100
     fps = 20.0

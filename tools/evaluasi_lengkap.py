@@ -21,7 +21,7 @@ sys.path.insert(0, ROOT)
 
 from collision_eval import alarm_rates, tta_at_fpr, video_scores  # noqa: E402
 from gstl.ablation import AblatedDataset, psi_nol  # noqa: E402
-from gstl.data import CrashCompactDataset, CrashDataset  # noqa: E402
+from gstl.data import CrashCompactDataset, CrashDataset, DotaCompactDataset  # noqa: E402
 from gstl.loader import load_gstl_model  # noqa: E402
 from train import compute_metrics, configure_for_model, run_inference, set_seed  # noqa: E402
 
@@ -54,7 +54,8 @@ def summarize(res, fps):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ckpt", required=True)
-    ap.add_argument("--dataset", choices=("crash", "crash_compact"), default="crash_compact")
+    ap.add_argument("--dataset", choices=("crash", "crash_compact", "dota_compact"), default="crash_compact")
+    ap.add_argument("--toa", choices=("V0", "V3"), default="V3", help="dota_compact: toa asli atau terkoreksi")
     ap.add_argument("--data-root", required=True)
     ap.add_argument("--tag", required=True)
     ap.add_argument("--ablasi", action="store_true")
@@ -64,19 +65,23 @@ def main():
     a = ap.parse_args()
     dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model, epoch = load_gstl_model(a.ckpt, dev)
-    base = (CrashCompactDataset if a.dataset == "crash_compact" else CrashDataset)(a.data_root, "test")
+    if a.dataset == "dota_compact":
+        base = DotaCompactDataset(a.data_root, toa=a.toa)
+    else:
+        base = (CrashCompactDataset if a.dataset == "crash_compact" else CrashDataset)(a.data_root, "test")
+    drop_last = a.dataset != "dota_compact"
     configure_for_model("gstl", base)
     t0 = time.time()
 
     def run(ds, ctx=None):
-        loader = DataLoader(ds, batch_size=10, shuffle=False, drop_last=True, num_workers=a.workers, pin_memory=dev.type == "cuda",
+        loader = DataLoader(ds, batch_size=10, shuffle=False, drop_last=drop_last, num_workers=a.workers, pin_memory=dev.type == "cuda",
                             persistent_workers=a.workers > 0)
         set_seed(123)
         with (ctx if ctx is not None else contextlib.nullcontext()):
             res, _ = run_inference(model, loader, dev, _A, eval_uncertain=False)
         return summarize(res, base.fps)
 
-    result = {"ckpt": os.path.basename(a.ckpt), "epoch": epoch, "dataset": a.dataset, "asli": run(base)}
+    result = {"ckpt": os.path.basename(a.ckpt), "epoch": epoch, "dataset": a.dataset, "toa": a.toa if a.dataset == "dota_compact" else None, "n_klip": len(base), "asli": run(base)}
     print("asli:", json.dumps({k: round(v, 4) for k, v in result["asli"].items() if isinstance(v, float)}), "(%.0f s)" % (time.time() - t0), flush=True)
     if a.ablasi:
         plan = [("tanpa_geometri", 0.0, 1), ("tukar_kotak", 0.0, a.seeds), ("kotak_acak", 0.0, a.seeds), ("tukar_fitur_frame", 0.0, a.seeds)]
