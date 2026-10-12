@@ -57,10 +57,13 @@ def main():
     ap.add_argument("--viz", default="full")
     ap.add_argument("--html", action="store_true")
     ap.add_argument("--uncertainty", action="store_true")
+    ap.add_argument("--det-model", default="cascade_rcnn", choices=("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite"),
+                    help="detektor; selain cascade_rcnn skor tidak harus sama dengan acuan, jadi selisih hanya DILAPORKAN (tidak menggagalkan)")
+    ap.add_argument("--det-conf", type=float, default=None)
     ap.add_argument("--tol", type=float, default=5e-3, help="selisih mutlak maks skor per frame yang dianggap sama")
     ap.add_argument("--update-expected", action="store_true")
     a = ap.parse_args()
-    if not a.detector or not os.path.exists(a.detector):
+    if a.det_model == "cascade_rcnn" and (not a.detector or not os.path.exists(a.detector)):
         raise SystemExit("bobot detektor tidak ditemukan: taruh di weights/detector/latest.pth, atau beri --detector / set DETECTOR_CKPT")
     rows = read_manifest()
     if a.only:
@@ -85,7 +88,9 @@ def main():
     new_expected, fails = [], []
     for r in rows:
         out = os.path.join(a.out, r["role"])
-        argv = ["--video", os.path.join(SAMPLES, r["file"]), "--detector", a.detector, "--out", out, "--viz", a.viz, "--no-plot"]
+        argv = ["--video", os.path.join(SAMPLES, r["file"]), "--detector", a.detector, "--out", out, "--viz", a.viz, "--no-plot", "--det-model", a.det_model]
+        if a.det_conf is not None:
+            argv += ["--det-conf", str(a.det_conf)]
         if a.html:
             argv.append("--html")
         if a.uncertainty:
@@ -105,9 +110,12 @@ def main():
             else:
                 d = float(np.abs(sc - ex).max())
                 ok = d <= a.tol
-                status = "%s (selisih maks %.1e)" % ("LULUS" if ok else "GAGAL", d)
-                if not ok:
-                    fails.append(r["role"])
+                if a.det_model == "cascade_rcnn":
+                    status = "%s (selisih maks %.1e)" % ("LULUS" if ok else "GAGAL", d)
+                    if not ok:
+                        fails.append(r["role"])
+                else:
+                    status = "selisih vs acuan Cascade: maks %.3f, rerata %.4f (informasi)" % (d, float(np.abs(sc - ex).mean()))
         else:
             status = "tanpa acuan"
         print("%-16s label %s | %s | %s" % (r["role"], r["label"], summary(sc), status), flush=True)

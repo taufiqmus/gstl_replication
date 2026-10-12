@@ -70,6 +70,7 @@ Hasil di `outputs\demo\dota_pos_naik\` (`overlay.mp4`, `laporan.html`, `skor.png
   ```bash
   python demo.py --video contoh.mp4 --viz full --uncertainty --html
   ```
+- **Pilihan detektor:** `--det-model cascade_rcnn` (bawaan; bobot `--detector`, mereproduksi pipeline CCD) | `tv_fasterrcnn` | `tv_ssdlite` (torchvision, bobot COCO; mengenali motor, sepeda, orang, bus, truk; diunduh otomatis ke cache torch hub), plus `--det-conf` (ambang skor sumber; bawaan torchvision 0,3). Contoh: `python demo.py --video X --det-model tv_fasterrcnn --viz full`. Elemen `--viz labels` menulis nama kelas dan skor di atas kotak. Perbandingan, recall, dan pengaruhnya pada skor: `docs/pilihan_detektor.md`; `tools/bandingkan_detektor.py` membuat gambar perbandingan.
 - "Kemungkinan tabrakan" = **satu skor per frame** dari model (probabilitas kelas kecelakaan, belum terkalibrasi), bukan risiko per objek.
 - **Video di peramban:** OpenCV hanya menulis `mp4v`, yang tidak diputar peramban. Bila `ffmpeg` ada di PATH, `overlay.mp4` otomatis diubah ke H.264; bila tidak, demo memberi peringatan (putar dengan VLC atau pasang ffmpeg). Berkas `laporan.html` paling aman dibuka langsung dari folder keluaran (video dan HTML satu folder).
 - VGG16 ImageNet (±528 MB) diunduh otomatis oleh torchvision pada pemakaian pertama.

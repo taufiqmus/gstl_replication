@@ -24,9 +24,12 @@ def main():
     ap = argparse.ArgumentParser()
     _loc = os.path.join(ROOT, "weights", "detector", "latest.pth")
     ap.add_argument("--detector", default=os.environ.get("DETECTOR_CKPT") or (_loc if os.path.exists(_loc) else None))
+    ap.add_argument("--det-model", default="cascade_rcnn", choices=("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite"))
+    ap.add_argument("--det-conf", type=float, default=None)
     a = ap.parse_args()
-    from gstl.detector import bbox_sampling, load_detector
-    det = load_detector(a.detector, device="cuda")
+    from gstl.detector import bbox_sampling
+    from gstl.detectors import build_detector
+    det = build_detector(a.det_model, "cuda", a.detector, a.det_conf)
     man = list(csv.DictReader(open(os.path.join(ROOT, "samples", "MANIFEST.csv"), encoding="utf-8")))
     out = []
     for r in man:
@@ -55,7 +58,8 @@ def main():
         print("%-24s semua %5.1f | >=0,5 %4.1f | >=0,8 %4.1f | ke model %4.1f | frame tanpa kotak >=0,5: %3.0f%%" % (
             r["role"], row["deteksi_semua"], row["skor>=0.5"], row["skor>=0.8"], row["kotak_unik_ke_model"], row["frame_tanpa_kotak_skor05_persen"]), flush=True)
     os.makedirs(os.path.join(ROOT, "results"), exist_ok=True)
-    json.dump(out, open(os.path.join(ROOT, "results", "analisis_deteksi_sampel.json"), "w"), indent=1)
+    sfx = "" if a.det_model == "cascade_rcnn" else "_" + a.det_model
+    json.dump(out, open(os.path.join(ROOT, "results", "analisis_deteksi_sampel%s.json" % sfx), "w"), indent=1)
 
     def avg(rows, k):
         return float(np.mean([x[k] for x in rows])) if rows else float("nan")
@@ -67,7 +71,7 @@ def main():
     for g, rows in groups.items():
         md.append("| %s (n=%d) | %.1f | %.1f | %.1f | %.1f | %.1f | %.1f | %.0f%% |" % (g, len(rows), avg(rows, "deteksi_semua"), avg(rows, "skor>=0.1"),
                   avg(rows, "skor>=0.3"), avg(rows, "skor>=0.5"), avg(rows, "skor>=0.8"), avg(rows, "kotak_unik_ke_model"), avg(rows, "frame_tanpa_kotak_skor05_persen")))
-    open(os.path.join(ROOT, "docs", "analisis_deteksi_sampel.md"), "w", encoding="utf-8").write("\n".join(md) + "\n")
+    open(os.path.join(ROOT, "docs", "analisis_deteksi_sampel%s.md" % sfx), "w", encoding="utf-8").write("\n".join(md) + "\n")
     print("\n" + "\n".join(md))
 
 

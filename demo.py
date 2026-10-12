@@ -10,6 +10,7 @@ Cara kerja: video disampel ke ~10 fps (rentang frame per sampel = round(fps/10))
 
 Visualisasi (--viz, daftar dipisah koma atau preset):
   boxes  kotak deteksi (warna per kelas: Car hijau, Pedestrian biru, Cyclist oranye; ambang --box-conf)
+  labels nama kelas + skor di atas kotak (nama COCO asli bila detektor torchvision, mis. motorcycle)
   bar    bilah skor di atas video
   curve  grafik kemungkinan tabrakan yang bergerak di bawah video (jendela --curve-seconds)
   glow   bingkai berwarna sesuai skor (hijau -> oranye -> merah relatif terhadap --threshold)
@@ -48,8 +49,10 @@ DEFAULT_WEIGHTS = os.path.join(HERE, "weights", "gstl_ccd_seed123_epoch10.pth")
 _DET_LOCAL = os.path.join(HERE, "weights", "detector", "latest.pth")
 DEFAULT_DETECTOR = os.environ.get("DETECTOR_CKPT") or (_DET_LOCAL if os.path.exists(_DET_LOCAL) else None)
 N_FRAMES, TARGET_FPS, REF_W, REF_H = 50, 10.0, 1280.0, 720.0
-VIZ_ALL = ("boxes", "bar", "curve", "glow", "alert")
+VIZ_ALL = ("boxes", "labels", "bar", "curve", "glow", "alert")
 VIZ_PRESETS = {"minimal": ("boxes", "bar"), "full": VIZ_ALL, "clean": (), "none": None}
+from gstl.detectors import LEGACY_CLASSES  # noqa: E402
+
 CLASS_COLORS = ((0, 200, 0), (255, 150, 0), (0, 150, 255))  # BGR: Car hijau, Pedestrian biru, Cyclist oranye
 
 
@@ -70,6 +73,10 @@ def parse_args(argv=None):
     ap.add_argument("--video", required=True)
     ap.add_argument("--detector", default=DEFAULT_DETECTOR,
                     help="bobot Cascade R-CNN (latest.pth); bawaan: variabel DETECTOR_CKPT, atau weights/detector/latest.pth bila ada")
+    ap.add_argument("--det-model", default="cascade_rcnn", choices=("cascade_rcnn", "tv_fasterrcnn", "tv_ssdlite"),
+                    help="detektor objek: cascade_rcnn (bawaan; bobot --detector; mereproduksi pipeline CCD) | tv_fasterrcnn | tv_ssdlite (torchvision, bobot COCO)")
+    ap.add_argument("--det-conf", type=float, default=None,
+                    help="ambang skor deteksi di sumber; bawaan: cascade tanpa penyaringan (1e-6, asli), torchvision 0,3")
     ap.add_argument("--weights", default=DEFAULT_WEIGHTS, help="checkpoint GSTL")
     ap.add_argument("--out", default=None, help="folder keluaran (bawaan: outputs/demo/<nama video>)")
     ap.add_argument("--threshold", type=float, default=0.5, help="ambang peringatan (untuk penanda, warna, dan ringkasan)")
@@ -203,7 +210,11 @@ def compose_frame(frame, boxes, hist, t, thr, viz, fps, width=960, curve_seconds
     im = frame.copy()
     if "boxes" in viz:
         for b in boxes:
-            cv2.rectangle(im, (int(b[0]), int(b[1])), (int(b[2]), int(b[3])), CLASS_COLORS[int(b[5]) % 3], 3)
+            c = CLASS_COLORS[int(b[5]) % 3]
+            cv2.rectangle(im, (int(b[0]), int(b[1])), (int(b[2]), int(b[3])), c, 3)
+            if "labels" in viz:
+                name = b[6] if len(b) > 6 else LEGACY_CLASSES[int(b[5]) % 3]
+                cv2.putText(im, "%s %.2f" % (name, b[4]), (int(b[0]), max(int(b[1]) - 6, 14)), cv2.FONT_HERSHEY_SIMPLEX, 0.8, c, 2, cv2.LINE_AA)
     s = width / im.shape[1]
     im = cv2.resize(im, (width, int(im.shape[0] * s)))
     col = risk_color(score, thr)
@@ -345,10 +356,10 @@ def write_html(path, title, scores, unc, fps, thr, video_name):
 
 def main(argv=None):
     a = parse_args(argv)
-    if not a.detector or not os.path.exists(a.detector):
+    if a.det_model == "cascade_rcnn" and (not a.detector or not os.path.exists(a.detector)):
         raise SystemExit("bobot detektor tidak ditemukan. Taruh di weights/detector/latest.pth (git lfs pull bila dari klon), atau beri --detector / set DETECTOR_CKPT (lihat README, bagian Demo).")
     import cv2
-    from gstl.detector import load_detector
+    from gstl.detectors import LEGACY_CLASSES, box_name, build_detector
     from gstl.features import VGG16FC7, extract_frames_features
     from gstl.loader import load_gstl_model
 
@@ -357,10 +368,10 @@ def main(argv=None):
     os.makedirs(out_dir, exist_ok=True)
     dev = torch.device(a.device)
     print("memuat detektor dan VGG16 (pertama kali VGG16 ImageNet ~528 MB diunduh otomatis oleh torchvision)...", flush=True)
-    detector = load_detector(a.detector, device=a.device)
+    detector = build_detector(a.det_model, a.device, a.detector, a.det_conf)
     vgg = VGG16FC7().to(dev).eval()
     model, epoch = load_gstl_model(a.weights, dev)
-    print("GSTL epoch %s | perangkat %s | viz: %s" % (epoch, dev, "tanpa video" if viz is None else (",".join(viz) or "bersih")))
+    print("GSTL epoch %s | perangkat %s | detektor %s%s | viz: %s" % (epoch, dev, a.det_model, "" if a.det_conf is None else " (conf>=%.2f)" % a.det_conf, "tanpa video" if viz is None else (",".join(viz) or "bersih")))
 
     gen = sampled_windows(a.video)
     meta = next(gen)
@@ -389,7 +400,7 @@ def main(argv=None):
             if first_alert is None and s >= a.threshold:
                 first_alert = t
             if viz is not None:
-                boxes = [(*b[:5], ci) for ci, cls in enumerate(feat["raw_dets"][k]) for b in cls if b[4] >= a.box_conf]
+                boxes = [(*b[:5], ci, box_name(b, ci)) for ci, cls in enumerate(feat["raw_dets"][k]) for b in cls if b[4] >= a.box_conf]
                 im = compose_frame(fr, boxes, all_scores, t, a.threshold, viz, fps_s, a.width, a.curve_seconds, first_alert)
                 if writer is None:
                     writer = cv2.VideoWriter(os.path.join(out_dir, "overlay.tmp.mp4"), cv2.VideoWriter_fourcc(*"mp4v"), fps_s, (im.shape[1], im.shape[0]))
