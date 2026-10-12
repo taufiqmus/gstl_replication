@@ -69,6 +69,7 @@ python demo.py --video contoh.mp4 --detector <latest.pth> --threshold 0.5
 - **Video di peramban:** OpenCV hanya menulis `mp4v`, yang tidak diputar peramban. Bila `ffmpeg` ada di PATH, `overlay.mp4` otomatis diubah ke H.264; bila tidak, demo memberi peringatan (putar dengan VLC atau pasang ffmpeg). Berkas `laporan.html` paling aman dibuka langsung dari folder keluaran (video dan HTML satu folder).
 - VGG16 ImageNet (±528 MB) diunduh otomatis oleh torchvision pada pemakaian pertama.
 - **Keamanan:** `latest.pth` dimuat dengan `torch.load` (unpickle). Gunakan hanya berkas dari penulis dan pastikan hash cocok.
+- **Artefak jendela:** tiap jendela 50 frame diskor terpisah (keadaan GRU di-reset), jadi skor rendah pada ±1 detik pertama tiap jendela lalu naik; pada video panjang grafik turun mendadak tiap 5 detik. Itu bukan perubahan risiko, dan "peringatan pertama" di awal jendela tidak berarti deteksi kejadian.
 - **Keterbatasan penting** (rinci di `docs/demo_validasi.md` dan docstring `demo.py`): detektor tanpa kelas motor; model dilatih hanya pada CCD 1280x720 sehingga video lain di luar distribusi latih; skor bukan risiko terkalibrasi. Pada video negatif CCD, pipeline demo menghasilkan skor yang hampir identik dengan fitur rilis (korelasi per frame median 0,999); pada video lain kesesuaian **tidak diuji**.
 
 ### Uji asap tanpa CCD

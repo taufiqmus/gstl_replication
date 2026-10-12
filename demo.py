@@ -24,6 +24,9 @@ KETERBATASAN (baca sebelum menafsirkan skor):
   * Pipeline fitur ini adalah port PyTorch murni dari kode UString; mendekati tetapi tidak identik dengan fitur CCD rilis (lihat docs/demo_validasi.md).
   * Model dilatih pada CCD (video YouTube, 1280x720). Video lain (resolusi/rasio aspek/gaya berbeda, terutama malam hari) berada di luar
     distribusi latih; geometri kotak diskalakan ke kerangka 1280x720, rasio aspek yang berbeda akan terdistorsi.
+  * Jendela 50 frame diskor TERPISAH (keadaan GRU di-reset): skor hampir selalu rendah pada ±1 detik pertama tiap jendela lalu naik, sehingga
+    pada video panjang grafik turun mendadak tiap 5 detik. Itu artefak jendela, bukan perubahan risiko. "Peringatan pertama" pada
+    ±0,5 sampai 1 detik awal sebaiknya tidak ditafsirkan sebagai deteksi kejadian.
   * Skor adalah keluaran model, bukan kalibrasi risiko nyata; jangan dipakai untuk keputusan keselamatan.
 """
 import argparse
