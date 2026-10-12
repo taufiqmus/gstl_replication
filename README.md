@@ -77,7 +77,7 @@ python demo.py --video contoh.mp4 --detector <latest.pth> --threshold 0.5
 ```bash
 python tools/run_samples.py --detector <latest.pth> --viz full --html     # hasil per klip di outputs/samples/<role>/
 ```
-Rincian dan **catatan hak cipta** (klip berasal dari video YouTube; hapus `samples/` sebelum repo dibagikan keluar) ada di `samples/README.md`.
+Rincian dan **catatan hak cipta** (klip berasal dari video YouTube; hapus `samples/` DAN riwayat Git-nya sebelum repo dibagikan keluar, lihat `samples/README.md`) ada di `samples/README.md`.
 
 ### Uji asap tanpa CCD
 `python tools/make_synthetic_ccd.py --out <folder> --n-pos 12 --n-neg 24` membuat data sintetis berformat CCD (bukan data sungguhan), cukup untuk memastikan `train.py` dan `evaluate.py` berjalan. Pada set sintetis kecil tambahkan `--no-test-drop-last` (train) atau `--no-drop-last` (evaluate).
