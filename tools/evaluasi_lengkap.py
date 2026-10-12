@@ -59,6 +59,7 @@ def main():
     ap.add_argument("--data-root", required=True)
     ap.add_argument("--tag", required=True)
     ap.add_argument("--ablasi", action="store_true")
+    ap.add_argument("--modes", default=None, help="subset mode ablasi dipisah koma (bawaan: semua; psi_nol dipakai bila disebut atau semua)")
     ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--out", default=os.path.join(ROOT, "results"))
@@ -84,15 +85,20 @@ def main():
     result = {"ckpt": os.path.basename(a.ckpt), "epoch": epoch, "dataset": a.dataset, "toa": a.toa if a.dataset == "dota_compact" else None, "n_klip": len(base), "asli": run(base)}
     print("asli:", json.dumps({k: round(v, 4) for k, v in result["asli"].items() if isinstance(v, float)}), "(%.0f s)" % (time.time() - t0), flush=True)
     if a.ablasi:
-        plan = [("tanpa_geometri", 0.0, 1), ("tukar_kotak", 0.0, a.seeds), ("kotak_acak", 0.0, a.seeds), ("tukar_fitur_frame", 0.0, a.seeds)]
+        plan = [("tanpa_geometri", 0.0, 1), ("tukar_kotak", 0.0, a.seeds), ("kotak_acak", 0.0, a.seeds), ("tukar_fitur_frame", 0.0, a.seeds),
+                ("acak_waktu", 0.0, a.seeds)]
+        want = set(a.modes.split(",")) if a.modes else None
+        if want:
+            plan = [x for x in plan if x[0] in want]
         abl = {}
         for mode, p, n in plan:
             runs = [run(AblatedDataset(base, mode, p, s)) for s in range(n)]
             abl[mode] = {k: float(np.mean([r[k] for r in runs])) for k in ("AP_orig", "AP_video", "AUC", "mTTA_sec")}
             print("  %-18s AP_orig %.4f AP_video %.4f AUC %.4f (%.0f s)" % (mode, abl[mode]["AP_orig"], abl[mode]["AP_video"], abl[mode]["AUC"], time.time() - t0), flush=True)
-        r = run(base, psi_nol(model))
-        abl["psi_nol"] = {k: r[k] for k in ("AP_orig", "AP_video", "AUC", "mTTA_sec")}
-        print("  %-18s AP_orig %.4f AP_video %.4f AUC %.4f" % ("psi_nol", abl["psi_nol"]["AP_orig"], abl["psi_nol"]["AP_video"], abl["psi_nol"]["AUC"]), flush=True)
+        if want is None or "psi_nol" in want:
+            r = run(base, psi_nol(model))
+            abl["psi_nol"] = {k: r[k] for k in ("AP_orig", "AP_video", "AUC", "mTTA_sec")}
+            print("  %-18s AP_orig %.4f AP_video %.4f AUC %.4f" % ("psi_nol", abl["psi_nol"]["AP_orig"], abl["psi_nol"]["AP_video"], abl["psi_nol"]["AUC"]), flush=True)
         result["ablasi"] = abl
     os.makedirs(a.out, exist_ok=True)
     json.dump(result, open(os.path.join(a.out, "evaluasi_%s.json" % a.tag), "w"), indent=1)
