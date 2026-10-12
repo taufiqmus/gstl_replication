@@ -29,7 +29,7 @@ conda env create -f environment.yml && conda activate gstl
 # 2. periksa lingkungan, bobot, dan (bila ada) data/detektor; tidak mengubah apa pun
 python tools/check_setup.py
 
-# 2b. tes unit (26 tes: GSTL, metrik, visualisasi demo; tanpa data; ±2 detik)
+# 2b. tes unit (29 tes: GSTL, metrik, visualisasi demo, klip contoh; tanpa data; ±3 detik)
 python -m unittest discover -s tests
 
 # 3. data CCD (TIDAK disertakan): unduh dari penulis CCD, lihat tautan Google Drive di README resmi CCD,
@@ -72,6 +72,13 @@ python demo.py --video contoh.mp4 --detector <latest.pth> --threshold 0.5
 - **Artefak jendela:** tiap jendela 50 frame diskor terpisah (keadaan GRU di-reset), jadi skor rendah pada ±1 detik pertama tiap jendela lalu naik; pada video panjang grafik turun mendadak tiap 5 detik. Itu bukan perubahan risiko, dan "peringatan pertama" di awal jendela tidak berarti deteksi kejadian.
 - **Keterbatasan penting** (rinci di `docs/demo_validasi.md` dan docstring `demo.py`): detektor tanpa kelas motor; model dilatih hanya pada CCD 1280x720 sehingga video lain di luar distribusi latih; skor bukan risiko terkalibrasi. Pada video negatif CCD, pipeline demo menghasilkan skor yang hampir identik dengan fitur rilis (korelasi per frame median 0,999); pada video lain kesesuaian **tidak diuji**.
 
+### Klip contoh untuk uji visualisasi
+`samples/` berisi 9 klip pendek (±14 MB; positif dan negatif, termasuk kasus gagal) berikut hash, manifest, dan skor acuan. Satu perintah menjalankan demo pada semuanya dan membandingkan skor dengan acuan:
+```bash
+python tools/run_samples.py --detector <latest.pth> --viz full --html     # hasil per klip di outputs/samples/<role>/
+```
+Rincian dan **catatan hak cipta** (klip berasal dari video YouTube; hapus `samples/` sebelum repo dibagikan keluar) ada di `samples/README.md`.
+
 ### Uji asap tanpa CCD
 `python tools/make_synthetic_ccd.py --out <folder> --n-pos 12 --n-neg 24` membuat data sintetis berformat CCD (bukan data sungguhan), cukup untuk memastikan `train.py` dan `evaluate.py` berjalan. Pada set sintetis kecil tambahkan `--no-test-drop-last` (train) atau `--no-drop-last` (evaluate).
 
@@ -85,10 +92,11 @@ python demo.py --video contoh.mp4 --detector <latest.pth> --threshold 0.5
 | `demo.py` | video mentah -> skor risiko per frame (butuh bobot detektor, lihat bagian Demo) |
 | `tools/check_setup.py` | pemeriksa lingkungan/bobot/data/detektor |
 | `tools/validate_demo.py` | validasi pipeline demo terhadap fitur CCD rilis |
+| `tools/run_samples.py`, `samples/` | klip contoh dan uji regresi skor/visualisasi |
 | `weights/` | bobot GSTL (bobot saja) + asal dan hash |
 | `results/` | hasil evaluasi (CSV/JSON), semua epoch, log pelatihan, nilai acuan paper |
 | `docs/spec_gstl.md` | spesifikasi dari paper, asumsi, pertanyaan terbuka |
-| `tests/` | 26 tes unit (GSTL, metrik, visualisasi demo) |
+| `tests/` | 29 tes unit (GSTL, metrik, visualisasi demo, klip contoh) |
 
 ## Verifikasi porting
 Evaluasi bobot epoch 10 di repo ini menghasilkan **12 dari 12 metrik identik** (selisih 0) dengan repo kerja asal. Itu syarat lulus pemisahan kode; ia membuktikan bahwa pemindahan tidak mengubah perilaku, bukan bahwa implementasi sama dengan kode penulis.
