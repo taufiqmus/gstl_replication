@@ -26,7 +26,10 @@ Tabel ini dibuat otomatis dari `results/ccd_test_*.csv` oleh `tools/make_results
 # 1. lingkungan (Python 3.10; diuji torch 2.3.0 + CUDA 11.8, numpy 1.26.4)
 conda env create -f environment.yml && conda activate gstl
 
-# 2. tes unit (tanpa data; ±1 detik)
+# 2. periksa lingkungan, bobot, dan (bila ada) data/detektor; tidak mengubah apa pun
+python tools/check_setup.py
+
+# 2b. tes unit (17 tes: GSTL + metrik; tanpa data; ±2 detik)
 python -m unittest discover -s tests
 
 # 3. data CCD (TIDAK disertakan): unduh dari penulis CCD, lihat tautan Google Drive di README resmi CCD,
@@ -44,6 +47,24 @@ python evaluate.py --exp-dir outputs/gstl_s123 --tag ccd_test_gstl_s123_allepoch
 
 Evaluasi memakai fitur yang sudah dihitung dan dirilis bersama CCD (VGG16 + kotak deteksi), sehingga detektor tidak perlu dipasang.
 
+## Demo pada video dashcam sendiri
+
+`demo.py` mengubah video mentah menjadi skor risiko per frame (CSV, grafik, dan video overlay berisi kotak deteksi + bilah skor):
+
+```bash
+pip install -r requirements-demo.txt          # torchvision, opencv-python-headless, Pillow, matplotlib
+# bobot detektor (±1,0 GB; TIDAK disertakan): folder "Cascade R-CNN" di Drive penulis UString:
+#   https://drive.google.com/drive/folders/1vUz3HYoAFeu0qGQy7pe51oa41zd0OCQU
+#   berkas work_dirs/cascade_rcnn_x101_64x4d_fpn_1x_kitti2d/latest.pth, SHA-256 C768907093DB3B5BC87C1D79E728EEBB6F90252017D7BCB2DF0D5B34F2BD60BF
+python tools/check_setup.py --detector <latest.pth> --hash-detector     # periksa hash SEBELUM memakainya
+python demo.py --video contoh.mp4 --detector <latest.pth> --threshold 0.5
+```
+
+- Keluaran di `outputs/demo/<nama video>/`: `scores.csv`, `skor.png`, `overlay.mp4`. Kecepatan ±0,3 detik per frame di RTX 3060 (jendela 50 frame ±14 detik).
+- VGG16 ImageNet (±528 MB) diunduh otomatis oleh torchvision pada pemakaian pertama.
+- **Keamanan:** `latest.pth` dimuat dengan `torch.load` (unpickle). Gunakan hanya berkas dari penulis dan pastikan hash cocok.
+- **Keterbatasan penting** (rinci di `docs/demo_validasi.md` dan docstring `demo.py`): detektor tanpa kelas motor; model dilatih hanya pada CCD 1280x720 sehingga video lain di luar distribusi latih; skor bukan risiko terkalibrasi. Pada video negatif CCD, pipeline demo menghasilkan skor yang hampir identik dengan fitur rilis (korelasi per frame median 0,999); pada video lain kesesuaian **tidak diuji**.
+
 ### Uji asap tanpa CCD
 `python tools/make_synthetic_ccd.py --out <folder> --n-pos 12 --n-neg 24` membuat data sintetis berformat CCD (bukan data sungguhan), cukup untuk memastikan `train.py` dan `evaluate.py` berjalan. Pada set sintetis kecil tambahkan `--no-test-drop-last` (train) atau `--no-drop-last` (evaluate).
 
@@ -51,13 +72,16 @@ Evaluasi memakai fitur yang sudah dihitung dan dirilis bersama CCD (VGG16 + kota
 
 | Jalur | Isi |
 |---|---|
-| `gstl/` | model (GSTL di atas port UString), lapisan graf/Bayesian, dataset fitur CCD/DAD |
+| `gstl/` | model (GSTL di atas port UString), lapisan graf/Bayesian, dataset fitur CCD/DAD, detektor Cascade R-CNN (PyTorch murni) dan ekstraksi fitur |
 | `collision_eval/` | metrik (gaya UString, termasuk bug AP>1 yang direproduksi, dan versi eksak) |
 | `train.py`, `evaluate.py` | pelatihan dan evaluasi |
+| `demo.py` | video mentah -> skor risiko per frame (butuh bobot detektor, lihat bagian Demo) |
+| `tools/check_setup.py` | pemeriksa lingkungan/bobot/data/detektor |
+| `tools/validate_demo.py` | validasi pipeline demo terhadap fitur CCD rilis |
 | `weights/` | bobot GSTL (bobot saja) + asal dan hash |
 | `results/` | hasil evaluasi (CSV/JSON), semua epoch, log pelatihan, nilai acuan paper |
 | `docs/spec_gstl.md` | spesifikasi dari paper, asumsi, pertanyaan terbuka |
-| `tests/` | tes unit GSTL |
+| `tests/` | 17 tes unit (GSTL dan metrik) |
 
 ## Verifikasi porting
 Evaluasi bobot epoch 10 di repo ini menghasilkan **12 dari 12 metrik identik** (selisih 0) dengan repo kerja asal. Itu syarat lulus pemisahan kode; ia membuktikan bahwa pemindahan tidak mengubah perilaku, bukan bahwa implementasi sama dengan kode penulis.
