@@ -1,0 +1,64 @@
+{
+ "dota": {
+  "n_train": 1192,
+  "n_test": 298,
+  "AP_acak": 0.5,
+  "statistik_11": {
+   "AP": 0.7030149874312839,
+   "AUC": 0.7174451601279221
+  },
+  "geometri_dinamika_tanpa_pelacakan": {
+   "AP": 0.8349404603711972,
+   "AUC": 0.8487230304941219
+  },
+  "rerata_fitur_frame_VGG16": {
+   "AP": 0.6151756224593046,
+   "AUC": 0.6221791811179677
+  },
+  "graf": {
+   "frac_fallback": 0.0022818791946308727,
+   "massa_pad_pad": 0.9890377027476394,
+   "massa_campur": 4.238784688231129e-05,
+   "massa_real_real": 0.010919911486294006,
+   "n_real_real_bobot_pos": 0.5163087248322147,
+   "frac_frame_tanpa_pasangan_real": 0.23557046979865773
+  },
+  "identitas_slot": {
+   "IoU_slot_sama_median": 0.178312619889316,
+   "frac_slot_sama_IoU>0.5": 0.4485799630174008,
+   "frac_objek_ada_pencocokan_terbaik_IoU>0.5": 0.7564802774165583,
+   "frac_objek_slot_sama_tanpa_pelacakan": 0.9142175986129172
+  }
+ },
+ "ccd": {
+  "n_train": 3600,
+  "n_test": 900,
+  "AP_acak": 0.3333333333333333,
+  "statistik_11": {
+   "AP": 0.6787146454183142,
+   "AUC": 0.8139555555555555
+  },
+  "geometri_dinamika_tanpa_pelacakan": {
+   "AP": 0.7915872620431943,
+   "AUC": 0.8695222222222222
+  },
+  "rerata_fitur_frame_VGG16": {
+   "AP": 0.9629981661256818,
+   "AUC": 0.9832611111111111
+  },
+  "graf": {
+   "frac_fallback": 0.0022666666666666664,
+   "massa_pad_pad": 0.9806389897068342,
+   "massa_campur": 0.00010526315309107303,
+   "massa_real_real": 0.01925575007093789,
+   "n_real_real_bobot_pos": 0.5361999999999999,
+   "frac_frame_tanpa_pasangan_real": 0.19886666666666666
+  },
+  "identitas_slot": {
+   "IoU_slot_sama_median": 0.24069640209019516,
+   "frac_slot_sama_IoU>0.5": 0.4714666457631104,
+   "frac_objek_ada_pencocokan_terbaik_IoU>0.5": 0.8337038365005378,
+   "frac_objek_slot_sama_tanpa_pelacakan": 0.9148081749731086
+  }
+ }
+}
