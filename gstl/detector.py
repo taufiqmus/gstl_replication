@@ -288,7 +288,7 @@ class CascadeRCNN(nn.Module):
 def load_detector(ckpt_path, device="cuda"):
     model = CascadeRCNN()
     # unpickle penuh: hanya muat bobot dari sumber tepercaya (penulis UString) dan periksa hash dulu
-    ck = torch.load(ckpt_path, map_location="cpu")
+    ck = torch.load(ckpt_path, map_location="cpu", weights_only=False)  # eksplisit: torch >= 2.6 membuat True bawaan
     sd = ck["state_dict"] if "state_dict" in ck else ck
     missing, unexpected = model.load_state_dict(sd, strict=False)
     missing = [k for k in missing if not k.endswith("num_batches_tracked")]
