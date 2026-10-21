@@ -269,7 +269,7 @@ def main(argv=None):
     start_epoch = 0
     resumed_exact_rng = False
     if a.resume:
-        ck = torch.load(a.resume, map_location=device, weights_only=True)
+        ck = torch.load(a.resume, map_location=device, weights_only=False)  # snapshot penuh buatan train.py (memuat status RNG numpy); jangan --resume berkas tak tepercaya
         if "optimizer" not in ck:
             raise ValueError("%s hanya berisi bobot (checkpoint hemat); --resume butuh last.pth atau "
                              "checkpoint penuh" % a.resume)
@@ -444,7 +444,7 @@ def main(argv=None):
 
     # evaluasi akhir di set uji untuk last dan best (prediksi disimpan)
     for tag in ("last", "best"):
-        ck = torch.load(os.path.join(out_dir, "snapshot", tag + ".pth"), map_location=device, weights_only=True)
+        ck = torch.load(os.path.join(out_dir, "snapshot", tag + ".pth"), map_location=device, weights_only=False)  # snapshot buatan run ini (status RNG numpy)
         model.load_state_dict(ck["model"])
         res, _ = run_inference(model, test_loader, device, a, eval_uncertain=True)
         m = compute_metrics(res, test_set.fps)

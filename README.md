@@ -79,7 +79,7 @@ Hasil di `outputs\demo\contoh\` (`overlay.mp4`, `laporan.html`, `skor.png`, `sco
 - **Keterbatasan penting** (rinci di `docs/demo_validasi.md` dan docstring `demo.py`): detektor tanpa kelas motor; model dilatih hanya pada CCD 1280x720 sehingga video lain di luar distribusi latih; skor bukan risiko terkalibrasi. Pada video negatif CCD, pipeline demo menghasilkan skor yang hampir identik dengan fitur rilis (korelasi per frame median 0,999); pada video lain kesesuaian **tidak diuji**.
 
 ### Google Colab
-`notebooks/demo_colab.ipynb` menjalankan demo di Colab (GPU T4): bobot `latest.pth` dan `vgg16-397923af.pth` dibaca dari Google Drive pemilik (`Research/gstl_replication/`), atau pakai detektor YOLOv8 (sel 6b) tanpa `latest.pth`. Hasil tiap proses disimpan ke `Research/gstl_replication/hasil/` di Drive (dengan `run_info.json`). Belum teruji di semua versi Colab.
+`notebooks/demo_colab.ipynb` menjalankan demo di Colab (GPU T4): bobot `latest.pth` dan `vgg16-397923af.pth` dibaca dari Google Drive pemilik (`Research/gstl_replication/`), atau pakai detektor YOLOv8 (sel 6b) tanpa `latest.pth`. Hasil tiap proses disimpan ke `Research/gstl_replication/hasil/` di Drive (dengan `run_info.json`). Pelatihan dan evaluasi: `notebooks/train_colab.ipynb` (mode `sintetis` untuk uji notebook, mode `ccd` butuh fitur CCD ±60 GB di Drive; hasil ke `hasil/<EXP>/` dan bisa dilanjutkan). Belum teruji di semua versi Colab.
 
 ### Klip contoh
 Repo ini tidak menyertakan klip contoh (klip uji berasal dari video YouTube berhak cipta). `tools/run_samples.py` dan `tests/test_samples.py` hanya berjalan bila folder `samples/` ada di komputer Anda (diabaikan Git); tanpa itu, tes dilewati.
