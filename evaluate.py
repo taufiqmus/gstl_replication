@@ -32,7 +32,7 @@ class _A:  # bobot loss untuk run_inference (sama dengan bawaan train.py)
 
 
 def load_gstl(path, ds, device):
-    ck = torch.load(path, map_location="cpu")
+    ck = torch.load(path, map_location="cpu", weights_only=True)
     cfg = ck["config"]
     if cfg.get("model", "gstl") != "gstl":
         raise ValueError("%s bukan checkpoint GSTL" % path)

@@ -53,7 +53,7 @@ Evaluasi memakai fitur yang sudah dihitung dan dirilis bersama CCD (VGG16 + kota
 
 ```bash
 pip install -r requirements-demo.txt          # torchvision, opencv-python-headless, Pillow, matplotlib
-# bobot detektor (0,95 GB) ada di weights/detector/latest.pth (Git LFS; pada klon baru jalankan: git lfs pull)
+# bobot detektor (0,95 GB) TIDAK ada di repo ini: unduh sendiri lalu taruh di weights/detector/latest.pth
 #   sumber asli: folder Drive penulis UString, https://drive.google.com/drive/folders/1vUz3HYoAFeu0qGQy7pe51oa41zd0OCQU
 python tools/check_setup.py --hash-detector     # periksa hash SEBELUM memakainya
 python demo.py --video contoh.mp4 --threshold 0.5          # --detector bawaan: weights/detector/latest.pth
@@ -61,9 +61,9 @@ python demo.py --video contoh.mp4 --threshold 0.5          # --detector bawaan: 
 
 Satu baris (cmd Windows, dijalankan dari direktori repo):
 ```bat
-python -W ignore demo.py --video "samples\dota_pos_naik__eN6y6-4C1Rc_000726.avi" --detector "weights\detector\latest.pth" --weights "weights\gstl_ccd_seed123_epoch10.pth" --out "outputs\demo\dota_pos_naik" --viz full --uncertainty --html --threshold 0.5 --box-conf 0.5 --curve-seconds 30 --width 960 --seed 123 --device cuda
+python -W ignore demo.py --video "contoh.mp4" --detector "weights\detector\latest.pth" --weights "weights\gstl_ccd_seed123_epoch10.pth" --out "outputs\demo\contoh" --viz full --uncertainty --html --threshold 0.5 --box-conf 0.5 --curve-seconds 30 --width 960 --seed 123 --device cuda
 ```
-Hasil di `outputs\demo\dota_pos_naik\` (`overlay.mp4`, `laporan.html`, `skor.png`, `scores.csv`). Pastikan `python` milik env yang benar (`python -c "import torch; print(torch.cuda.is_available())"` harus `True`); jangan memakai `py` di Windows, karena peluncur itu mengabaikan env conda.
+Hasil di `outputs\demo\contoh\` (`overlay.mp4`, `laporan.html`, `skor.png`, `scores.csv`). Pastikan `python` milik env yang benar (`python -c "import torch; print(torch.cuda.is_available())"` harus `True`); jangan memakai `py` di Windows, karena peluncur itu mengabaikan env conda.
 
 - Keluaran di `outputs/demo/<nama video>/`: `scores.csv`, `skor.png`, `overlay.mp4`, dan `laporan.html` (dengan `--html`). Kecepatan ±0,3 detik per frame di RTX 3060 (jendela 50 frame ±14 detik).
 - **Opsi visualisasi** (`--viz`, daftar dipisah koma atau preset): `boxes` kotak deteksi (warna per kelas), `bar` bilah skor, `curve` grafik kemungkinan tabrakan yang bergerak di bawah video, `glow` bingkai berwarna sesuai risiko, `alert` banner "RISIKO TINGGI" dan waktu peringatan pertama. Preset: `minimal` (bawaan: boxes,bar), `full` (semua), `clean` (video tanpa tambahan), `none` (tanpa video). Opsi lain: `--threshold`, `--box-conf`, `--curve-seconds`, `--width`, `--uncertainty` (ketidakpastian aleatorik/epistemik di grafik dan CSV), `--html` (laporan HTML mandiri: video tersinkron dengan grafik, klik grafik untuk lompat waktu, penggeser ambang), `--no-plot`.
@@ -78,12 +78,8 @@ Hasil di `outputs\demo\dota_pos_naik\` (`overlay.mp4`, `laporan.html`, `skor.png
 - **Artefak jendela:** tiap jendela 50 frame diskor terpisah (keadaan GRU di-reset), jadi skor rendah pada ±1 detik pertama tiap jendela lalu naik; pada video panjang grafik turun mendadak tiap 5 detik. Itu bukan perubahan risiko, dan "peringatan pertama" di awal jendela tidak berarti deteksi kejadian.
 - **Keterbatasan penting** (rinci di `docs/demo_validasi.md` dan docstring `demo.py`): detektor tanpa kelas motor; model dilatih hanya pada CCD 1280x720 sehingga video lain di luar distribusi latih; skor bukan risiko terkalibrasi. Pada video negatif CCD, pipeline demo menghasilkan skor yang hampir identik dengan fitur rilis (korelasi per frame median 0,999); pada video lain kesesuaian **tidak diuji**.
 
-### Klip contoh untuk uji visualisasi
-`samples/` berisi 25 klip pendek (±40 MB; 7 DoTA + 18 CCD uji; positif dan negatif, termasuk kasus gagal) berikut hash, manifest, dan skor acuan. Satu perintah menjalankan demo pada semuanya dan membandingkan skor dengan acuan:
-```bash
-python tools/run_samples.py --viz full --html     # hasil per klip di outputs/samples/<role>/
-```
-Rincian dan **catatan hak cipta** (klip berasal dari video YouTube; hapus `samples/` DAN riwayat Git-nya sebelum repo dibagikan keluar, lihat `samples/README.md`) ada di `samples/README.md`.
+### Klip contoh
+Repo ini tidak menyertakan klip contoh (klip uji berasal dari video YouTube berhak cipta). `tools/run_samples.py` dan `tests/test_samples.py` hanya berjalan bila folder `samples/` ada di komputer Anda (diabaikan Git); tanpa itu, tes dilewati.
 
 ### Uji asap tanpa CCD
 `python tools/make_synthetic_ccd.py --out <folder> --n-pos 12 --n-neg 24` membuat data sintetis berformat CCD (bukan data sungguhan), cukup untuk memastikan `train.py` dan `evaluate.py` berjalan. Pada set sintetis kecil tambahkan `--no-test-drop-last` (train) atau `--no-drop-last` (evaluate).
@@ -98,7 +94,7 @@ Rincian dan **catatan hak cipta** (klip berasal dari video YouTube; hapus `sampl
 | `demo.py` | video mentah -> skor risiko per frame (butuh bobot detektor, lihat bagian Demo) |
 | `tools/check_setup.py` | pemeriksa lingkungan/bobot/data/detektor |
 | `tools/validate_demo.py` | validasi pipeline demo terhadap fitur CCD rilis |
-| `tools/run_samples.py`, `samples/` | klip contoh dan uji regresi skor/visualisasi |
+| `tools/run_samples.py` | uji regresi skor/visualisasi pada `samples/` lokal (tidak ada di repo) |
 | `weights/` | bobot GSTL (bobot saja) + asal dan hash |
 | `results/` | hasil evaluasi (CSV/JSON), semua epoch, log pelatihan, nilai acuan paper |
 | `docs/spec_gstl.md` | spesifikasi dari paper, asumsi, pertanyaan terbuka |

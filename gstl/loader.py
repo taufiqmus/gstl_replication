@@ -5,7 +5,7 @@ from .gstl import build_gstl
 
 
 def load_gstl_model(path, device="cpu", n_frames=50, fps=10.0, x_dim=4096, n_obj=19):
-    ck = torch.load(path, map_location="cpu")
+    ck = torch.load(path, map_location="cpu", weights_only=True)
     cfg = ck["config"]
     if cfg.get("model", "gstl") != "gstl":
         raise ValueError("%s bukan checkpoint GSTL" % path)

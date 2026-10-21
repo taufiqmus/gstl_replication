@@ -6,3 +6,7 @@ data/
 .vscode/
 # skrip dengan path khusus komputer ini
 jalankan_demo_lokal.bat
+
+# berkas berhak cipta / bobot pihak ketiga: tetap ada di disk, tidak di Git
+samples/
+weights/detector/

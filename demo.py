@@ -357,7 +357,7 @@ def write_html(path, title, scores, unc, fps, thr, video_name):
 def main(argv=None):
     a = parse_args(argv)
     if a.det_model == "cascade_rcnn" and (not a.detector or not os.path.exists(a.detector)):
-        raise SystemExit("bobot detektor tidak ditemukan. Taruh di weights/detector/latest.pth (git lfs pull bila dari klon), atau beri --detector / set DETECTOR_CKPT (lihat README, bagian Demo).")
+        raise SystemExit("bobot detektor tidak ditemukan. Unduh bobot UString (lihat README, bagian Demo) dan taruh di weights/detector/latest.pth, atau beri --detector / set DETECTOR_CKPT (lihat README, bagian Demo).")
     import cv2
     from gstl.detectors import LEGACY_CLASSES, box_name, build_detector
     from gstl.features import VGG16FC7, extract_frames_features

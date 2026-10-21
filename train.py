@@ -269,7 +269,7 @@ def main(argv=None):
     start_epoch = 0
     resumed_exact_rng = False
     if a.resume:
-        ck = torch.load(a.resume, map_location=device)
+        ck = torch.load(a.resume, map_location=device, weights_only=True)
         if "optimizer" not in ck:
             raise ValueError("%s hanya berisi bobot (checkpoint hemat); --resume butuh last.pth atau "
                              "checkpoint penuh" % a.resume)
@@ -293,7 +293,7 @@ def main(argv=None):
 
     config = vars(a).copy()
     config.update({"n_train": len(train_set), "n_val": len(val_set) if val_set else 0, "n_test": len(test_set),
-                   "device": str(device), "torch": torch.__version__,
+                   "device": str(device), "torch": str(torch.__version__),
                    "n_params_trainable": sum(p.numel() for p in params),
                    "n_params_total": sum(p.numel() for p in model.parameters())})
     if a.resume:
@@ -444,7 +444,7 @@ def main(argv=None):
 
     # evaluasi akhir di set uji untuk last dan best (prediksi disimpan)
     for tag in ("last", "best"):
-        ck = torch.load(os.path.join(out_dir, "snapshot", tag + ".pth"), map_location=device)
+        ck = torch.load(os.path.join(out_dir, "snapshot", tag + ".pth"), map_location=device, weights_only=True)
         model.load_state_dict(ck["model"])
         res, _ = run_inference(model, test_loader, device, a, eval_uncertain=True)
         m = compute_metrics(res, test_set.fps)

@@ -83,8 +83,8 @@ def check_forward(ckpt):
         import torch
         from gstl.graph import generate_st_graph
         from gstl.gstl import build_gstl
-        cfg = torch.load(ckpt, map_location="cpu")["config"]
-        ck = torch.load(ckpt, map_location="cpu")
+        cfg = torch.load(ckpt, map_location="cpu", weights_only=True)["config"]
+        ck = torch.load(ckpt, map_location="cpu", weights_only=True)
         m = build_gstl(50, 10.0, x_dim=4096, h_dim=cfg["hidden_dim"], z_dim=cfg["latent_dim"], n_layers=cfg.get("num_rnn", 1), n_obj=19,
                        frame_embed=cfg["gstl_frame_embed"], box_mode=cfg["gstl_box_mode"], box_embed=cfg["gstl_box_embed"],
                        with_saa=not cfg.get("gstl_no_saa", False), uncertain_ranking=cfg.get("gstl_ranking", False),

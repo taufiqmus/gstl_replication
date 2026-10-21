@@ -3,7 +3,7 @@
 `demo.py`, `tools/run_samples.py`, dan `tools/analisis_deteksi_sampel.py` menerima `--det-model {cascade_rcnn, tv_fasterrcnn, tv_ssdlite}` dan `--det-conf` (lihat `gstl/detectors.py`). Bawaan tetap `cascade_rcnn` (bobot penulis UString), satu-satunya yang mereproduksi pipeline CCD.
 
 ## 1. Apakah detektor yang lebih baik mengubah skor GSTL? (tanpa pelatihan ulang)
-25 klip contoh (`samples/`), bobot GSTL yang sama, detektor Cascade (acuan) vs torchvision Faster R-CNN ResNet50-FPN v2 bobot COCO (ambang skor 0,3):
+25 klip contoh (`samples/` lokal, tidak ada di repo), bobot GSTL yang sama, detektor Cascade (acuan) vs torchvision Faster R-CNN ResNet50-FPN v2 bobot COCO (ambang skor 0,3):
 - selisih skor per frame: **maksimum 0,039** (klip `ccd_pos_siang_salju_2`), rerata seluruh klip **0,0006**; tidak ada klip dengan selisih maks > 0,05;
 - keputusan ambang 0,5 dan waktu peringatan pertama sama pada semua klip.
 Konsisten dengan ablasi (`docs/ablasi_kotak.md`): pada model ini kotak tidak menentukan skor.
