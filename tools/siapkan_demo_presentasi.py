@@ -157,12 +157,20 @@ def main(argv=None):
         h["ringkas"] = ringkas(sc_csv, a.threshold)
         hasil.append(h)
 
+    # index memuat SEMUA klip yang sudah dihitung di folder keluaran (bukan hanya pilihan kali ini)
+    sudah = {h['nama'] for h in hasil}
+    label_dari_nama = {os.path.splitext(f)[0]: v[1] for f, v in manifest.items()}
+    for nama in sorted(os.listdir(a.out)):
+        sc_csv = os.path.join(a.out, nama, 'scores.csv')
+        if nama not in sudah and os.path.exists(sc_csv):
+            hasil.append({'nama': nama, 'label': label_dari_nama.get(nama, ''), 'ringkas': ringkas(sc_csv, a.threshold)})
+    hasil.sort(key=lambda h: h['nama'])
     tulis_index(a.out, hasil, a, commit)
     ok = sum(1 for h in hasil if h.get("ringkas"))
     print("\nselesai: %d/%d klip, %.1f menit." % (ok, len(hasil), (time.time() - mulai) / 60))
     print("buka di peramban:", os.path.join(os.path.abspath(a.out), "index.html"))
     print("bawa SELURUH folder itu ke laptop presentasi (tautan relatif; tidak butuh internet).")
-    return 0 if ok == len(hasil) else 1
+    return 0 if all(h.get("ringkas") for h in hasil) else 1
 
 
 if __name__ == "__main__":
