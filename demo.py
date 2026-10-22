@@ -3,7 +3,7 @@
   python demo.py --video contoh.mp4 --detector <latest.pth>
   python demo.py --video contoh.mp4 --detector <latest.pth> --viz full --uncertainty --html
 
-Keluaran di folder --out: scores.csv, skor.png (grafik), overlay.mp4 (bergantung --viz), laporan.html (bila --html).
+Keluaran di folder --out: scores.csv, skor.png (grafik), overlay.mp4 (bergantung --viz), waktu_inferensi.json, laporan.html (bila --html; memuat kartu waktu inferensi).
 
 Cara kerja: video disampel ke ~10 fps (rentang frame per sampel = round(fps/10)), dipotong menjadi jendela 50 frame
 (5 detik) yang diskor terpisah, seperti saat model dilatih pada klip CCD (50 frame, 10 fps).
@@ -313,6 +313,9 @@ video{width:100%;border-radius:6px;background:#000}canvas{width:100%;height:auto
 <div class="row" style="margin-top:8px"><span>waktu <b id="tt">0.0</b> s</span><span>skor <b id="ss">-</b></span>
 <span>ambang <b id="th">-</b><input id="rg" type="range" min="0.05" max="0.95" step="0.01"></span>
 <span id="al"></span></div></div>
+<div class="card" id="wcard" style="display:none"><b>Waktu inferensi</b>
+<div class="row" id="wrow" style="margin-top:6px"></div>
+<p class="note" id="wnote" style="margin:6px 0 0"></p></div>
 <p class="note">Catatan: ini skor model (probabilitas kelas &ldquo;kecelakaan&rdquo; per frame), belum terkalibrasi menjadi probabilitas kejadian sebenarnya,
 dan bukan risiko per objek. Detektor tidak mengenal motor; video di luar CCD (terutama malam hari) di luar distribusi latih.</p>
 </main><script>
@@ -342,12 +345,16 @@ v.addEventListener('timeupdate',()=>draw(now()));v.addEventListener('seeked',()=
 cv.addEventListener('click',e=>{const r=cv.getBoundingClientRect(),f=(e.clientX-r.left)/r.width,px=f*cv.width,L=46,R=12;
 const t=Math.max(0,Math.min(1,(px-L)/(cv.width-L-R)))*(D.s.length-1)/D.fps;if(D.video)v.currentTime=t;draw(t)});
 rg.addEventListener('input',()=>{thr=parseFloat(rg.value);draw(now())});draw(0);
+if(D.w){const w=D.w,f=(l,v)=>'<span>'+l+' <b>'+v+'</b></span>';document.getElementById('wcard').style.display='';
+document.getElementById('wrow').innerHTML=f('per frame',w.per_frame_s.toFixed(3)+' dtk ('+w.fps_inferensi.toFixed(1)+' fps)')+f('fitur (detektor+VGG16)',w.fitur_s.toFixed(1)+' dtk')
++f('GSTL',w.gstl_s.toFixed(1)+' dtk ('+w.gstl_per_frame_ms.toFixed(1)+' ms/frame)')+f('muat model',w.muat_model_s.toFixed(1)+' dtk')+f('gambar+tulis video',w.gambar_s.toFixed(1)+' dtk');
+document.getElementById('wnote').textContent=w.frame+' frame disampel ~10 fps, perangkat '+w.perangkat+', detektor '+w.detektor+'. Inferensi = fitur + GSTL; tidak termasuk memuat model dan menggambar overlay. Bergantung perangkat keras; tahap fitur mendominasi.'}
 </script></body></html>
 """
 
 
-def write_html(path, title, scores, unc, fps, thr, video_name):
-    data = {"title": title, "fps": fps, "thr": thr, "s": [round(float(s), 4) for s in scores],
+def write_html(path, title, scores, unc, fps, thr, video_name, waktu=None):
+    data = {"title": title, "fps": fps, "thr": thr, "w": waktu, "s": [round(float(s), 4) for s in scores],
             "u": None if unc is None else [[round(float(a), 5), round(float(b), 5)] for a, b in unc], "video": bool(video_name)}
     html = HTML_TEMPLATE.replace("__DATA__", json.dumps(data)).replace("__VIDEO__", video_name or "")
     with open(path, "w", encoding="utf-8") as f:
@@ -368,9 +375,11 @@ def main(argv=None):
     os.makedirs(out_dir, exist_ok=True)
     dev = torch.device(a.device)
     print("memuat detektor dan VGG16 (pertama kali VGG16 ImageNet ~528 MB diunduh otomatis oleh torchvision)...", flush=True)
+    t_load = time.perf_counter()
     detector = build_detector(a.det_model, a.device, a.detector, a.det_conf)
     vgg = VGG16FC7().to(dev).eval()
     model, epoch = load_gstl_model(a.weights, dev)
+    t_muat = time.perf_counter() - t_load
     print("GSTL epoch %s | perangkat %s | detektor %s%s | viz: %s" % (epoch, dev, a.det_model, "" if a.det_conf is None else " (conf>=%.2f)" % a.det_conf, "tanpa video" if viz is None else (",".join(viz) or "bersih")))
 
     gen = sampled_windows(a.video)
@@ -383,12 +392,24 @@ def main(argv=None):
         print("PERINGATAN: resolusi bukan 1280x720; geometri kotak diskalakan ke kerangka 1280x720.")
     fps_s = meta["sampled_fps"]
     writer, rows, all_scores, all_unc, first_alert, t0 = None, [], [], [], None, time.time()
+    tm = {"muat": t_muat, "fitur": 0.0, "skor": 0.0, "gambar": 0.0}  # detik per tahap; fitur = detektor + VGG16, skor = GSTL
+
+    def tick():
+        if dev.type == "cuda":
+            torch.cuda.synchronize(dev)
+        return time.perf_counter()
+
     for wi, win in enumerate(gen):
         if a.max_windows and wi >= a.max_windows:
             break
         frames = [f for _, f in win]
+        t1 = tick()
         feat = extract_frames_features(frames, detector, vgg, n_frames=N_FRAMES, seed=a.seed, device=a.device)
+        t2 = tick()
         sc, unc = score_window_full(model, feat["data"], feat["det"], dev, a.seed, (meta["width"], meta["height"]), uncertainty=a.uncertainty)
+        t3 = tick()
+        tm["fitur"] += t2 - t1
+        tm["skor"] += t3 - t2
         sc = sc[: feat["n_real"]]
         for k, ((src, fr), s) in enumerate(zip(win, sc)):
             t = len(all_scores) / fps_s
@@ -405,6 +426,7 @@ def main(argv=None):
                 if writer is None:
                     writer = cv2.VideoWriter(os.path.join(out_dir, "overlay.tmp.mp4"), cv2.VideoWriter_fourcc(*"mp4v"), fps_s, (im.shape[1], im.shape[0]))
                 writer.write(im)
+        tm["gambar"] += time.perf_counter() - t3
         print("jendela %d: %d frame, skor maks %.3f (%.0f dtk berlalu)" % (wi, len(win), sc.max(), time.time() - t0), flush=True)
     h264 = None
     if writer is not None:
@@ -431,8 +453,18 @@ def main(argv=None):
             write_plot(os.path.join(out_dir, "skor.png"), sc, unc_arr, fps_s, a.threshold, title)
         except ImportError:
             print("matplotlib tidak ada: grafik dilewati (scores.csv tetap ditulis)")
+    n = len(sc)
+    waktu = {"frame": n, "perangkat": str(dev), "detektor": a.det_model, "muat_model_s": round(tm["muat"], 2),
+             "fitur_s": round(tm["fitur"], 2), "gstl_s": round(tm["skor"], 2), "gambar_s": round(tm["gambar"], 2),
+             "inferensi_s": round(tm["fitur"] + tm["skor"], 2), "total_s": round(time.time() - t0, 2),
+             "per_frame_s": round((tm["fitur"] + tm["skor"]) / n, 4), "gstl_per_frame_ms": round(1000 * tm["skor"] / n, 2),
+             "fps_inferensi": round(n / max(tm["fitur"] + tm["skor"], 1e-9), 2)}
+    with open(os.path.join(out_dir, "waktu_inferensi.json"), "w", encoding="utf-8") as f:
+        json.dump(waktu, f, indent=1)
+    print("Waktu inferensi: %.2f dtk/frame (%.1f fps) = fitur %.1f dtk + GSTL %.1f dtk; muat model %.1f dtk; gambar/tulis video %.1f dtk" % (
+        waktu["per_frame_s"], waktu["fps_inferensi"], tm["fitur"], tm["skor"], tm["muat"], tm["gambar"]))
     if a.html:
-        write_html(os.path.join(out_dir, "laporan.html"), title, sc, unc_arr, fps_s, a.threshold, "overlay.mp4" if viz is not None else None)
+        write_html(os.path.join(out_dir, "laporan.html"), title, sc, unc_arr, fps_s, a.threshold, "overlay.mp4" if viz is not None else None, waktu)
         print("laporan HTML:", os.path.join(out_dir, "laporan.html"))
     print("keluaran:", out_dir)
 

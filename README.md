@@ -65,7 +65,7 @@ python -W ignore demo.py --video "contoh.mp4" --detector "weights\detector\lates
 ```
 Hasil di `outputs\demo\contoh\` (`overlay.mp4`, `laporan.html`, `skor.png`, `scores.csv`). Pastikan `python` milik env yang benar (`python -c "import torch; print(torch.cuda.is_available())"` harus `True`); jangan memakai `py` di Windows, karena peluncur itu mengabaikan env conda.
 
-- Keluaran di `outputs/demo/<nama video>/`: `scores.csv`, `skor.png`, `overlay.mp4`, dan `laporan.html` (dengan `--html`). Kecepatan ±0,3 detik per frame di RTX 3060 (jendela 50 frame ±14 detik).
+- Keluaran di `outputs/demo/<nama video>/`: `scores.csv`, `skor.png`, `overlay.mp4`, `waktu_inferensi.json` (waktu per tahap: fitur, GSTL, muat model, gambar), dan `laporan.html` (dengan `--html`; menampilkan waktu inferensi). Kecepatan ±0,3 detik per frame di RTX 3060 (jendela 50 frame ±14 detik).
 - **Opsi visualisasi** (`--viz`, daftar dipisah koma atau preset): `boxes` kotak deteksi (warna per kelas), `bar` bilah skor, `curve` grafik kemungkinan tabrakan yang bergerak di bawah video, `glow` bingkai berwarna sesuai risiko, `alert` banner "RISIKO TINGGI" dan waktu peringatan pertama. Preset: `minimal` (bawaan: boxes,bar), `full` (semua), `clean` (video tanpa tambahan), `none` (tanpa video). Opsi lain: `--threshold`, `--box-conf`, `--curve-seconds`, `--width`, `--uncertainty` (ketidakpastian aleatorik/epistemik di grafik dan CSV), `--html` (laporan HTML mandiri: video tersinkron dengan grafik, klik grafik untuk lompat waktu, penggeser ambang), `--no-plot`.
   ```bash
   python demo.py --video contoh.mp4 --viz full --uncertainty --html
