@@ -78,6 +78,9 @@ Hasil di `outputs\demo\contoh\` (`overlay.mp4`, `laporan.html`, `skor.png`, `sco
 - **Artefak jendela:** tiap jendela 50 frame diskor terpisah (keadaan GRU di-reset), jadi skor rendah pada ±1 detik pertama tiap jendela lalu naik; pada video panjang grafik turun mendadak tiap 5 detik. Itu bukan perubahan risiko, dan "peringatan pertama" di awal jendela tidak berarti deteksi kejadian.
 - **Keterbatasan penting** (rinci di `docs/demo_validasi.md` dan docstring `demo.py`): detektor tanpa kelas motor; model dilatih hanya pada CCD 1280x720 sehingga video lain di luar distribusi latih; skor bukan risiko terkalibrasi. Pada video negatif CCD, pipeline demo menghasilkan skor yang hampir identik dengan fitur rilis (korelasi per frame median 0,999); pada video lain kesesuaian **tidak diuji**.
 
+### Demo untuk presentasi (laptop tanpa GPU)
+Hitung dulu di mesin ber-GPU, lalu bawa hasilnya: `python tools/siapkan_demo_presentasi.py --detector weights/detector/latest.pth` menghitung semua klip di `samples/` (atau `--videos ...`) ke `outputs/demo_presentasi/` dan membuat `index.html` (tabel ringkasan + tautan ke `laporan.html` tiap klip). Folder itu dibuka di peramban mana pun tanpa GPU, Python, atau internet. Di CPU, demo langsung lambat (diukur: ±4 detik per frame dengan Cascade, ±1,8 detik dengan YOLOv8s, pada i5-12400F).
+
 ### Google Colab
 `notebooks/demo_colab.ipynb` menjalankan demo di Colab (GPU T4): bobot `latest.pth` dan `vgg16-397923af.pth` dibaca dari Google Drive pemilik (`Research/gstl_replication/`), atau pakai detektor YOLOv8 (sel 6b) tanpa `latest.pth`. Hasil tiap proses disimpan ke `Research/gstl_replication/hasil/` di Drive (dengan `run_info.json`). Pelatihan dan evaluasi: `notebooks/train_colab.ipynb` (mode `sintetis` untuk uji notebook, mode `ccd` butuh fitur CCD ±60 GB di Drive; hasil ke `hasil/<EXP>/` dan bisa dilanjutkan). Belum teruji di semua versi Colab.
 
